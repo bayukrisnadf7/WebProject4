@@ -6,7 +6,7 @@
     </div>
 @endif
 <div class="container">
-    <form class="mt-3" action="/upload_barang" method="POST">
+    <form class="mt-3" action="/upload_barang" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="nama_barang" class="form-label">Nama Barang</label>
@@ -19,8 +19,8 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label for="kategoriBarang" class="form-label">Kategori Barang</label>
-            <select class="form-select" id="kategoriBarang" aria-describedby="kategoriHelp">
+            <label for="kategori_barang" class="form-label">Kategori Barang</label>
+            <select class="form-select" id="kategori_barang" name="kategori_barang" aria-describedby="kategoriHelp">
                 <option value="">Pilih Kategori</option>
                 <option value="1">Elektronik</option>
                 <option value="2">Aksesoris</option>

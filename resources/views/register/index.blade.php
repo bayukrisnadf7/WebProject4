@@ -59,6 +59,16 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="form-outline mb-2" style="display: none">
+                                <label class="form-label" for="status">No Hp</label>
+                                <input type="text" name="status"
+                                    class="form-control @error('status') is-invalid
+                                @enderror"
+                                    id="status" required value="1" />
+                                @error('status')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="input-group">

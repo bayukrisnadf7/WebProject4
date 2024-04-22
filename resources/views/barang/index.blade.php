@@ -47,11 +47,11 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="container mt-5">
+    <div class="container mt-5" style="display: flex; justify-content: center">
         <div class="wrapper">
             @foreach ($barang as $item)
                 <div class="card" style="width: 15rem;">
-                    <img src="{{ $item->foto_barang }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/img/barang/' . $item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_barang }}</h5>
                         <h5 class="card-title">{{ $item->harga_barang }}</h5>

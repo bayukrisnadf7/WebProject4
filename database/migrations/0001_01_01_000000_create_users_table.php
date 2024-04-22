@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('alamat');
             $table->bigInteger('no_hp');
+            $table->string('status');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

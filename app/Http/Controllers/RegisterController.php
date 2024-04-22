@@ -18,6 +18,7 @@ class RegisterController extends Controller
             'email' => 'required|email:dns|unique:users',
             'alamat' => 'required|max:255',
             'no_hp' => 'required|min:11|max:13|unique:users',
+            'status' => 'required',
             'password' => 'required|min:7|max:255',
         ]);
         // merubah password menjadi bcryp
