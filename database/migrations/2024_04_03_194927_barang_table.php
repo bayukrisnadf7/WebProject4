@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('barang', function(Blueprint $table){
             $table->id();
             $table->string('nama_barang');
+            $table->string('kategori_barang');
             $table->unsignedBigInteger('harga_barang');
             $table->dateTime('tgl_publish');
             $table->dateTime('tgl_expired');
