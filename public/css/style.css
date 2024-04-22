@@ -1,0 +1,20 @@
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: start;
+    max-width: 1200px;
+}
+#carouselExampleCaptions {
+    height: 550px; /* Atur tinggi sesuai kebutuhan */
+}
+
+.carousel-inner {
+    height: 100%; /* Pastikan carousel inner mengisi tinggi carousel */
+}
+
+.carousel-item img {
+    object-fit: center; /* Untuk mengisi gambar ke area carousel */
+    height: 100%; /* Pastikan gambar mengisi tinggi carousel */
+    width: 100%; /* Pastikan gambar mengisi lebar carousel */
+}
