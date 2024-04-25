@@ -28,7 +28,7 @@
                 <option value="4">Hobi</option>
             </select>
             <div id="kategoriHelp" class="form-text">Pilih kategori barang sesuai dengan jenisnya.</div>
-        </div>        
+        </div>
         <div class="mb-3">
             <label for="harga_barang" class="form-label">Harga Barang</label>
             <input type="number" class="form-control @error('harga_barang') is-invalid
@@ -40,21 +40,23 @@
         </div>
         <div class="mb-3">
             <label for="tgl_publish" class="form-label">Tanggal Publish</label>
-            <input type="text" class="form-control @error('tgl_publish') is-invalid
-                @enderror"
-                name="tgl_publish" id="tgl_publish" readonly>
+            <input type="text" class="form-control @error('tgl_publish') is-invalid @enderror" name="tgl_publish"
+                id="tgl_publish" readonly>
             @error('tgl_publish')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-3">
             <label for="tgl_expired" class="form-label">Tanggal Expired</label>
-            <input type="text" class="form-control @error('tgl_expired') is-invalid
-                @enderror"
-                name="tgl_expired" id="tgl_expired" readonly>
+            <input type="text" class="form-control @error('tgl_expired') is-invalid @enderror" name="tgl_expired"
+                id="tgl_expired" readonly>
             @error('tgl_expired')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+        </div>
+        <div class="mb-3">
+            <label for="durasi" class="form-label">Durasi (hari)</label>
+            <input type="number" class="form-control" name="durasi" id="durasi" readonly>
         </div>
         <div class="mb-3" style="display: flex; flex-direction :column ">
             <label for="foto_barang" class="form-label">Gambar Barang</label>
@@ -69,6 +71,84 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ambil elemen input tanggal
+        var inputTanggalPublish = document.getElementById("tgl_publish");
+        var inputTanggalExpired = document.getElementById("tgl_expired");
+        var inputDurasi = document.getElementById("durasi");
+
+        // Tambahkan event listener untuk menghitung durasi saat nilai input berubah
+        inputTanggalPublish.addEventListener("change", updateDurasi);
+        inputTanggalExpired.addEventListener("change", updateDurasi);
+
+        function updateDurasi() {
+            // Ambil nilai tanggal dari input
+            var tanggalPublish = new Date(inputTanggalPublish.value);
+            var tanggalExpired = new Date(inputTanggalExpired.value);
+
+            // Hitung selisih waktu dalam milidetik
+            var selisihWaktu = tanggalExpired - tanggalPublish;
+
+            // Konversi selisih waktu menjadi detik
+            var durasiDetik = Math.ceil(selisihWaktu / 1000);
+
+            // Masukkan durasi ke dalam input
+            inputDurasi.value = durasiDetik;
+        }
+
+        // Pemanggilan fungsi updateDurasi untuk menginisialisasi durasi saat halaman dimuat
+        updateDurasi();
+
+        // Fungsi untuk menampilkan waktu (jam, menit, detik) secara real-time
+        function displayTime() {
+            var today = new Date();
+
+            var hours = ('0' + today.getHours()).slice(-2); // Tambahkan leading zero jika jam < 10
+            var minutes = ('0' + today.getMinutes()).slice(-2); // Tambahkan leading zero jika menit < 10
+            var seconds = ('0' + today.getSeconds()).slice(-2); // Tambahkan leading zero jika detik < 10
+
+            var timeString = hours + ':' + minutes + ':' + seconds;
+
+            // Menampilkan waktu di input
+            document.getElementById("jam_waktu").value = timeString;
+        }
+
+        // Panggil fungsi displayTime setiap detik
+        setInterval(displayTime, 1000);
+
+        // Panggil fungsi displayTime saat halaman dimuat
+        displayTime();
+    });
+</script>
+
+
+<script>
+    // Fungsi untuk menambahkan titik sebagai pemisah ribuan
+    function formatRupiah(angka) {
+        var reverse = angka.toString().split('').reverse().join('');
+        var ribuan = reverse.match(/\d{1,3}/g);
+        var formatted = ribuan.join('.').split('').reverse().join('');
+        return formatted;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Temukan elemen input bid
+        const bidInput = document.getElementById('harga_barang');
+
+        // Tambahkan event listener untuk memformat nilai saat input berubah
+        bidInput.addEventListener('input', function() {
+            // Dapatkan nilai input
+            let inputVal = this.value;
+
+            // Hapus semua titik dan koma
+            inputVal = inputVal.replace(/[^\d]/g, '');
+
+            // Format ulang nilai dengan titik sebagai pemisah ribuan
+            this.value = formatRupiah(inputVal);
+        });
+    });
+</script>
 <script>
     document.getElementById('foto_barang').addEventListener('change', function() {
         var file = this.files[0]; // Ambil file yang dipilih

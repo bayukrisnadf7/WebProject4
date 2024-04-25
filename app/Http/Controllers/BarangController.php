@@ -36,6 +36,7 @@ class BarangController extends Controller
             'harga_barang' => 'required',
             'tgl_publish' => 'required',
             'tgl_expired' => 'required',
+            'durasi' => 'required',
             'foto_barang' => 'required', // Validasi untuk file gambar
         ]);
 
@@ -60,6 +61,7 @@ class BarangController extends Controller
                     'harga_barang' => $request->harga_barang,
                     'tgl_publish' => $request->tgl_publish,
                     'tgl_expired' => $request->tgl_expired,
+                    'durasi' => $request->durasi,
                     'foto_barang' => $nama_file,  // Save filename in database
                     // Other fields...
                 ]);

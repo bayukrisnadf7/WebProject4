@@ -47,6 +47,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    {{-- <h1>{{ auth()->user()->name }}</h1> --}}
     <div class="container mt-5" style="display: flex; justify-content: center">
         <div class="wrapper">
             @foreach ($barang as $item)

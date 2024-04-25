@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'no_hp'=> '0895399757207',
             'alamat'=> 'Jember',
             'email' => 'bayukrisna14658@gmail.com',
+            'status' => '1',
             'password' => Hash::make('123456789')
         ]);
     }

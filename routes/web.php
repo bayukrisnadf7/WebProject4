@@ -9,8 +9,8 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/', [BarangController::class, 'index']);
 Route::get('/detail_barang/{id}', [BarangController::class, 'show']);
-Route::post('/upload_barang', [BarangController::class, 'store'])->middleware('auth');
-Route::get('/upload_barang', [BarangController::class, 'index2'])->middleware('auth');
+Route::post('/upload_barang', [BarangController::class, 'store']);
+Route::get('/upload_barang', [BarangController::class, 'index2']);
 
 Route::get('/login', [LoginController:: class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController:: class, 'authenticate']);

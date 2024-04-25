@@ -12,9 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama_barang');
             $table->string('kategori_barang');
-            $table->unsignedBigInteger('harga_barang');
+            $table->string('harga_barang');
             $table->dateTime('tgl_publish');
             $table->dateTime('tgl_expired');
+            $table->string('durasi');
             $table->string('foto_barang');
             $table->timestamps();
         });
