@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('nama_barang');
             $table->string('kategori_barang');
             $table->string('harga_barang');
+            $table->string('kelipatan');
             $table->dateTime('tgl_publish');
             $table->dateTime('tgl_expired');
             $table->string('durasi');

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('bid_barang', function (Blueprint $table) {
             $table->id();
             $table->string('harga_bid');
-            $table->unsignedBigInteger('id_barang'); // Menggunakan unsignedBigInteger untuk foreign key
-            $table->unsignedBigInteger('id_user'); // Menggunakan unsignedBigInteger untuk foreign key
-            $table->foreign('id_barang')->references('id')->on('barang'); // Menggunakan 'id' sebagai foreign key, bukan 'id_barang'
-            $table->foreign('id_user')->references('id')->on('users'); // Menggunakan 'id' sebagai foreign key, bukan 'id_user'
+            $table->unsignedBigInteger('id_barang');
+            $table->bigInteger('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
+            $table->foreign('id_barang')->references('id')->on('barang');
+            $table->foreign('nik')->references('nik')->on('users');
             $table->timestamps();
         });
     }

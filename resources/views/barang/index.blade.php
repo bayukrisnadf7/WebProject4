@@ -5,6 +5,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
+@if (session()->has('successBid'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 500px;">
+        {{ session('successBid') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 @section('content')
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -52,7 +58,7 @@
         <div class="wrapper">
             @foreach ($barang as $item)
                 <div class="card" style="width: 15rem;">
-                    <img src="{{ asset('storage/img/barang/' . $item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
+                    <img src="{{ asset('storage/app/public/img/barang'.$item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_barang }}</h5>
                         <h5 class="card-title">{{ $item->harga_barang }}</h5>
@@ -63,6 +69,5 @@
                 </div>
             @endforeach
         </div>
-
     </div>
 @endsection
