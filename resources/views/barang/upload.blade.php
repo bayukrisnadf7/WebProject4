@@ -66,10 +66,6 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="durasi" class="form-label">Durasi (hari)</label>
-                <input type="number" class="form-control" name="durasi" id="durasi" readonly>
-            </div>
             <div class="mb-3" style="display: flex; flex-direction :column ">
                 <label for="foto_barang" class="form-label">Gambar Barang</label>
                 <div id="gambar-container"></div>
@@ -79,6 +75,10 @@
                 @error('foto_barang')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Durasi (hari)</label>
+                <input type="text" class="form-control" name="status" id="status" value="Open">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

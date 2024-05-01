@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('kelipatan');
             $table->dateTime('tgl_publish');
             $table->dateTime('tgl_expired');
-            $table->string('durasi');
             $table->string('foto_barang');
+            $table->string('status');
+            $table->bigInteger('nik');
+            $table->foreign('nik')->references('nik')->on('users');
             $table->timestamps();
         });
     }

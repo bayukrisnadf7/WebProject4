@@ -52,7 +52,7 @@
                             Belum daftar ? <a href="/register">Daftar Sekarang!</a>
                         </div>
                         <div class="d-block text-center">
-                            Lupa Password? ? <a href="/lupa_password">Gas Ganti</a>
+                            Lupa Password? ? <a href="/lupa-password">Gas Ganti</a>
                         </div>
                     </div>
                 </div>

@@ -12,6 +12,7 @@
     </div>
 @endif
 @section('content')
+
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -54,11 +55,11 @@
         </button>
     </div>
     {{-- <h1>{{ auth()->user()->name }}</h1> --}}
-    <div class="container mt-5" style="display: flex; justify-content: center">
-        <div class="wrapper">
+    <div class="container mt-5" style="">
+        <div class="wrapper" style="display: flex; flex-wrap: wrap; gap: 30px">
             @foreach ($barang as $item)
-                <div class="card" style="width: 15rem;">
-                    <img src="{{ asset('storage/app/public/img/barang'.$item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
+                <div class="card" style="width: 200px">
+                    <img src="{{ asset('storage/barang/'.$item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_barang }}</h5>
                         <h5 class="card-title">{{ $item->harga_barang }}</h5>
@@ -70,4 +71,5 @@
             @endforeach
         </div>
     </div>
+    
 @endsection

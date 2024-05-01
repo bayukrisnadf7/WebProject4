@@ -8,7 +8,7 @@
 @section('content')
     <div class="wrapper">
         <div class="image-content">
-            <img src="{{ asset('storage/app/img/barang/' . $detail_barang->foto_barang) }}" class="card-img-top"
+            <img src="{{ asset('storage/barang/' . $detail_barang->foto_barang) }}" class="card-img-top"
                 alt="..." width="100%" height="400px" style="object-fit: contain">
         </div>
         <div class="content-description" style="text-align: center">
