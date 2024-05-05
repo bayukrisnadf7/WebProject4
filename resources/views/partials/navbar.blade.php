@@ -18,8 +18,9 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Riwayat Lelang</a></li>
+                            <li><a class="dropdown-item" href="/notifikasi">Notifikasi</a></li>
                             @if (auth()->user()->status == 1)
-                                <li><a class="dropdown-item" href="#">Pengajuan Menjadi Lelang</a></li>
+                                <li><a class="dropdown-item" href="/pengajuan">Pengajuan Menjadi Lelang</a></li>
                             @endif
                             @if (auth()->user()->status == 2)
                                 <li><a class="dropdown-item" href="/upload_barang">Upload Barang</a></li>

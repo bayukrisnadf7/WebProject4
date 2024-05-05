@@ -19,14 +19,23 @@ class LoginController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
- 
+
+        // Kondisi 1: Jika email dan password adalah admin
+        if ($credentials['email'] === 'admin@gmail.com' && $credentials['password'] === 'admin') {
+            // Redirect ke halaman admin
+            return redirect()->route('admin.form');
+        }
+
+        // Kondisi 2: Jika bukan admin, lakukan proses otentikasi standar
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
             return redirect()->intended('/');
         }
+
+        // Jika tidak cocok dengan kondisi manapun, kembali ke halaman login dengan pesan kesalahan
         return back()->with('loginError', 'Login Failed!');
     }
+
     public function logout(Request $request)
     {
         Auth::logout();

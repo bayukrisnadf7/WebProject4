@@ -76,8 +76,8 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="status" class="form-label">Durasi (hari)</label>
+            <div class="mb-3" style="display: none">
+                <label for="status" class="form-label">Status</label>
                 <input type="text" class="form-control" name="status" id="status" value="Open">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

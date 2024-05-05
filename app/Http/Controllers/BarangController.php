@@ -14,7 +14,7 @@ class BarangController extends Controller
 {
     public function index()
     {
-    $barang = Barang::all(); 
+        $barang = Barang::where('status', 'Open')->get();
     return view('barang.index', compact('barang'));
     }
     public function index2()
