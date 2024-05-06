@@ -3,6 +3,7 @@
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LupaPasswordController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -24,3 +25,7 @@ Route::get('/lupa_password', [LupaPasswordController::class, 'index']);
 
 Route::get('/kategori_barang', [KategoriController::class, 'index']);
 Route::post('/kategori_barang', [KategoriController::class, 'store']);
+
+Route::get('/nopang', [PageController::class, 'index']);
+Route::get('/masuk', [PageController::class, 'index2']);
+Route::get('/daftar', [PageController::class, 'index3']);
