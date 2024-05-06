@@ -24,7 +24,7 @@
                     <input required type="password" name="password" class="form-control" id="password">
                 </div>
                 <div class="mb-3" style="text-align: right;">
-                    <a href="#">Lupa kata sandi?</a>
+                    <a href="/lupa_sandi">Lupa kata sandi?</a>
                 </div>
                 <button class="btn btn-outline-success mt-1 custom-login2-button" type="submit">Masuk</button>
             </div>

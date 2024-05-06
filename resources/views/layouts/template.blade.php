@@ -19,6 +19,12 @@
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
     <!-- Main Style -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+    <!-- Style -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <!-- Trending -->
+    <link href="{{ asset('assets/css/live.css') }}" rel="stylesheet">
+    <!-- Kategori -->
+    <link href="{{ asset('assets/css/kategori.css') }}" rel="stylesheet">
     <!-- Responsive Style -->
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -47,5 +53,7 @@
     <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('assets/js/nivo-lightbox.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/live.js') }}"></script>
+    <script src="{{ asset('assets/js/kategori.js') }}"></script>
 </body>
 </html>

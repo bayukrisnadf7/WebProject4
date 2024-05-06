@@ -18,4 +18,8 @@ class PageController extends Controller
     {
         return view('daftar.daftar');
     }
+    public function lupa()
+    {
+        return view('lupasandi.lupa1');
+    }
 }

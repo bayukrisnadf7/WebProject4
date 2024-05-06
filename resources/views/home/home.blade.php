@@ -46,3 +46,295 @@
             </a>
         </div>
         <!-- Main Carousel Section End -->
+
+        <!-- Kategori -->
+    <section id="kategori-slider2" class="section-padding" style="padding-left: 50px; padding-right: 50px; padding-top: 40px;">
+      <div class="container-fluid" style="overflow: hidden;">
+        <h5 style="margin-bottom: 15px; position: relative; font-weight: bold;">Kategori
+          <div class="navigation2" style="position: absolute; top: 0; right: 0; margin-right: -20px;">
+            <button class="prev-btn2"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next-btn2"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </h5>
+          <div class="slider2" style="margin-bottom: 15px;">
+            <div class="slidee2">
+              <a href="daftar.html" class="card-item">
+                <div class="kategori-item">
+                    <div class="descr2">
+                      <h6 class="title3">
+                        <i class="fa-solid fa-plug" style="margin-top:35px; font-size: 30px;"></i>
+                      </h6>
+                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                            Elektronik
+                        </h6>
+                    </div>
+                </div>
+              </a>
+            </div>
+            <div class="slidee2">
+              <a href="daftar.html" class="card-item">
+                <div class="kategori-item">
+                    <div class="descr2">
+                      <h6 class="title3">
+                        <i class="fa-solid fa-briefcase" style="margin-top: 35px; font-size: 30px;"></i>
+                      </h6>
+                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                            Aksesoris
+                        </h6>
+                    </div>
+                </div>
+              </a>
+            </div>
+            <div class="slidee2">
+              <a href="daftar.html" class="card-item">
+                <div class="kategori-item">
+                    <div class="descr2">
+                      <h6 class="title3">
+                        <i class="fa-solid fa-futbol" style="margin-top: 35px; font-size: 30px;"></i>
+                      </h6>
+                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                            Hobi dan Koleksi
+                        </h6>
+                    </div>
+                </div>
+              </a>
+            </div>
+            <div class="slidee2">
+              <a href="daftar.html" class="card-item">
+                <div class="kategori-item">
+                    <div class="descr2">
+                      <h6 class="title3">
+                        <i class="fa-solid fa-mobile-screen" style="margin-top: 35px; font-size: 30px;"></i>
+                      </h6>
+                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                            Gadget
+                        </h6>
+                    </div>
+                </div>
+              </a>
+            </div>
+            <div class="slidee2">
+              <a href="daftar.html" class="card-item">
+                <div class="kategori-item">
+                    <div class="descr2">
+                      <h6 class="title3">
+                        <i class="fa-solid fa-shapes" style="margin-top: 35px; font-size: 30px;"></i>
+                      </h6>
+                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                            Lain-lain
+                        </h6>
+                    </div>
+                </div>
+              </a>
+            </div>
+            <div class="slidee2">
+              <a href="daftar.html" class="card-item">
+                <div class="kategori-item">
+                    <div class="descr2">
+                      <h6 class="title3">
+                        <i class="fa-solid fa-location-dot" style="margin-top: 35px; font-size: 30px;"></i>
+                      </h6>
+                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                            Elektronik
+                        </h6>
+                    </div>
+                </div>
+              </a>
+            </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- trending -->
+    <section id="trending-slider" class="section-padding" style="padding-left: 50px; padding-right: 50px; margin-top: -75px;">
+      <div class="container-fluid" style="overflow: hidden;">
+        <h5 style="margin-bottom: 15px; position: relative; font-weight: bold;">Sedang Berlangsung
+          <div class="navigation" style="position: absolute; top: 0; right: 0; margin-right: -20px;">
+            <button class="prev-btn"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next-btn"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </h5>
+          <div class="slider">
+            <div class="slidee">
+              <div class="card-item">
+                <div class="trending-item">
+                  <div class="trending-image">
+                    <a href="#">
+                <div class="tag">Live</div>
+                      <img class="img-fluid" src="assets/img/about/about.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="descr">
+                    <h6 class="title2">
+                      <a href="single-trending.html">
+                        Nike Air Jordan KW Super
+                      </a>
+                    </h6>
+                    <div class="meta-tags">
+                      <p>2018 | 43 | JPN</p>
+                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
+                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
+                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slidee">
+              <div class="card-item">
+                <div class="trending-item">
+                  <div class="trending-image">
+                    <a href="#">
+                <div class="tag">Live</div>
+                      <img class="img-fluid" src="assets/img/about/img3.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="descr">
+                    <h6 class="title2">
+                      <a href="single-trending.html">
+                        Nike Air Jordan KW Super
+                      </a>
+                    </h6>
+                    <div class="meta-tags">
+                      <p>2018 | 43 | JPN</p>
+                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
+                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
+                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slidee">
+              <div class="card-item">
+                <div class="trending-item">
+                  <div class="trending-image">
+                    <a href="#">
+                <div class="tag">Live</div>
+                      <img class="img-fluid" src="assets/img/about/img2.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="descr">
+                    <h6 class="title2">
+                      <a href="single-trending.html">
+                        Nike Air Jordan KW Super
+                      </a>
+                    </h6>
+                    <div class="meta-tags">
+                      <p>2018 | 43 | JPN</p>
+                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
+                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
+                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slidee">
+              <div class="card-item">
+                <div class="trending-item">
+                  <div class="trending-image">
+                    <a href="#">
+                <div class="tag">Live</div>
+                      <img class="img-fluid" src="assets/img/about/img1.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="descr">
+                    <h6 class="title2">
+                      <a href="single-trending.html">
+                        Nike Air Jordan KW Super
+                      </a>
+                    </h6>
+                    <div class="meta-tags">
+                      <p>2018 | 43 | JPN</p>
+                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
+                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
+                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slidee">
+              <div class="card-item">
+                <div class="trending-item">
+                  <div class="trending-image">
+                    <a href="#">
+                <div class="tag">Live</div>
+                      <img class="img-fluid" src="assets/img/blog/img-1.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="descr">
+                    <h6 class="title2">
+                      <a href="single-trending.html">
+                        Nike Air Jordan KW Super
+                      </a>
+                    </h6>
+                    <div class="meta-tags">
+                      <p>2018 | 43 | JPN</p>
+                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
+                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
+                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slidee">
+              <div class="card-item">
+                <div class="trending-item">
+                  <div class="trending-image">
+                    <a href="#">
+                <div class="tag">Live</div>
+                      <img class="img-fluid" src="assets/img/about/about.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="descr">
+                    <h6 class="title2">
+                      <a href="single-trending.html">
+                        Nike Air Jordan KW Super
+                      </a>
+                    </h6>
+                    <div class="meta-tags">
+                      <p>2018 | 43 | JPN</p>
+                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
+                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
+                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slidee">
+              <div class="card-item">
+                <div class="trending-item">
+                  <div class="trending-image">
+                    <a href="#">
+                <div class="tag">Live</div>
+                <img class="img-fluid" src="assets/img/about/about.jpg" alt="" />
+                    </a>
+                  </div>
+                  <div class="descr">
+                    <h6 class="title2">
+                      <a href="single-trending.html">
+                        Nike Air Jordan KW Super
+                      </a>
+                    </h6>
+                    <div class="meta-tags">
+                      <p>2018 | 43 | JPN</p>
+                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
+                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
+                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navigation" style="text-align: center; margin-top: 15px;">
+            <!-- <button class="prev-btn" style="margin-right: 5px;"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next-btn"><i class="fa-solid fa-arrow-right"></i></button> -->
+          </div>
+        </div>
+    </section>
