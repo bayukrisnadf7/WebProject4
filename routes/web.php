@@ -30,3 +30,4 @@ Route::get('/nopang', [PageController::class, 'index']);
 Route::get('/masuk', [PageController::class, 'index2']);
 Route::get('/daftar', [PageController::class, 'index3']);
 Route::get('/lupa_sandi', [PageController::class, 'lupa']);
+Route::get('/detail_lelang', [PageController::class, 'detail']);

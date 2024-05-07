@@ -167,7 +167,7 @@
                   </div>
                   <div class="descr">
                     <h6 class="title2">
-                      <a href="single-trending.html">
+                      <a href="/detail_lelang">
                         Nike Air Jordan KW Super
                       </a>
                     </h6>
@@ -192,7 +192,7 @@
                   </div>
                   <div class="descr">
                     <h6 class="title2">
-                      <a href="single-trending.html">
+                      <a href="/detail_lelang">
                         Nike Air Jordan KW Super
                       </a>
                     </h6>
@@ -217,7 +217,7 @@
                   </div>
                   <div class="descr">
                     <h6 class="title2">
-                      <a href="single-trending.html">
+                      <a href="/detail_lelang">
                         Nike Air Jordan KW Super
                       </a>
                     </h6>
@@ -242,7 +242,7 @@
                   </div>
                   <div class="descr">
                     <h6 class="title2">
-                      <a href="single-trending.html">
+                      <a href="/detail_lelang">
                         Nike Air Jordan KW Super
                       </a>
                     </h6>
@@ -267,7 +267,7 @@
                   </div>
                   <div class="descr">
                     <h6 class="title2">
-                      <a href="single-trending.html">
+                      <a href="/detail_lelang">
                         Nike Air Jordan KW Super
                       </a>
                     </h6>
@@ -292,7 +292,7 @@
                   </div>
                   <div class="descr">
                     <h6 class="title2">
-                      <a href="single-trending.html">
+                      <a href="/detail_lelang">
                         Nike Air Jordan KW Super
                       </a>
                     </h6>
@@ -317,7 +317,7 @@
                   </div>
                   <div class="descr">
                     <h6 class="title2">
-                      <a href="single-trending.html">
+                      <a href="/detail_lelang">
                         Nike Air Jordan KW Super
                       </a>
                     </h6>

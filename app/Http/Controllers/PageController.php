@@ -22,4 +22,8 @@ class PageController extends Controller
     {
         return view('lupasandi.lupa1');
     }
+    public function detail()
+    {
+        return view('detail_lelang.detail');
+    }
 }
