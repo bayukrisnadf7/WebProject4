@@ -15,13 +15,13 @@
                     <label for="email" class="form-label" style="font-weight: bold;">
                         E-mail
                     </label>
-                    <input required type="email" name="email" class="form-control" id="email">
+                    <input required type="email" name="email" class="form-control" id="email" style="text-transform: none;">
                 </div>
-                <div class="mb-3">
+                <div class= "mb-3">
                     <label for="password" class="form-label" style="font-weight: bold;">
                         Password
                     </label>
-                    <input required type="password" name="password" class="form-control" id="password">
+                    <input required type="password" name="password" class="form-control" id="password" style="text-transform: none;">
                 </div>
                 <div class="mb-3" style="text-align: right;">
                     <a href="/lupa_sandi">Lupa kata sandi?</a>

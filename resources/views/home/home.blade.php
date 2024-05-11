@@ -211,7 +211,7 @@
                 <div class="trending-item">
                   <div class="trending-image">
                     <a href="#">
-                <div class="tag">Live</div>
+                    <div class="tag">Live</div>
                       <img class="img-fluid" src="assets/img/about/img2.jpg" alt="" />
                     </a>
                   </div>
@@ -338,3 +338,94 @@
           </div>
         </div>
     </section>
+
+    <!-- Services Section Start -->
+    <section id="services" class="services section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="section-title-header text-center">
+              <h1 class="section-title wow fadeInUp" data-wow-delay="0.2s">Kenapa lelang di SiLelang?</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row services-wrapper">
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-4 col-xs-12 padding-none">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.2s">
+              <div class="icont">
+                <i class="lni-heart"></i>
+              </div>
+              <div class="services-content">
+                <h3><a href="#">Get Inspired</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-4 col-xs-12 padding-none">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.4s">
+              <div class="icont">
+                <i class="lni-gallery"></i>
+              </div>
+              <div class="services-content">
+                <h3><a href="#">Meet New Faces</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-4 col-xs-12 padding-none">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.6s">
+              <div class="icont">
+                <i class="lni-envelope"></i>
+              </div>
+              <div class="services-content">
+                <h3><a href="#">Fresh Tech Insights</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Services item -->
+          <div class="col-md-6 col-lg-4 col-xs-12 padding-none">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.8s">
+              <div class="icont">
+                <i class="lni-cup"></i>
+              </div>
+              <div class="services-content">
+                <h3><a href="#">Networking Session</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+              </div>
+            </div>
+          </div>
+           <!-- Services item -->
+          <div class="col-md-6 col-lg-4 col-xs-12 padding-none">
+            <div class="services-item wow fadeInDown" data-wow-delay="1s">
+              <div class="icont">
+                <i class="lni-user"></i>
+              </div>
+              <div class="services-content">
+                <h3><a href="#">Global Event</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+              </div>
+            </div>
+          </div>
+           <!-- Services item -->
+          <div class="col-md-6 col-lg-4 col-xs-12 padding-none">
+            <div class="services-item wow fadeInDown" data-wow-delay="1.2s">
+              <div class="icont">
+                <i class="lni-bubble"></i>
+              </div>
+              <div class="services-content">
+                <h3><a href="#">Free Swags</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section End -->
+
+    
+    

@@ -91,7 +91,7 @@
                         E-mail
                     </label>
                     <div class="col-sm-10">
-                    <input required type="email" name="email" class="form-control" id="email">
+                    <input required type="email" name="email" class="form-control" id="email" style="text-transform: none;">
                     </div>
                 </div>
                 <div class="mb-2 row">

@@ -15,7 +15,7 @@
             <label for="email" class="form-label" style="font-weight: bold;">
                 E-mail
             </label>
-            <input required type="email" name="email" class="form-control" id="email">
+            <input required type="email" name="email" class="form-control" id="email" style="text-transform: none;">
         </div>
             <a href="lupasandi2.html" class="btn btn-outline-success mt-1 custom-login2-button" type="submit">Pulihkan Akun</a>
         </div>
