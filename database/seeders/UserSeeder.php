@@ -25,14 +25,14 @@ class UserSeeder extends Seeder
             'status' => '1',
             'password' => Hash::make('123456789')
         ],);
-        // DB::table('users')->insert([
-        //     'name'=> 'Dania Angga',
-        //     'nik'=> '3509202606030004',
-        //     'no_hp'=> '0895399757208',
-        //     'alamat'=> 'Jember',
-        //     'email' => 'bayukrisna231@gmail.com',
-        //     'status' => '2',
-        //     'password' => Hash::make('123456789')
-        // ]);
+        DB::table('users')->insert([
+            'name'=> 'Dania Angga',
+            'nik'=> '3509202606030004',
+            'no_hp'=> '0895399757208',
+            'alamat'=> 'Jember',
+            'email' => 'bayukrisna231@gmail.com',
+            'status' => '2',
+            'password' => Hash::make('123456789')
+        ]);
     }
 }

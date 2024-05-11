@@ -29,7 +29,7 @@ class LoginController extends Controller
         // Kondisi 2: Jika bukan admin, lakukan proses otentikasi standar
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/home');
         }
 
         // Jika tidak cocok dengan kondisi manapun, kembali ke halaman login dengan pesan kesalahan

@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap5.js"></script>
-    <title>Responsive Dashboard Design #2 | AsmrProg</title>
+    <title>Seleksi Pengajuan</title>
 </head>
 
 <body>
@@ -26,8 +26,8 @@
         </a>
         <ul class="side-menu">
             <li><a href="/halaman_admin"><i class='bx bxs-dashboard '></i>Dashboard</a></li>
-            <li class="active"><a href="/pengajuan_lelang"><i class='bx bx-store-alt'></i>Shop</a></li>
-            <li class=""><a href="#"><i class='bx bx-analyse'></i>Analytics</a></li>
+            <li class="active"><a href="/pengajuan_lelang"><i class='bx bx-store-alt'></i>Pengajuan Lelang</a></li>
+            <li class=""><a href="/pengajuan_barang"><i class='bx bx-analyse'></i>Pengajuan Barang</a></li>
             <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
             <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
             <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
@@ -118,7 +118,7 @@
                                 <p class="card-text"><strong>Scan
                                         KTP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                                     </strong></p>
-                                <img src="{{ asset('storage/scan_ktp/' . $dataPengajuan->scan_ktp) }}" class="img-fluid"
+                                <img src="{{ asset('/img/public/scan_ktp/' . $dataPengajuan->scan_ktp) }}" class="img-fluid"
                                     alt="Scan KTP" width="400px">
                                 <div class="mt-3" style="display: flex; gap: 20px;">
                                     <form action="{{ route('terima.pengajuan', $dataPengajuan->id_pengajuan) }}" method="POST">

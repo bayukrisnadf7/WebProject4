@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('notifikasi', function (Blueprint $table) {
             $table->id();
             $table->string('pesan');
-            $table->bigInteger('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
+            $table->dateTime('waktu');
+            $table->string('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
             $table->foreign('nik')->references('nik')->on('users');
             $table->timestamps();
         });

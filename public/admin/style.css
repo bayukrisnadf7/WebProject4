@@ -101,9 +101,9 @@ body{
 .sidebar .side-menu li{
     height: 48px;
     background: transparent;
-    margin-left: 6px;
+    /* margin-left: 6px; */
     border-radius: 48px 0 0 48px;
-    padding: 4px;
+    /* padding: 4px; */
 }
 
 .sidebar .side-menu li.active{

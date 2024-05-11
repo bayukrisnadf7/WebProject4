@@ -21,6 +21,9 @@ class BarangController extends Controller
     {
         return view('barang.upload');
     }
+    public function index3(){
+        return view('home.home');
+    }
     public function show($id)
     {
         $detail_barang = Barang::find($id);
@@ -57,49 +60,68 @@ class BarangController extends Controller
 
 
 
-public function store(Request $request)
+    public function store(Request $request)
 {
     // Validate the request data
     $request->validate([
         'nama_barang' => 'required',
         'kategori_barang' => 'required',
         'harga_barang' => 'required',
+        'deskripsi_barang' => 'required',
         'kelipatan' => 'required',
-        'tgl_publish' => 'required',
-        'tgl_expired' => 'required',
-        'foto_barang' => 'required|image',
+        'tgl_publish' => 'required|date',
+        'tgl_expired' => 'required|date',
+        'foto_barang' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'foto_barang_depan' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'foto_barang_belakang' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'foto_barang_kiri' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'foto_barang_kanan' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         'status' => 'required',
     ]);
 
     try {
-        if ($request->hasFile('foto_barang')) {
-            // Simpan file ke dalam direktori 'storage/barang'
-            $nama_file = $request->file('foto_barang')->storeAs('public/barang', $request->file('foto_barang')->getClientOriginalName());
+        $nik = auth()->user()->nik;
 
-            // Dapatkan URL file yang disimpan
-            $url_file = $request->file('foto_barang')->getClientOriginalName();
+        // Simpan foto_barang ke dalam direktori 'public/storage/barang' dengan nama yang unik
+        $url_foto_barang = $request->file('foto_barang')->storeAs('public/storage/barang', 'bloop_' . uniqid() . '.' . $request->file('foto_barang')->getClientOriginalExtension());
 
-            $nik = auth()->user()->nik;
-            // Simpan nama file ke dalam database
-            Barang::create([
-                'nama_barang' => $request->nama_barang,
-                'kategori_barang' => $request->kategori_barang,
-                'harga_barang' => $request->harga_barang,
-                'kelipatan' => $request->kelipatan,
-                'tgl_publish' => $request->tgl_publish,
-                'tgl_expired' => $request->tgl_expired,
-                'foto_barang' => $url_file,  // Simpan URL file di database
-                'status' => $request->status,
-                'nik' => $nik,
-                // Field lainnya...
-            ]);
+        // Simpan foto_barang_depan ke dalam direktori 'public/storage/barang' dengan nama yang unik
+        $url_foto_barang_1 = $request->file('foto_barang_depan')->storeAs('public/storage/barang', 'bloop_' . uniqid() . '.' . $request->file('foto_barang_depan')->getClientOriginalExtension());
 
-            return redirect('/')->with('success', 'Barang berhasil ditambahkan');
-        }
+        // Simpan foto_barang_belakang ke dalam direktori 'public/storage/barang' dengan nama yang unik
+        $url_foto_barang_2 = $request->file('foto_barang_belakang')->storeAs('public/storage/barang', 'bloop_' . uniqid() . '.' . $request->file('foto_barang_belakang')->getClientOriginalExtension());
+
+        // Simpan foto_barang_kiri ke dalam direktori 'public/storage/barang' dengan nama yang unik
+        $url_foto_barang_3 = $request->file('foto_barang_kiri')->storeAs('public/storage/barang', 'bloop_' . uniqid() . '.' . $request->file('foto_barang_kiri')->getClientOriginalExtension());
+
+        // Simpan foto_barang_kanan ke dalam direktori 'public/storage/barang' dengan nama yang unik
+        $url_foto_barang_4 = $request->file('foto_barang_kanan')->storeAs('public/storage/barang', 'bloop_' . uniqid() . '.' . $request->file('foto_barang_kanan')->getClientOriginalExtension());
+
+        // Simpan data barang ke dalam database dengan nama file yang unik
+        Barang::create([
+            'nama_barang' => $request->nama_barang,
+            'kategori_barang' => $request->kategori_barang,
+            'harga_barang' => $request->harga_barang,
+            'deskripsi_barang' => $request->deskripsi_barang,
+            'kelipatan' => $request->kelipatan,
+            'tgl_publish' => $request->tgl_publish,
+            'tgl_expired' => $request->tgl_expired,
+            'foto_barang' => basename($url_foto_barang),
+            'foto_barang_depan' => basename($url_foto_barang_1),
+            'foto_barang_belakang' => basename($url_foto_barang_2),
+            'foto_barang_kiri' => basename($url_foto_barang_3),
+            'foto_barang_kanan' => basename($url_foto_barang_4),
+            'status' => $request->status,
+            'nik' => $nik,
+            // Tambahkan field lainnya sesuai kebutuhan...
+        ]);
+
+        return redirect('/upload_barang')->with('success', 'Barang Sedang Diproses, harap tunggu');
     } catch (\Exception $th) {
         return redirect('/upload_barang')->with('gagal', 'Barang gagal ditambahkan');
     }
 }
+
 
 
 

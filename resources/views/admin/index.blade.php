@@ -7,7 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="admin/style.css">
-    <title>Responsive Dashboard Design #2 | AsmrProg</title>
+    <title>Halaman Admin</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         <ul class="side-menu">
             <li class="active"><a href="/halaman_admin"><i class='bx bxs-dashboard '></i>Dashboard</a></li>
             <li><a href="/pengajuan_lelang"><i class='bx bx-store-alt'></i>Pengajuan Lelang</a></li>
-            <li class=""><a href="#"><i class='bx bx-analyse'></i>Analytics</a></li>
+            <li class=""><a href="/pengajuan_barang"><i class='bx bx-analyse'></i>Pengajuan Barang</a></li>
             <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
             <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
             <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>

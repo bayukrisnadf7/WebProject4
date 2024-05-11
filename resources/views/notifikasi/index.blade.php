@@ -2,7 +2,10 @@
 @section('content')
     @foreach ($notifikasi as $item)
         <div class="card">
-            <p>{{ $item->pesan }}</p>
+            <div class="d-flex">
+                <p>{{ $item->pesan }}</p>
+                <p>{{ $item->waktu }}</p>
+            </div>
         </div>
     @endforeach
 @endsection

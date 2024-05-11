@@ -1,4 +1,14 @@
     @include('partials.template')
+    <!-- Tambahkan link ke Dropzone.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 500px;">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     @if (session()->has('gagal'))
         <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 500px;">
             {{ session('gagal') }}
@@ -22,16 +32,17 @@
                 <label for="kategori_barang" class="form-label">Kategori Barang</label>
                 <select class="form-select" id="kategori_barang" name="kategori_barang" aria-describedby="kategoriHelp">
                     <option value="">Pilih Kategori</option>
-                    <option value="1">Elektronik</option>
-                    <option value="2">Aksesoris</option>
-                    <option value="3">Gadget</option>
-                    <option value="4">Hobi</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Aksesoris">Aksesoris</option>
+                    <option value="Gadget">Gadget</option>
+                    <option value="Hobi & Koleksi">Hobi & Koleksi</option>
                 </select>
                 <div id="kategoriHelp" class="form-text">Pilih kategori barang sesuai dengan jenisnya.</div>
             </div>
             <div class="mb-3">
                 <label for="harga_barang" class="form-label">Harga Barang</label>
-                <input type="text" class="form-control @error('harga_barang') is-invalid
+                <input type="text"
+                    class="form-control @error('harga_barang') is-invalid
                     @enderror"
                     name="harga_barang" id="harga_barang" required>
                 @error('harga_barang')
@@ -39,9 +50,19 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="kelipatan" class="form-label">Kelipatan Bid</label>
-                <select class="form-select @error('kelipatan') is-invalid @enderror" name="kelipatan" id="kelipatan" required>
-                    <option value="">Pilih Harga Barang</option>
+                <label for="deskripsi_barang" class="form-label">Deskripsi Barang</label>
+                <textarea class="form-control @error('deskripsi_barang') is-invalid @enderror"
+                          name="deskripsi_barang" id="deskripsi_barang" required style="min-height: 150px"></textarea>
+                @error('deskripsi_barang')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            
+            <div class="mb-3">
+                <label for="kelipatan" class="form-label">Kelipatan Harga</label>
+                <select class="form-select @error('kelipatan') is-invalid @enderror" name="kelipatan" id="kelipatan"
+                    required>
+                    <option value="">Pilih Kelipatan Harga</option>
                     <option value="50000">50.000</option>
                     <option value="100000">100.000</option>
                 </select>
@@ -49,7 +70,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            
+
             <div class="mb-3">
                 <label for="tgl_publish" class="form-label">Tanggal Publish</label>
                 <input type="text" class="form-control @error('tgl_publish') is-invalid @enderror" name="tgl_publish"
@@ -69,16 +90,61 @@
             <div class="mb-3" style="display: flex; flex-direction :column ">
                 <label for="foto_barang" class="form-label">Gambar Barang</label>
                 <div id="gambar-container"></div>
-                <input type="file" class="form-control @error('foto_barang') is-invalid
+                <input type="file"
+                    class="form-control @error('foto_barang') is-invalid
                     @enderror mt-3"
                     name="foto_barang" id="foto_barang" accept="image/png, image/jpeg" required />
                 @error('foto_barang')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3" style="display: flex; flex-direction :column ">
+                <label for="foto_barang_depan" class="form-label">Gambar Barang Depan</label>
+                <div id="gambar-container-1"></div>
+                <input type="file"
+                    class="form-control @error('foto_barang_depan') is-invalid
+                    @enderror mt-3"
+                    name="foto_barang_depan" id="foto_barang_depan" accept="image/png, image/jpeg" required />
+                @error('foto_barang_depan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3" style="display: flex; flex-direction :column ">
+                <label for="foto_barang_belakang" class="form-label">Gambar Barang Belakang</label>
+                <div id="gambar-container-2"></div>
+                <input type="file"
+                    class="form-control @error('foto_barang_belakang') is-invalid
+                    @enderror mt-3"
+                    name="foto_barang_belakang" id="foto_barang_belakang" accept="image/png, image/jpeg" required />
+                @error('foto_barang_belakang')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3" style="display: flex; flex-direction :column ">
+                <label for="foto_barang_kiri" class="form-label">Gambar Barang Kiri</label>
+                <div id="gambar-container-3"></div>
+                <input type="file"
+                    class="form-control @error('foto_barang_kiri') is-invalid
+                    @enderror mt-3"
+                    name="foto_barang_kiri" id="foto_barang_kiri" accept="image/png, image/jpeg" required />
+                @error('foto_barang_kiri')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3" style="display: flex; flex-direction :column ">
+                <label for="foto_barang_kanan" class="form-label">Gambar Barang Kanan</label>
+                <div id="gambar-container-4"></div>
+                <input type="file"
+                    class="form-control @error('foto_barang_kanan') is-invalid
+                    @enderror mt-3"
+                    name="foto_barang_kanan" id="foto_barang_kanan" accept="image/png, image/jpeg" required />
+                @error('foto_barang_kanan')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="mb-3" style="display: none">
                 <label for="status" class="form-label">Status</label>
-                <input type="text" class="form-control" name="status" id="status" value="Open">
+                <input type="text" class="form-control" name="status" id="status" value="Diproses">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -219,6 +285,306 @@
         });
     </script>
     <script>
+        document.getElementById('foto_barang_depan').addEventListener('change', function() {
+            var file = this.files[0]; // Ambil file yang dipilih
+
+            // Buat objek FileReader
+            var reader = new FileReader();
+
+            // Saat file selesai dibaca
+            reader.onload = function(e) {
+                var img = new Image();
+                img.src = e.target.result; // Set sumber gambar
+
+                // Saat gambar selesai dimuat
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    // Tentukan ukuran gambar yang diinginkan
+                    var maxWidth = 300; // Misalnya, maksimum lebar 300 piksel
+                    var maxHeight = 300; // Misalnya, maksimum tinggi 300 piksel
+
+                    // Periksa apakah gambar perlu diubah ukurannya
+                    var width = img.width;
+                    var height = img.height;
+
+                    if (width > maxWidth || height > maxHeight) {
+                        // Hitung rasio lebar dan tinggi gambar
+                        var ratio = Math.min(maxWidth / width, maxHeight / height);
+
+                        // Ubah ukuran gambar sesuai dengan rasio yang dihitung
+                        canvas.width = width * ratio;
+                        canvas.height = height * ratio;
+                    } else {
+                        // Gunakan ukuran gambar asli jika tidak perlu diubah
+                        canvas.width = width;
+                        canvas.height = height;
+                    }
+
+                    // Gambar ulang gambar ke dalam canvas dengan ukuran yang sesuai
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // Dapatkan URL data gambar yang baru
+                    var newImageDataUrl = canvas.toDataURL('image/jpeg'); // Ubah ke format JPEG
+
+                    // Buat elemen gambar baru dengan gambar yang lebih kecil
+                    var newImgElement = document.createElement('img');
+                    newImgElement.src = newImageDataUrl;
+
+                    // Tambahkan gambar ke dalam container
+                    document.getElementById('gambar-container-1').innerHTML = '';
+                    document.getElementById('gambar-container-1').appendChild(newImgElement);
+                };
+            };
+
+            // Baca file sebagai URL data
+            reader.readAsDataURL(file);
+        });
+    </script>
+    <script>
+        // Fungsi untuk menampilkan tanggal dan jam secara real-time dengan format yang spesifik
+        function displayDateTime() {
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2); // Tambahkan leading zero jika bulan < 10
+            var day = ('0' + today.getDate()).slice(-2); // Tambahkan leading zero jika hari < 10
+            var hours = ('0' + today.getHours()).slice(-2); // Tambahkan leading zero jika jam < 10
+            var minutes = ('0' + today.getMinutes()).slice(-2); // Tambahkan leading zero jika menit < 10
+            var seconds = ('0' + today.getSeconds()).slice(-2); // Tambahkan leading zero jika detik < 10
+
+            var dateTime = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+
+            // Menampilkan tanggal dan jam di input
+            document.getElementById("tgl_publish").value = dateTime;
+        }
+
+        // Panggil fungsi displayDateTime setiap detik
+        setInterval(displayDateTime, 1000);
+
+        // Panggil fungsi displayDateTime agar tanggal dan jam ditampilkan saat halaman dimuat
+        displayDateTime();
+    </script>
+    <script>
+        document.getElementById('foto_barang_belakang').addEventListener('change', function() {
+            var file = this.files[0]; // Ambil file yang dipilih
+
+            // Buat objek FileReader
+            var reader = new FileReader();
+
+            // Saat file selesai dibaca
+            reader.onload = function(e) {
+                var img = new Image();
+                img.src = e.target.result; // Set sumber gambar
+
+                // Saat gambar selesai dimuat
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    // Tentukan ukuran gambar yang diinginkan
+                    var maxWidth = 300; // Misalnya, maksimum lebar 300 piksel
+                    var maxHeight = 300; // Misalnya, maksimum tinggi 300 piksel
+
+                    // Periksa apakah gambar perlu diubah ukurannya
+                    var width = img.width;
+                    var height = img.height;
+
+                    if (width > maxWidth || height > maxHeight) {
+                        // Hitung rasio lebar dan tinggi gambar
+                        var ratio = Math.min(maxWidth / width, maxHeight / height);
+
+                        // Ubah ukuran gambar sesuai dengan rasio yang dihitung
+                        canvas.width = width * ratio;
+                        canvas.height = height * ratio;
+                    } else {
+                        // Gunakan ukuran gambar asli jika tidak perlu diubah
+                        canvas.width = width;
+                        canvas.height = height;
+                    }
+
+                    // Gambar ulang gambar ke dalam canvas dengan ukuran yang sesuai
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // Dapatkan URL data gambar yang baru
+                    var newImageDataUrl = canvas.toDataURL('image/jpeg'); // Ubah ke format JPEG
+
+                    // Buat elemen gambar baru dengan gambar yang lebih kecil
+                    var newImgElement = document.createElement('img');
+                    newImgElement.src = newImageDataUrl;
+
+                    // Tambahkan gambar ke dalam container
+                    document.getElementById('gambar-container-2').innerHTML = '';
+                    document.getElementById('gambar-container-2').appendChild(newImgElement);
+                };
+            };
+
+            // Baca file sebagai URL data
+            reader.readAsDataURL(file);
+        });
+    </script>
+    <script>
+        document.getElementById('foto_barang_kiri').addEventListener('change', function() {
+            var file = this.files[0]; // Ambil file yang dipilih
+
+            // Buat objek FileReader
+            var reader = new FileReader();
+
+            // Saat file selesai dibaca
+            reader.onload = function(e) {
+                var img = new Image();
+                img.src = e.target.result; // Set sumber gambar
+
+                // Saat gambar selesai dimuat
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    // Tentukan ukuran gambar yang diinginkan
+                    var maxWidth = 300; // Misalnya, maksimum lebar 300 piksel
+                    var maxHeight = 300; // Misalnya, maksimum tinggi 300 piksel
+
+                    // Periksa apakah gambar perlu diubah ukurannya
+                    var width = img.width;
+                    var height = img.height;
+
+                    if (width > maxWidth || height > maxHeight) {
+                        // Hitung rasio lebar dan tinggi gambar
+                        var ratio = Math.min(maxWidth / width, maxHeight / height);
+
+                        // Ubah ukuran gambar sesuai dengan rasio yang dihitung
+                        canvas.width = width * ratio;
+                        canvas.height = height * ratio;
+                    } else {
+                        // Gunakan ukuran gambar asli jika tidak perlu diubah
+                        canvas.width = width;
+                        canvas.height = height;
+                    }
+
+                    // Gambar ulang gambar ke dalam canvas dengan ukuran yang sesuai
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // Dapatkan URL data gambar yang baru
+                    var newImageDataUrl = canvas.toDataURL('image/jpeg'); // Ubah ke format JPEG
+
+                    // Buat elemen gambar baru dengan gambar yang lebih kecil
+                    var newImgElement = document.createElement('img');
+                    newImgElement.src = newImageDataUrl;
+
+                    // Tambahkan gambar ke dalam container
+                    document.getElementById('gambar-container-3').innerHTML = '';
+                    document.getElementById('gambar-container-3').appendChild(newImgElement);
+                };
+            };
+
+            // Baca file sebagai URL data
+            reader.readAsDataURL(file);
+        });
+    </script>
+    <script>
+        document.getElementById('foto_barang_kanan').addEventListener('change', function() {
+            var file = this.files[0]; // Ambil file yang dipilih
+
+            // Buat objek FileReader
+            var reader = new FileReader();
+
+            // Saat file selesai dibaca
+            reader.onload = function(e) {
+                var img = new Image();
+                img.src = e.target.result; // Set sumber gambar
+
+                // Saat gambar selesai dimuat
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    // Tentukan ukuran gambar yang diinginkan
+                    var maxWidth = 300; // Misalnya, maksimum lebar 300 piksel
+                    var maxHeight = 300; // Misalnya, maksimum tinggi 300 piksel
+
+                    // Periksa apakah gambar perlu diubah ukurannya
+                    var width = img.width;
+                    var height = img.height;
+
+                    if (width > maxWidth || height > maxHeight) {
+                        // Hitung rasio lebar dan tinggi gambar
+                        var ratio = Math.min(maxWidth / width, maxHeight / height);
+
+                        // Ubah ukuran gambar sesuai dengan rasio yang dihitung
+                        canvas.width = width * ratio;
+                        canvas.height = height * ratio;
+                    } else {
+                        // Gunakan ukuran gambar asli jika tidak perlu diubah
+                        canvas.width = width;
+                        canvas.height = height;
+                    }
+
+                    // Gambar ulang gambar ke dalam canvas dengan ukuran yang sesuai
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // Dapatkan URL data gambar yang baru
+                    var newImageDataUrl = canvas.toDataURL('image/jpeg'); // Ubah ke format JPEG
+
+                    // Buat elemen gambar baru dengan gambar yang lebih kecil
+                    var newImgElement = document.createElement('img');
+                    newImgElement.src = newImageDataUrl;
+
+                    // Tambahkan gambar ke dalam container
+                    document.getElementById('gambar-container-4').innerHTML = '';
+                    document.getElementById('gambar-container-4').appendChild(newImgElement);
+                };
+            };
+
+            // Baca file sebagai URL data
+            reader.readAsDataURL(file);
+        });
+    </script>
+    <script>
+        // Fungsi untuk menampilkan tanggal dan jam secara real-time dengan format yang spesifik
+        function displayDateTime() {
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2); // Tambahkan leading zero jika bulan < 10
+            var day = ('0' + today.getDate()).slice(-2); // Tambahkan leading zero jika hari < 10
+            var hours = ('0' + today.getHours()).slice(-2); // Tambahkan leading zero jika jam < 10
+            var minutes = ('0' + today.getMinutes()).slice(-2); // Tambahkan leading zero jika menit < 10
+            var seconds = ('0' + today.getSeconds()).slice(-2); // Tambahkan leading zero jika detik < 10
+
+            var dateTime = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+
+            // Menampilkan tanggal dan jam di input
+            document.getElementById("tgl_publish").value = dateTime;
+        }
+
+        // Panggil fungsi displayDateTime setiap detik
+        setInterval(displayDateTime, 1000);
+
+        // Panggil fungsi displayDateTime agar tanggal dan jam ditampilkan saat halaman dimuat
+        displayDateTime();
+    </script>
+    <script>
+        // Fungsi untuk menampilkan tanggal dan jam secara real-time dengan format yang spesifik
+        function displayDateTime() {
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2); // Tambahkan leading zero jika bulan < 10
+            var day = ('0' + today.getDate()).slice(-2); // Tambahkan leading zero jika hari < 10
+            var hours = ('0' + today.getHours()).slice(-2); // Tambahkan leading zero jika jam < 10
+            var minutes = ('0' + today.getMinutes()).slice(-2); // Tambahkan leading zero jika menit < 10
+            var seconds = ('0' + today.getSeconds()).slice(-2); // Tambahkan leading zero jika detik < 10
+
+            var dateTime = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+
+            // Menampilkan tanggal dan jam di input
+            document.getElementById("tgl_publish").value = dateTime;
+        }
+
+        // Panggil fungsi displayDateTime setiap detik
+        setInterval(displayDateTime, 1000);
+
+        // Panggil fungsi displayDateTime agar tanggal dan jam ditampilkan saat halaman dimuat
+        displayDateTime();
+    </script>
+    <script>
         // Fungsi untuk menampilkan tanggal dan jam secara real-time dengan format yang spesifik
         function displayDateTime() {
             var today = new Date();
@@ -246,7 +612,7 @@
         // Fungsi untuk mendapatkan tanggal dan waktu 5 hari berikutnya secara real-time dengan format yang spesifik
         function getNextFiveDays() {
             var today = new Date();
-            today.setDate(today.getDate() + 5); // Tambah 5 hari ke tanggal sekarang
+            today.setDate(today.getDate() + 1); // Tambah 5 hari ke tanggal sekarang
 
             var year = today.getFullYear();
             var month = ('0' + (today.getMonth() + 1)).slice(-2); // Tambahkan leading zero jika bulan < 10

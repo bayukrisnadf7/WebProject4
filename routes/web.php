@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
 Route::get('/', [BarangController::class, 'index']);
+Route::get('/home', [BarangController::class, 'index3']);
 
 Route::get('/detail_barang/{id}', [BarangController::class, 'show']);
 Route::post('/submit_bid/{id}', [BidBarangController::class, 'store'])->name('submit_bid');
@@ -32,10 +33,15 @@ Route::post('/login', [LoginController:: class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // forgot password
-Route::get('/lupa-password', [LupaPasswordController::class, 'index'])->name('lupa.password');
-Route::post('/lupa-password', [LupaPasswordController::class, 'lupaPassword'])->name('lupa.password');
-Route::get('/reset-password/{token}', [LupaPasswordController::class, 'resetPassword'])->name('reset.password');
-Route::post('/reset-password', [LupaPasswordController::class, 'resetPassword'])->name('reset.password.post');
+// Route::get('/lupa-password', [LupaPasswordController::class, 'index'])->name('lupa.password');
+// Route::post('/lupa-password', [LupaPasswordController::class, 'lupaPassword'])->name('lupa.password');
+// Route::get('/reset-password/{token}', [LupaPasswordController::class, 'resetPassword'])->name('reset.password');
+// Route::post('/reset-password', [LupaPasswordController::class, 'resetPassword'])->name('reset.password.post');
+
+Route::get('forget-password', [LupaPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [LupaPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [LupaPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [LupaPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::get('/register',[RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register',[RegisterController::class, 'store']);
@@ -56,3 +62,9 @@ Route::get('/pengajuan_lelang', [AdminController::class, 'pengajuanLelang']);
 Route::get('/seleksi_pengajuan/{id_pengajuan}', [AdminController::class, 'seleksiPengajuan']);
 Route::post('/terima_pengajuan/{id_pengajuan}', [AdminController::class, 'terimaPengajuan'])->name('terima.pengajuan');
 Route::post('/tolak_pengajuan/{id_pengajuan}', [AdminController::class, 'tolakPengajuan'])->name('tolak.pengajuan');
+
+// pengajuan barang
+Route::get('/pengajuan_barang', [AdminController::class, 'showPengajuanBarang']);
+Route::get('/seleksi_pengajuan_barang/{id}', [AdminController::class, 'seleksiPengajuanBarang']);
+Route::post('/terima_pengajuan_barang/{id}', [AdminController::class, 'terimaPengajuanBarang'])->name('terima.pengajuan.barang');
+Route::post('/tolak_pengajuan_barang/{id}', [AdminController::class, 'tolakPengajuanBarang'])->name('tolak.pengajuan.barang');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Register;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -10,54 +10,100 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
 
 class LupaPasswordController extends Controller
 {
-    public function index(){
-        return view('auth.lupa-password');
+    public function showForgetPasswordForm()
+    {
+        return view('auth.forgetPassword');
     }
-    public function lupaPassword(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email'
-    ]);
+    /**
 
-    $token = Str::random(64);
+     * Write code on Method
 
-    DB::table('password_reset_tokens')->insert([
-        'email' => $request->email,
-        'token' => $token,
-        'created_at' => Carbon::now(),
-    ]);
+     *
 
-    Mail::send('emails.lupa-password', ['token' => $token], function ($message) use ($request) {
-        $message->to($request->email)->subject('Reset Password');
-    });
+     * @return response()
 
-    return redirect('lupa-password')->with('success', '');
-}
+     */
 
-    function resetPassword($token){
-        return view('auth.ubah-password', compact('token'));
-    }
-    function resetPasswordPost(Request $request){
+    public function submitForgetPasswordForm(Request $request)
+    {
         $request->validate([
-            'email' => 'required|email',
-            'password'=> 'required|vonfirmed',
-            'konfirmasi_password' => 'required'
+            'email' => 'required|email|exists:users',
+        ]);
+        $token = Str::random(64);
+        DB::table('password_reset_tokens')->insert([
+            'email' => $request->email,
+            'token' => $token,
+            'created_at' => Carbon::now()
+        ]);
+        Mail::send('email.forgetPassword', ['token' => $token], function ($message) use ($request) {
+            $message->to($request->email);
+            $message->subject('Reset Password');
+        });
+        return back()->with('message', 'We have e-mailed your password reset link!');
+    }
+
+    /**
+
+     * Write code on Method
+
+     *
+
+     * @return response()
+
+     */
+
+    public function showResetPasswordForm($token)
+    {
+        return view('auth.forgetPasswordLink', ['token' => $token]);
+    }
+
+
+    /**
+
+     * Write code on Method
+
+     *
+
+     * @return response()
+
+     */
+
+    public function submitResetPasswordForm(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+            'password' => 'required|min:8', // Minimal panjang kata sandi 8 karakter
         ]);
 
-        $update_password = DB::table('users')->where([
-            'email' => $request->email,
-            'token' => $request->token
-        ])->first();
-            if(!$update_password){
-                return redirect()->to(route('reset.password'))->with('error', "Invalid");
-            }
-            User::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
+        // Cari token reset password
+        $updatePassword = DB::table('password_reset_tokens')
+            ->where([
+                'email' => $request->email,
+                'token' => $request->token
+            ])
+            ->first();
 
-            DB::table('password_reset_tokens')->where(['email' => $request->email])->delete();
+        // Jika token tidak ditemukan, kembalikan dengan pesan error
+        if (!$updatePassword) {
+            return back()->withInput()->with('error', 'Invalid token!');
+        }
 
-            return redirect('/login')->with('success', 'Password Berhasil Diubah');
+        // Ubah kata sandi pengguna
+        $user = Register::where('email', $request->email)->first();
+        if ($user) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+        }
+
+        // Hapus token reset password
+        DB::table('password_reset_tokens')->where('email', $request->email)->delete();
+
+        // Redirect ke halaman login dengan pesan sukses
+        return redirect('/login')->with('message', 'Your password has been changed!');
     }
 }

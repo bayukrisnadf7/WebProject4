@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('no_rek');
             $table->string('scan_ktp');
             $table->string('status');
-            $table->bigInteger('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
+            $table->string('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
             $table->foreign('nik')->references('nik')->on('users');
             $table->timestamps();
         });

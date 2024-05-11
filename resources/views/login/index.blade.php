@@ -1,80 +1,37 @@
-@extends('partials.template')
+@extends('layouts.template')
+@section('content')   
 
-@section('content')
-    @if (session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 500px;">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    @if (session()->has('loginError'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 500px;">
-            {{ session('loginError') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-    <!-- Section: Design Block -->
-    <div class="d-flex justify-content-center mt-5">
-        <div class="card shadow-5-strong" style="width: 500px;">
-            <div class="card-body">
-
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8">
-                        <form action="/login" method="POST">
-                            @csrf
-                            <div class="form-outline mb-2">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="email" name="email"
-                                    class="form-control @error('email') is-invalid
-                                @enderror"
-                                    id="email" autofocus required value="{{ old('email') }}" />
-                                @error('email')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-outline mb-2">
-                                <label class="form-label" for="password">Password</label>
-                                <div class="input-group">
-                                    <input type="password" name="password" id="password" class="form-control" required />
-                                    <button class="btn btn-secondary" type="button" id="togglePassword">
-                                        <i id="passwordIcon" class="bi bi-eye-slash-fill"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mt-2 mb-3" style="width: 100px">
-                                Login
-                            </button>
-                        </form>
-                        <div class="d-block text-center">
-                            Belum daftar ? <a href="/register">Daftar Sekarang!</a>
-                        </div>
-                        <div class="d-block text-center">
-                            Lupa Password? ? <a href="/lupa-password">Gas Ganti</a>
-                        </div>
-                    </div>
+<div class="container" style="margin-top: 150px;">
+        <div class="row align-items-start">
+            <div class="col-md-5 offset-md-1" style="margin-right: 200px; margin-left: -3px;">
+                <img src="/assets/img/vektor.jpg" alt="gambar" style="max-width: 100%;">
+            </div>
+            <div class="col-md-4">
+                <div class="mb-4">
+                    <h2>Masuk</h2>
+                    <h6>Silahkan mengisi data Anda yang telah terdaftar</h6>
                 </div>
+                <form action="/login" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="email" class="form-label" style="font-weight: bold;">
+                            E-mail
+                        </label>
+                        <input style="text-transform: none" required type="email" name="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label" style="font-weight: bold;">
+                            Password
+                        </label>
+                        <input required type="password" name="password" class="form-control" id="password">
+                    </div>
+                    <div class="mb-3" style="text-align: right;">
+                        <a href="{{ route('forget.password.get') }}">Lupa kata sandi?</a>
+                    </div>
+                    <button class="btn btn-outline-success mt-1 custom-login2-button" type="submit">Masuk</button>
+                </form>
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const passwordInput = document.getElementById('password');
-            const togglePasswordIcon = document.getElementById('togglePassword');
 
-            togglePasswordIcon.addEventListener('click', function() {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-
-                // Ubah ikon mata tergantung pada tipe input
-                if (type === 'password') {
-                    togglePasswordIcon.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
-                } else {
-                    togglePasswordIcon.innerHTML = '<i class="bi bi-eye-fill"></i>';
-                }
-            });
-        });
-    </script>
 @endsection
