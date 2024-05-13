@@ -47,24 +47,19 @@
         </div>
         <!-- Main Carousel Section End -->
 
+        
         <!-- Kategori -->
-    <section id="kategori-slider2" class="section-padding" style="padding-left: 50px; padding-right: 50px; padding-top: 40px;">
+    <section id="kategori-slider2" class="section-padding" style="padding-left: 50px; padding-right: 50px; padding-top: 20px;">
       <div class="container-fluid" style="overflow: hidden;">
-        <h5 style="margin-bottom: 15px; position: relative; font-weight: bold;">Kategori
-          <div class="navigation2" style="position: absolute; top: 0; right: 0; margin-right: -20px;">
-            <button class="prev-btn2"><i class="fa-solid fa-arrow-left"></i></button>
-            <button class="next-btn2"><i class="fa-solid fa-arrow-right"></i></button>
-          </div>
-        </h5>
-          <div class="slider2" style="margin-bottom: 15px;">
+          <div class="slider2">
             <div class="slidee2">
-              <a href="daftar.html" class="card-item">
+              <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
-                        <i class="fa-solid fa-plug" style="margin-top:35px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-plug" style="font-size: 30px;"></i>
                       </h6>
-                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                        <h6 class="title3" style="font-weight: bold; color: #000">
                             Elektronik
                         </h6>
                     </div>
@@ -72,13 +67,13 @@
               </a>
             </div>
             <div class="slidee2">
-              <a href="daftar.html" class="card-item">
+              <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
-                        <i class="fa-solid fa-briefcase" style="margin-top: 35px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-briefcase" style="font-size: 30px;"></i>
                       </h6>
-                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                        <h6 class="title3" style="font-weight: bold; color: #000">
                             Aksesoris
                         </h6>
                     </div>
@@ -86,27 +81,27 @@
               </a>
             </div>
             <div class="slidee2">
-              <a href="daftar.html" class="card-item">
+              <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
-                        <i class="fa-solid fa-futbol" style="margin-top: 35px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-futbol" style="font-size: 30px;"></i>
                       </h6>
-                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
-                            Hobi dan Koleksi
+                        <h6 class="title3" style="font-weight: bold; color: #000">
+                            Hobi
                         </h6>
                     </div>
                 </div>
               </a>
             </div>
             <div class="slidee2">
-              <a href="daftar.html" class="card-item">
+              <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
-                        <i class="fa-solid fa-mobile-screen" style="margin-top: 35px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-mobile-screen" style="font-size: 30px;"></i>
                       </h6>
-                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
+                        <h6 class="title3" style="font-weight: bold; color: #000">
                             Gadget
                         </h6>
                     </div>
@@ -114,28 +109,14 @@
               </a>
             </div>
             <div class="slidee2">
-              <a href="daftar.html" class="card-item">
+              <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
-                        <i class="fa-solid fa-shapes" style="margin-top: 35px; font-size: 30px;"></i>
+                        <i class="fa-solid fa-car" style="font-size: 30px;"></i>
                       </h6>
-                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
-                            Lain-lain
-                        </h6>
-                    </div>
-                </div>
-              </a>
-            </div>
-            <div class="slidee2">
-              <a href="daftar.html" class="card-item">
-                <div class="kategori-item">
-                    <div class="descr2">
-                      <h6 class="title3">
-                        <i class="fa-solid fa-location-dot" style="margin-top: 35px; font-size: 30px;"></i>
-                      </h6>
-                        <h6 class="title3" style="margin-top: 30px; font-size: large; font-weight: bold;">
-                            Elektronik
+                        <h6 class="title3" style="font-weight: bold; color: #000">
+                            Otomotif
                         </h6>
                     </div>
                 </div>
@@ -146,8 +127,8 @@
         </div>
     </section>
 
-    <!-- trending -->
-    <section id="trending-slider" class="section-padding" style="padding-left: 50px; padding-right: 50px; margin-top: -75px;">
+    <!-- Live -->
+    <section id="trending-slider" class="section-padding" style="padding-left: 50px; padding-right: 50px; margin-top: -95px;">
       <div class="container-fluid" style="overflow: hidden;">
         <h5 style="margin-bottom: 15px; position: relative; font-weight: bold;">Sedang Berlangsung
           <div class="navigation" style="position: absolute; top: 0; right: 0; margin-right: -20px;">
@@ -339,6 +320,7 @@
         </div>
     </section>
 
+    <div class="dropdown-divider"></div>
     <!-- Services Section Start -->
     <section id="services" class="services section-padding">
       <div class="container">

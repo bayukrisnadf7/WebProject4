@@ -26,4 +26,8 @@ class PageController extends Controller
     {
         return view('detail_lelang.detail');
     }
+    public function kategori()
+    {
+        return view('kategori_barang.kategori');
+    }
 }

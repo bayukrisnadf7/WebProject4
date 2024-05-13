@@ -1,0 +1,55 @@
+/* CSS */
+#image-slider {
+    position: relative;
+}
+
+.main-image {
+    text-align: center;
+    border-radius: 10px; /* Menambahkan border radius */
+}
+
+.main-image img {
+    width: 492px; /* Ukuran gambar utama yang lebih kecil */
+    height: 380px; /* Menyesuaikan proporsi */
+    border-radius: 10px;
+}
+
+.thumbnail-images {
+    text-align: center;
+    width: auto; /* Atur lebar total */
+    white-space: nowrap; /* Pastikan tidak ada wrap (pemotongan) pada baris */
+}
+
+/* Mengatur ukuran gambar kecil agar pas dengan gambar utama */
+.thumbnail {
+    width: 92px; /* Sesuaikan dengan ukuran gambar utama */
+    height: 80px; /* Sesuaikan dengan ukuran gambar utama */
+    margin-top: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 10px; /* Menambahkan border radius */
+    display: inline-block; /* Menyusun gambar secara horizontal */
+}
+
+#maximize-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+.card-detail {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    height: 300px; /* Tinggi slide */
+    border-radius: 10px;
+}
+
+.card-detail:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}

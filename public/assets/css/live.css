@@ -2,6 +2,10 @@
     overflow: hidden;
 }
 
+.bg-random {
+    color: #212121;
+}
+
 .slider {
     display: flex;
     transition: transform 0.5s ease;
@@ -64,6 +68,7 @@
 .title2 {
     margin-bottom: 20px;
     margin-top: -30px;
+    font-weight: bold;
 }
 
 .title2 a {
