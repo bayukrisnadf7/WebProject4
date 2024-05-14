@@ -72,3 +72,17 @@
         height: 60px;
     }
 }
+
+.ikutilelang-button {
+    padding: 10px;
+    color: #35755D;
+    border-color: #35755D;
+    background-color: #35755D;
+    width: 400px;
+    text-align: right;
+}
+
+.ikutilelang-button:hover{
+    color: #fff;
+    background-color: green;
+}

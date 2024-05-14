@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 px-2">
+        <div class="col-md-7 px-2">
             <!-- Konten deskripsi -->
             <div class="d-flex justify-content-between mb-4">
                 <div>
@@ -30,7 +30,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3">
-                    <h6 class="text">Harga</h6>
+                    <h6 class="text-desc">Harga</h6>
                 </div>
                 <div class="col-md-9">
                     <h5 class="text" style="font-weight: bold;">Rp 341.000.000</h5>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="dropdown-divider"></div>
                 <!-- Informasi batas akhir penawaran -->
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-md-3">
                         <h6 class="text-ibid-black1">Batas Akhir Penawaran</h6>
                     </div>
@@ -60,7 +60,7 @@
                             <h6 class="text-ibid-black1 font-weight-normal">13 Mei 2024 07:00 WIB</h6>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="dropdown-divider"></div>
                 <!-- Informasi lokasi barang -->
                 <div class="row">
@@ -97,13 +97,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="d-flex justify-content-between">
+                            <!-- <button class="btn mt-4 ikutilelang-button align-self-center" style="border-radius: 11px;">Ikut Lelang</button> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-3 px-2">
+        <!-- <div class="col-md-3 px-2">
             <div class="card-detail">
                 <h1>PPPPPP</h1>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 </section>
