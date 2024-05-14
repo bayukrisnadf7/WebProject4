@@ -3,7 +3,7 @@
 
 <!-- DIV ATAS -->
 <section class="section-padding" style="padding-left: 50px; padding-right: 50px;">
-<div class="container-fluid" style="margin-top: 25px;">
+<div class="container-fluid" style="margin-top: 55px;">
     <div class="row">
         <div class="col-md-5 px-2">
             <div id="image-slider">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="dropdown-divider"></div>
                 <!-- Informasi batas akhir penawaran -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-3">
                         <h6 class="text-ibid-black1">Batas Akhir Penawaran</h6>
                     </div>
@@ -60,7 +60,7 @@
                             <h6 class="text-ibid-black1 font-weight-normal">13 Mei 2024 07:00 WIB</h6>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="dropdown-divider"></div>
                 <!-- Informasi lokasi barang -->
                 <div class="row">
