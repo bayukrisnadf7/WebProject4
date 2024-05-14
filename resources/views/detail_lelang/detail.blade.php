@@ -1,34 +1,31 @@
 @extends('layouts.template')
 @section('content') 
 
-<div class="container-fluid" style="padding-top: 100px; margin-left: 30px">
+<!-- DIV ATAS -->
+<section class="section-padding" style="padding-left: 50px; padding-right: 50px;">
+<div class="container-fluid" style="margin-top: 25px;">
     <div class="row">
-        <div class="col-md-5 px-2" style="margin-right: -27px">
+        <div class="col-md-5 px-2">
             <div id="image-slider">
-                <div class="main-image" style="margin-left: -3px">
+                <div class="main-image">
                     <!-- Gambar utama -->
-                    <img src="/assets/img/about/img2.jpg" alt="Gambar Utama" id="main-image">
-                    <!-- <button id="maximize-btn" onclick="maximizeImage()">&#128269;</button> -->
+                    <img src="/assets/img/img6.jpeg" alt="Gambar Utama" id="main-image">
                 </div>
                 <div class="thumbnail-images">
                     <!-- 4 gambar kecil -->
-                    <img src="/assets/img/about/img2.jpg" alt="Thumbnail 1" class="thumbnail"
-                        onclick="changeImage(this)">
-                    <img src="/assets/img/about/img3.jpg" alt="Thumbnail 2" class="thumbnail"
-                        onclick="changeImage(this)">
-                    <img src="/assets/img/about/about.jpg" alt="Thumbnail 3" class="thumbnail"
-                        onclick="changeImage(this)">
-                    <img src="/assets/img/about/img1.jpg" alt="Thumbnail 4" class="thumbnail"
-                        onclick="changeImage(this)">
+                    <img src="/assets/img/img6.jpeg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/img/about/img3.jpg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/img/about/about.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/img/about/img1.jpg" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
                     <img src="/assets/img/art/a1.jpg" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
                 </div>
             </div>
         </div>
         <div class="col-md-4 px-2">
+            <!-- Konten deskripsi -->
             <div class="d-flex justify-content-between mb-4">
                 <div>
                     <h1 class="h4">NIKE AIR JORDAN KW SUPER</h1>
-                    <div class="d-flex align-items-center" style="gap: 10px; flex-wrap: wrap;"></div>
                 </div>
             </div>
             <div class="row">
@@ -41,6 +38,7 @@
             </div>
             <div>
                 <div class="dropdown-divider"></div>
+                <!-- Informasi tambahan -->
                 <div class="row">
                     <div class="col-md-3">
                         <h6 class="text">Penjual</h6>
@@ -52,6 +50,7 @@
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
+                <!-- Informasi batas akhir penawaran -->
                 <div class="row">
                     <div class="col-md-3">
                         <h6 class="text-ibid-black1">Batas Akhir Penawaran</h6>
@@ -63,6 +62,7 @@
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
+                <!-- Informasi lokasi barang -->
                 <div class="row">
                     <div class="col-md-3">
                         <h6 class="text-ibid-black1">Lokasi Barang</h6>
@@ -74,6 +74,7 @@
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
+                <!-- Informasi kelipatan -->
                 <div class="row">
                     <div class="col-md-3">
                         <h6 class="text-ibid-black1">Kelipatan</h6>
@@ -85,6 +86,7 @@
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
+                <!-- Deskripsi -->
                 <div class="row">
                     <div class="col-md-3">
                         <h6 class="text-ibid-black1">Deskripsi</h6>
@@ -97,13 +99,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3 px-2"  >
-            <div class="card-detail" style="width: 85%">
-                    <h1>PPPPPP</h1>
+        <div class="col-md-3 px-2">
+            <div class="card-detail">
+                <h1>PPPPPP</h1>
             </div>
         </div>
     </div>
 </div>
+</section>
+
 
 <!-- trending -->
 <section id="trending-slider" class="section-padding"

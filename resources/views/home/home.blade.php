@@ -165,10 +165,10 @@
             <div class="slidee">
               <div class="card-item">
                 <div class="trending-item">
-                  <div class="trending-image">
+                  <div class="trending-image" style="object-fit: cover;">
                     <a href="#">
-                <div class="tag">Live</div>
-                      <img class="img-fluid" src="assets/img/about/img3.jpg" alt="" />
+                      <div class="tag">Live</div>
+                      <img class="img-fluid" src="assets/img/img6.jpeg" alt="" />
                     </a>
                   </div>
                   <div class="descr">
