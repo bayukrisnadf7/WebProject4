@@ -10,18 +10,20 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PengajuanLelangController;
+use App\Http\Controllers\ProfileController;
 use App\Models\BidBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
+// Route::get('/', [BarangController::class, 'index']);
 Route::get('/', [BarangController::class, 'index']);
-Route::get('/home', [BarangController::class, 'index3']);
 
-Route::get('/detail_barang/{id}', [BarangController::class, 'show']);
+Route::get('/detail_barang/{id}', [BarangController::class, 'show'])->middleware('auth');
 Route::post('/submit_bid/{id}', [BidBarangController::class, 'store'])->name('submit_bid');
 
-Route::post('/upload_barang', [BarangController::class, 'store']);
-Route::get('/upload_barang', [BarangController::class, 'index2']);
+Route::post('/upload_barang', [BarangController::class, 'store'])->middleware('auth');
+Route::get('/upload_barang', [BarangController::class, 'index2'])->middleware('auth');
 
 // notifikasi
 Route::get('/notifikasi', [NotifikasiController::class, 'index']);
@@ -49,8 +51,7 @@ Route::post('/register',[RegisterController::class, 'store']);
 // Route::get('/lupa_password', [LupaPasswordController::class, 'index']);
 // Route::get('/lupa_password', [LupaPasswordController::class, 'update']);
 
-Route::get('/kategori_barang', [KategoriController::class, 'index']);
-Route::post('/kategori_barang', [KategoriController::class, 'store']);
+
 
 // pengajuan menjadi lelang
 Route::get('/pengajuan', [PengajuanLelangController::class, 'show']);
@@ -68,3 +69,8 @@ Route::get('/pengajuan_barang', [AdminController::class, 'showPengajuanBarang'])
 Route::get('/seleksi_pengajuan_barang/{id}', [AdminController::class, 'seleksiPengajuanBarang']);
 Route::post('/terima_pengajuan_barang/{id}', [AdminController::class, 'terimaPengajuanBarang'])->name('terima.pengajuan.barang');
 Route::post('/tolak_pengajuan_barang/{id}', [AdminController::class, 'tolakPengajuanBarang'])->name('tolak.pengajuan.barang');
+
+// profile
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::post('/profile_data_pribadi', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/profile_data_akun', [ProfileController::class, 'updateAccount'])->name('profile.updateAccount');

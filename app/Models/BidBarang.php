@@ -9,7 +9,7 @@ class BidBarang extends Model
 {
     protected $table = 'bid_barang';
     protected $fillable = [
-        'harga_bid', 'id_barang' , 'nik'
+        'harga_bid', 'id_barang' , 'status' , 'nik'
     ];
     public function user()
     {

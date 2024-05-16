@@ -1,0 +1,88 @@
+
+#image-slider {
+    position: relative;
+    width: 100%;
+}
+
+.main-image {
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden; /* Tambahkan overflow hidden untuk menjaga border radius */
+}
+
+.main-image img {
+    width: 100%;
+    max-width: 492px; /* Ukuran maksimum gambar utama */
+    height: 380px; /* Ukuran tetap gambar utama */
+    border-radius: 10px;
+    object-fit: cover; /* Pastikan gambar memenuhi kontainer dengan rasio aspek yang tepat */
+}
+
+.thumbnail-images {
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto; /* Tambahkan overflow-x agar thumbnail bisa scroll jika overflow */
+}
+
+.thumbnail {
+    width: 92px; /* Ukuran tetap thumbnail */
+    height: 80px; /* Ukuran tetap thumbnail */
+    margin-top: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: inline-block;
+    object-fit: cover; /* Pastikan gambar memenuhi kontainer dengan rasio aspek yang tepat */
+}
+
+.card-detail {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.card-detail:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-item {
+    margin-bottom: 10px; /* Tambahkan margin bottom agar item tidak rapat satu sama lain */
+}
+
+@media (max-width: 768px) {
+
+    .thumbnail {
+        width: 60px;
+        height: 52px;
+    }
+
+    .col-md-5, .col-md-4, .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .thumbnail {
+        width: 70px; /* Sesuaikan ukuran thumbnail untuk layar yang lebih kecil */
+        height: 60px;
+    }
+}
+
+.ikutilelang-button {
+    padding: 10px;
+    color: #35755D;
+    border-color: #35755D;
+    background-color: #35755D;
+    width: 400px;
+    text-align: right;
+}
+
+.ikutilelang-button:hover{
+    color: #fff;
+    background-color: green;
+}

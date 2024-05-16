@@ -21,7 +21,7 @@
             </div>
             <ul class="navbar-nav mr-auto w-100 justify-content-end" style="font-weight: bold;">
                 <li class="nav-item">
-                    <a href="/home" class="nav-link">
+                    <a href="/" class="nav-link">
                         Beranda
                     </a>
                 </li>
@@ -34,16 +34,17 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome , {{ auth()->user()->nama }}
+                            {{ auth()->user()->nama }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="#">Riwayat Lelang</a></li>
                             <li><a class="dropdown-item" href="/notifikasi">Notifikasi</a></li>
                             @if (auth()->user()->status == 1)
                                 <li><a class="dropdown-item" href="/pengajuan">Pengajuan Menjadi Lelang</a></li>
                             @endif
                             @if (auth()->user()->status == 2)
-                                <li><a class="dropdown-item" href="/upload_barang">Upload Barang</a></li>
+                                <li><a class="dropdown-item" href="/upload_barang">Pengajuan Barang</a></li>
                                 <li><a class="dropdown-item" href="/riwayat_lelang">Riwayat </a></li>
                             @endif
                             <li>

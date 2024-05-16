@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('harga_bid');
             $table->unsignedBigInteger('id_barang');
+            $table->string('status');
             $table->string('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
             $table->foreign('id_barang')->references('id')->on('barang');
             $table->foreign('nik')->references('nik')->on('users');

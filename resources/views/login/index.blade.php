@@ -1,6 +1,5 @@
 @extends('layouts.template')
 @section('content')   
-
 <div class="container" style="margin-top: 150px;">
         <div class="row align-items-start">
             <div class="col-md-5 offset-md-1" style="margin-right: 200px; margin-left: -3px;">

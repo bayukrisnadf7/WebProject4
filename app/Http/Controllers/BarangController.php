@@ -14,8 +14,8 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $barang = Barang::where('status', 'Open')->get();
-    return view('barang.index', compact('barang'));
+    $barang = Barang::where('status', 'Open')->get();
+    return view('home.home', compact('barang'));
     }
     public function index2()
     {
@@ -28,13 +28,15 @@ class BarangController extends Controller
     {
         $detail_barang = Barang::find($id);
 
+        $namaPemilik = $detail_barang->user->nama;
+
+
         $bid_barang = BidBarang::with('user') // Eager load relasi user
             ->where('id_barang', $id)
             ->orderBy('harga_bid', 'desc')
-            ->take(3)
             ->get();
 
-        return view('barang.detail', compact('detail_barang', 'bid_barang'));
+        return view('barang.detail', compact('detail_barang', 'bid_barang', 'namaPemilik'));
     }
 
     public function showHistoryBid(){
@@ -66,8 +68,10 @@ class BarangController extends Controller
     $request->validate([
         'nama_barang' => 'required',
         'kategori_barang' => 'required',
+        'kota' => 'required',
+        'provinsi'=> 'required',
         'harga_barang' => 'required',
-        'deskripsi_barang' => 'required',
+        'deskripsi' => 'required',
         'kelipatan' => 'required',
         'tgl_publish' => 'required|date',
         'tgl_expired' => 'required|date',
@@ -101,7 +105,10 @@ class BarangController extends Controller
         Barang::create([
             'nama_barang' => $request->nama_barang,
             'kategori_barang' => $request->kategori_barang,
+            'kota'=> $request->kota,
+            'provinsi'=> $request->provinsi,
             'harga_barang' => $request->harga_barang,
+            'deskripsi' => $request->deskripsi,
             'deskripsi_barang' => $request->deskripsi_barang,
             'kelipatan' => $request->kelipatan,
             'tgl_publish' => $request->tgl_publish,

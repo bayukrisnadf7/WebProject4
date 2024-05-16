@@ -12,6 +12,7 @@ class BidBarangController extends Controller
         $validate = $request->validate([
             'harga_bid' => 'required',
             'id_barang' => 'required',
+            'status' => 'required',
             'nik' => 'required'
         ]);
         if(BidBarang::create($validate)){

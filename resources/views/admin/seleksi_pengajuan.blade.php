@@ -87,19 +87,23 @@
                             <tr>
                                 <th>NIK</th>
                                 <th>Nama</th>
-                                <th>Email</th> <!-- Kolom aksi tambahan -->
+                                <th>Jenis Kelamin</th>
+                                <th>Tempat Lahir</th>
+                                <th>Tanggal Lahir</th>
                                 <th>Alamat</th> <!-- Kolom aksi tambahan -->
-                                <th>No Handphone</th> <!-- Kolom aksi tambahan -->
+                                <th>Email</th> <!-- Kolom aksi tambahan -->
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($dataUser as $item)
                                 <tr>
                                     <td>{{ $item->nik }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->jenis_kelamin }}</td>
+                                    <td>{{ $item->tempat_lahir }}</td>
+                                    <td>{{ $item->tanggal_lahir }}</td>
                                     <td>{{ $item->alamat }}</td>
-                                    <td>{{ $item->no_hp }}</td>
+                                    <td>{{ $item->email }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -12,7 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama_barang');
             $table->string('kategori_barang');
+            $table->string('kota');
+            $table->string('provinsi');
             $table->string('harga_barang');
+            $table->string('deskripsi');
             $table->string('kelipatan');
             $table->dateTime('tgl_publish');
             $table->dateTime('tgl_expired');

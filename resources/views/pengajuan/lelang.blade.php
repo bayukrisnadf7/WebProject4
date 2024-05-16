@@ -1,22 +1,24 @@
-@extends('partials.template')
+@extends('layouts.template')
 @section('content')
-@if (session()->has('gagal'))
-<div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 500px;">
-    {{ session('gagal') }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-@endif
+    @if (session()->has('gagal'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width: 500px;">
+            {{ session('gagal') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <h2 style="text-align: center; margin-top: 120px; color:#35755D;">PENGAJUAN LELANG</h2>
     <div class="d-flex justify-content-center mt-5">
+
         <div class="card shadow-5-strong" style="width: 500px;">
             <div class="card-body">
-                <h3 style="text-align: center; margin-bottom: 20px">Pengajuan Lelang</h3>
+
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <form action="/pengajuan" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="bank">Nama Bank</label>
-                                <select name="bank" class="form-select" id="bank" required>
+                                <select name="bank" class="form-control" id="bank" required>
                                     <option value="">Pilih Bank</option>
                                     <option value="BRI">Bank Rakyat Indonesia (BRI)</option>
                                     <option value="BCA">Bank Central Asia (BCA)</option>
@@ -24,7 +26,7 @@
                                     <option value="BNI">Bank Negara Indonesia (BNI)</option>
                                     <option value="CIMB">CIMB Niaga</option>
                                 </select>
-                            </div>                     
+                            </div>
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="no_rek">No Rekening</label>
                                 <input type="text" name="no_rek"
@@ -38,7 +40,8 @@
                             <div class="mb-3" style="display: flex; flex-direction :column ">
                                 <label for="scan_ktp" class="form-label">Scan KTP</label>
                                 <div id="gambar-container"></div>
-                                <input type="file" class="form-control @error('scan_ktp') is-invalid
+                                <input type="file"
+                                    class="form-control @error('scan_ktp') is-invalid
                                     @enderror mt-3"
                                     name="scan_ktp" id="scan_ktp" accept="image/png, image/jpeg" required />
                                 @error('scan_ktp')

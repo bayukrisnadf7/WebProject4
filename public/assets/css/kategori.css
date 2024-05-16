@@ -17,16 +17,16 @@
 .kategori-item {
     background-color: #fff;
     border-radius: 4px;
-    width: 190px; /* Lebar slide */
-    height: 190px; /* Tinggi slide */
+    width: 150px; /* Lebar slide */
+    height: 90px; /* Tinggi slide */
     border-radius: 10px;
-    border: 1px solid #35755D;
+    border: 1px solid #fff;
     box-shadow: none;
 }
 
-.kategori-item:hover {
+/* .kategori-item:hover {
     border: 4px solid transparent;
-    box-shadow: none; /* Menambahkan border transparan */
+    box-shadow: none; 
     animation: border-glow 0.5s infinite alternate; 
 }
 
@@ -35,9 +35,9 @@
         border-color: #35755D;
     }
     100% {
-        border-color: #35755D; /* Warna hijau */
+        border-color: #35755D; 
     }
-}
+} */
 
 .kategori-image {
     position: relative;
@@ -62,7 +62,6 @@
 }
 
 .title3 {
-    margin-bottom: 10px;
     text-align: center;
     color: #35755D;
 }
