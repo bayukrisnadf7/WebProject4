@@ -10,6 +10,6 @@ class Register extends Model
     protected $table = 'users';
     protected $primaryKey = 'nik';
     protected $fillable = [
-        'name', 'nik', 'email', 'email', 'alamat', 'no_hp', 'status' ,'password'
+        'nik','nama', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'nohp' ,'foto', 'email', 'password', 'status'
     ];
 }

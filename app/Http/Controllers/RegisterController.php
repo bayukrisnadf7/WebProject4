@@ -2,30 +2,72 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Register;
+use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('register.index');
     }
-    public function store(Request $request){
+    public function store(Request $request)
+{
+    try {
+        // Validasi data dari request
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'nik' => 'required|min:16|max:16|unique:users',
-            'email' => 'required|email:dns|unique:users',
+            'nama' => 'required|max:255',
+            'nik' => 'required|size:16|unique:users,nik',
+            'email' => 'required|email|unique:users,email',
             'alamat' => 'required|max:255',
-            'no_hp' => 'required|min:11|max:13|unique:users',
-            'status' => 'required',
-            'password' => 'required|min:7|max:255',
+            'nohp' => 'required|numeric|unique:users,nohp',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required|max:255',
+            'tanggal_lahir' => 'required|date',
+            'foto' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
+            'password' => 'required|min:8|max:255',
+            'password2' => 'required|same:password', // Memastikan password2 sama dengan password
+            'agreeCheckbox' => 'accepted',
+        ], [
+            'password2.same' => 'Konfirmasi password harus sama dengan password.',
+            'agreeCheckbox.accepted' => 'Anda harus menyetujui syarat dan ketentuan.',
         ]);
-        // merubah password menjadi bcryp
-        $validatedData['password'] = Hash::make($validatedData['password']);
-        // untuk memasukan data ke database
-        Register::create($validatedData);
-        // setelah masuk lalu diarahkan ke login
-        return redirect('/login')->with('success', 'Registrasi Berhasil');
+
+        // Simpan file foto ke dalam direktori 'public/uploads'
+        if ($request->hasFile('foto')) {
+            $image = $request->file('foto');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('public/ktp'), $imageName);
+        } else {
+            throw new \Exception('Foto tidak ditemukan dalam request.');
+        }
+
+        // Simpan data pengguna baru ke dalam database
+        $register = Register::create([
+            'nik' => $validatedData['nik'],
+            'nama' => $validatedData['nama'],
+            'jenis_kelamin' => $validatedData['jenis_kelamin'],
+            'tempat_lahir' => $validatedData['tempat_lahir'],
+            'tanggal_lahir' => $validatedData['tanggal_lahir'],
+            'alamat' => $validatedData['alamat'],
+            'nohp' => $validatedData['nohp'],
+            'foto' => $imageName, // Simpan nama file gambar
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+            'status' => 1,
+        ]);
+
+        if ($register) {
+            return redirect('/register')->with('success', 'Registrasi Berhasil, Silahkan Login');
+        } else {
+            throw new \Exception('Gagal menyimpan data pengguna baru.');
+        }
+    } catch (\Exception $th) {
+        return redirect('/register')->with('registError', 'Registrasi Gagal: ' . $th->getMessage());
     }
+}
+
+
 }

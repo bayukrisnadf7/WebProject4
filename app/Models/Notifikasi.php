@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Support\Facades\DB;
+
+class Notifikasi extends Model
+{
+    protected $table = 'notifikasi'; // Nama tabel
+    protected $fillable = [
+        'pesan', 'waktu' ,'nik'
+    ];
+    public function getDaysDifference()
+    {
+        $dates = DB::table('notifikasi')->pluck('waktu'); // Mengambil semua tanggal dari kolom 'tanggal'
+        $differences = [];
+
+        foreach ($dates as $date) {
+            $selisih_hari = DB::selectOne('SELECT DATEDIFF(CURDATE(), ?) AS selisih_hari', [$date])->selisih_hari;
+            $differences[] = ['waktu' => $date, 'selisih_hari' => $selisih_hari];
+        }
+
+        return $differences;
+    }
+}

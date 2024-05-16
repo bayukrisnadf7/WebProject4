@@ -14,14 +14,25 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome, {{ auth()->user()->name }}
+                            Welcome, {{ auth()->user()->nama }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><form action="/logout" method="post">
-                            @csrf
-                            <button type="submit" class="dropdown-item">Logout</button>
-                            </form></li>
+                            <li><a class="dropdown-item" href="#">Riwayat Lelang</a></li>
+                            <li><a class="dropdown-item" href="/notifikasi">Notifikasi</a></li>
+                            @if (auth()->user()->status == 1)
+                                <li><a class="dropdown-item" href="/pengajuan">Pengajuan Menjadi Lelang</a></li>
+                            @endif
+                            @if (auth()->user()->status == 2)
+                                <li><a class="dropdown-item" href="/upload_barang">Upload Barang</a></li>
+                                <li><a class="dropdown-item" href="/riwayat_lelang">Riwayat </a></li>
+                            @endif
+                            <li>
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -29,9 +40,9 @@
                         </ul>
                     </li>
                 @else
-                    {{-- <a class="nav-link" aria-current="page" href="/register">Daftar</a> --}}
                     <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                 @endauth
+
             </div>
 
         </div>
@@ -39,5 +50,3 @@
 </nav>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-

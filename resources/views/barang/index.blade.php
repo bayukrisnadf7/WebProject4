@@ -5,7 +5,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
+@if (session()->has('successBid'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 500px;">
+        {{ session('successBid') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 @section('content')
+
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -47,11 +54,12 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="container mt-5" style="display: flex; justify-content: center">
-        <div class="wrapper">
+    {{-- <h1>{{ auth()->user()->name }}</h1> --}}
+    <div class="container mt-5" style="">
+        <div class="wrapper" style="display: flex; flex-wrap: wrap; gap: 30px">
             @foreach ($barang as $item)
-                <div class="card" style="width: 15rem;">
-                    <img src="{{ asset('storage/img/barang/' . $item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
+                <div class="card" style="width: 200px">
+                    <img src="{{ asset('img/public/storage/barang/'.$item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_barang }}</h5>
                         <h5 class="card-title">{{ $item->harga_barang }}</h5>
@@ -62,6 +70,6 @@
                 </div>
             @endforeach
         </div>
-
     </div>
+    
 @endsection

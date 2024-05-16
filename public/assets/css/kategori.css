@@ -1,0 +1,112 @@
+#kategori-slider2 {
+    overflow: hidden;
+}
+
+.slider2 {
+    display: flex;
+    transition: transform 0.5s ease;
+    margin: 0 auto;
+    width: fit-content; 
+}
+
+.slidee2 {
+    flex: 0 0 auto;
+    margin-right: 20px; /* Jarak antara setiap slide */
+}
+
+.kategori-item {
+    background-color: #fff;
+    border-radius: 4px;
+    width: 190px; /* Lebar slide */
+    height: 190px; /* Tinggi slide */
+    border-radius: 10px;
+    border: 1px solid #35755D;
+    box-shadow: none;
+}
+
+.kategori-item:hover {
+    border: 4px solid transparent;
+    box-shadow: none; /* Menambahkan border transparan */
+    animation: border-glow 0.5s infinite alternate; 
+}
+
+@keyframes border-glow {
+    0% {
+        border-color: #35755D;
+    }
+    100% {
+        border-color: #35755D; /* Warna hijau */
+    }
+}
+
+.kategori-image {
+    position: relative;
+    overflow: hidden;
+    max-width: 250px; /* Lebar gambar */
+    height: 150px; /* Tinggi gambar */
+    border-radius: 10px 10px 0px 0px;
+}
+
+.kategori-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.kategori-item:hover .kategori-image img {
+    transform: scale(1.05);
+}
+
+.descr2 {
+    padding: 20px;
+}
+
+.title3 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #35755D;
+}
+
+.title3 a {
+    color: #35755D;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.title3 a:hover {
+    color: #35755D;
+}
+
+.meta-tags2 {
+    color: #999;
+}
+
+.meta-tags2 span {
+    margin-right: 8px;
+}
+
+.meta-tags2 a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.meta-tags2 a:hover {
+    color: #35755D;
+}
+
+.prev-btn2 {
+    border-radius: 11px; 
+    color: #35755D;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.next-btn2 {
+    border-radius: 11px; 
+    color: #35755D;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
