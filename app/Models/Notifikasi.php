@@ -15,9 +15,14 @@ class Notifikasi extends Model
     ];
     public function getDaysDifference()
     {
-        $date = $this->tanggal_notifikasi; // Kolom tanggal notifikasi
-        $selisih_hari = DB::selectOne('SELECT DATEDIFF(CURDATE(), ?) AS selisih_hari', [$date])->selisih_hari;
+        $dates = DB::table('notifikasi')->pluck('waktu'); // Mengambil semua tanggal dari kolom 'tanggal'
+        $differences = [];
 
-        return $selisih_hari;
+        foreach ($dates as $date) {
+            $selisih_hari = DB::selectOne('SELECT DATEDIFF(CURDATE(), ?) AS selisih_hari', [$date])->selisih_hari;
+            $differences[] = ['waktu' => $date, 'selisih_hari' => $selisih_hari];
+        }
+
+        return $differences;
     }
 }
