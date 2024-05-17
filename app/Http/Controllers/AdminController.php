@@ -76,13 +76,13 @@ class AdminController extends Controller
             'pengajuan_barang' => Barang::where('status', 'Diproses')->get()
         ]);
     }
-    public function seleksiPengajuanBarang($id){
+    public function seleksiPengajuanBarang($id_barang){
         return view('admin.seleksi_pengajuan_barang',[
-            'barang' => Barang::findOrFail($id)
+            'barang' => Barang::findOrFail($id_barang)
         ]);
     }
-    public function terimaPengajuanBarang($id){
-        $pengajuan_barang = Barang::findOrFail($id);
+    public function terimaPengajuanBarang($id_barang){
+        $pengajuan_barang = Barang::findOrFail($id_barang);
 
         $pengajuan_barang->update([
             'status' => 'Open'
@@ -96,14 +96,14 @@ class AdminController extends Controller
         ]);
         return redirect('/pengajuan_lelang')->with('successPengajuan', 'Pengajuan berhasil diterima.');
     }
-    public function tolakPengajuanBarang($id){
-        $pengajuan_barang = Barang::findOrFail($id);
+    public function tolakPengajuanBarang($id_barang){
+        $pengajuan_barang = Barang::findOrFail($id_barang);
         $pengajuan_barang->delete();
         $user = User::where('nik', $pengajuan_barang->nik)->first();
         $waktu_sekarang = date('Y-m-d H:i:s');
         Notifikasi::create([
             'nik' => $user->nik, // Simpan NIK pengguna dalam notifikasi
-            'pesan' => 'Pengajuan '. $pengajuan_barang->nama_barang.' Anda Ditolak! Silahkan Ajukan Lagi Dengan Data Yang Benar.',
+            'pesan' => 'Pengajuan '. $pengajuan_barang->nama_barang.'Anda Ditolak! Silahkan Ajukan Lagi Dengan Data Yang Benar.',
             'waktu' => $waktu_sekarang,
         ]);
         return redirect('/pengajuan_lelang')->with('successPengajuan', 'Pengajuan Ditolak.');

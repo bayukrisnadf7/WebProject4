@@ -354,10 +354,10 @@ Carbon::setLocale('id');
                         <input type="text" class="form-control" id="bid_minimal" name="bid_minimal"
                             value="{{ $detail_barang['harga_barang'] }}" readonly>
                     </div>
-                    <form action="{{ route('submit_bid', ['id' => $detail_barang->id]) }}" method="POST"
+                    <form action="{{ route('submit_bid', ['id_barang' => $detail_barang->id_barang]) }}" method="POST"
                         id="bidForm">
                         @csrf
-                        <input type="hidden" name="id_barang" value="{{ $detail_barang->id }}">
+                        <input type="hidden" name="id_barang" value="{{ $detail_barang->id_barang }}">
                         <input type="hidden" name="status" value="Diproses">
                         <input type="hidden" name="nik" value="{{ auth()->user()->nik }}">
                         <div class="form-group">

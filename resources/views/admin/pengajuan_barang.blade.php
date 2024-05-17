@@ -114,7 +114,7 @@
                                     <td>
                                         <div class="btn-group">
                                             <a class="btn btn-warning"
-                                                href="/seleksi_pengajuan_barang/{{ $item->id }}">
+                                                href="/seleksi_pengajuan_barang/{{ $item->id_barang }}">
                                                 <i class="bx bx-edit"></i>
                                             </a>
                                         </div>

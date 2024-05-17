@@ -9,21 +9,29 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\PemenangController;
 use App\Http\Controllers\PengajuanLelangController;
 use App\Http\Controllers\ProfileController;
 use App\Models\BidBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Symfony\Component\HttpKernel\Profiler\Profile;
+use Illuminate\Support\Facades\Auth;
 
 // Route::get('/', [BarangController::class, 'index']);
 Route::get('/', [BarangController::class, 'index']);
 
-Route::get('/detail_barang/{id}', [BarangController::class, 'show'])->middleware('auth');
-Route::post('/submit_bid/{id}', [BidBarangController::class, 'store'])->name('submit_bid');
+Route::get('/detail_barang/{id_barang}', [BarangController::class, 'show'])->middleware('auth');
+Route::post('/submit_bid/{id_barang}', [BidBarangController::class, 'store'])->name('submit_bid');
 
 Route::post('/upload_barang', [BarangController::class, 'store'])->middleware('auth');
 Route::get('/upload_barang', [BarangController::class, 'index2'])->middleware('auth');
+
+// cek auth
+Route::get('/check-auth', function () {
+    return response()->json(['authenticated' => Auth::check()]);
+});
+
 
 // notifikasi
 Route::get('/notifikasi', [NotifikasiController::class, 'index']);
@@ -66,11 +74,14 @@ Route::post('/tolak_pengajuan/{id_pengajuan}', [AdminController::class, 'tolakPe
 
 // pengajuan barang
 Route::get('/pengajuan_barang', [AdminController::class, 'showPengajuanBarang']);
-Route::get('/seleksi_pengajuan_barang/{id}', [AdminController::class, 'seleksiPengajuanBarang']);
-Route::post('/terima_pengajuan_barang/{id}', [AdminController::class, 'terimaPengajuanBarang'])->name('terima.pengajuan.barang');
-Route::post('/tolak_pengajuan_barang/{id}', [AdminController::class, 'tolakPengajuanBarang'])->name('tolak.pengajuan.barang');
+Route::get('/seleksi_pengajuan_barang/{id_barang}', [AdminController::class, 'seleksiPengajuanBarang']);
+Route::post('/terima_pengajuan_barang/{id_barang}', [AdminController::class, 'terimaPengajuanBarang'])->name('terima.pengajuan.barang');
+Route::post('/tolak_pengajuan_barang/{id_barang}', [AdminController::class, 'tolakPengajuanBarang'])->name('tolak.pengajuan.barang');
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index']);
 Route::post('/profile_data_pribadi', [ProfileController::class, 'update'])->name('profile.update');
 Route::post('/profile_data_akun', [ProfileController::class, 'updateAccount'])->name('profile.updateAccount');
+
+// pilih pemenang
+Route::get('/pilih_pemenang/{id_barang}', [PemenangController::class, 'index']);

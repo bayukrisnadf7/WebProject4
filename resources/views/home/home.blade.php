@@ -145,14 +145,14 @@
                             <div class="trending-item">
                                 <div class="trending-image">
                                     <div class="tag">Live</div>
-                                    <a href="/detail_barang/{{ $item->id }}">
+                                    <a href="/detail_barang/{{ $item->id_barang }}"  class="detail-link">
                                       <img class="img-fluid"
                                           src="{{ asset('img/public/storage/barang/' . $item->foto_barang) }}"
                                           alt="" />
                                     </a>
                                 </div>
                                 <div class="descr">
-                                  <a href="/detail_barang/{{ $item->id }}">
+                                  <a href="/detail_barang/{{ $item->id_barang }}">
                                     <h6 class="title2">
                                         {{ $item->nama_barang }}
                                     </h6>
@@ -326,3 +326,29 @@
         </div>
         </div>
     </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const links = document.querySelectorAll('.detail-link');
+          links.forEach(link => {
+              link.addEventListener('click', function (event) {
+                  event.preventDefault(); // Prevent default link action
+                  fetch('/check-auth')
+                      .then(response => response.json())
+                      .then(data => {
+                          if (data.authenticated) {
+                              window.location.href = link.href; // Redirect if authenticated
+                          } else {
+                              showAlert();
+                          }
+                      })
+                      .catch(error => console.error('Error:', error));
+              });
+          });
+      });
+  
+      function showAlert() {
+          if (confirm('Harap Login Terlebih Dahulu')) {
+              window.location.href = '/login';
+          }
+      }
+  </script>

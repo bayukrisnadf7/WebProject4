@@ -52,7 +52,7 @@
                                 style="max-width: 100px; max-height: 100px;">
                         </td>
                         <td>
-                            Aksi
+                            <a href="/pilih_pemenang/{{ $item->id_barang }}" class="btn btn-primary">Pilih Pemenang</a>
                         </td>
                     </tbody>
                     @endforeach

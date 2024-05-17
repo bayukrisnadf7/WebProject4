@@ -7,6 +7,7 @@ use App\Models\BidBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 use Carbon\Carbon;
 
 
@@ -17,6 +18,14 @@ class BarangController extends Controller
     $barang = Barang::where('status', 'Open')->get();
     return view('home.home', compact('barang'));
     }
+    public function getBarangAPI(){
+        $barang = Barang::where('status', 'Open')->get();
+        return Response::json($barang, 200);
+    }
+    public function getBarangDetailAPI($id_barang){
+        $detail_barang = Barang::find($id_barang);
+        return Response::json($detail_barang, 200);
+    }
     public function index2()
     {
         return view('barang.upload');
@@ -24,15 +33,15 @@ class BarangController extends Controller
     public function index3(){
         return view('home.home');
     }
-    public function show($id)
+    public function show($id_barang)
     {
-        $detail_barang = Barang::find($id);
+        $detail_barang = Barang::find($id_barang);
 
         $namaPemilik = $detail_barang->user->nama;
 
 
         $bid_barang = BidBarang::with('user') // Eager load relasi user
-            ->where('id_barang', $id)
+            ->where('id_barang', $id_barang)
             ->orderBy('harga_bid', 'desc')
             ->get();
 

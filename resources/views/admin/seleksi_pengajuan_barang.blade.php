@@ -131,11 +131,11 @@
                                     </div>
                                 </div>
                                 <div class="mt-3" style="display: flex; gap: 20px;">
-                                    <form action="{{ route('terima.pengajuan.barang', $barang->id) }}" method="POST">
+                                    <form action="{{ route('terima.pengajuan.barang', $barang->id_barang) }}" method="POST">
                                         @csrf
                                         <button style="width: 120px" type="submit" class="btn btn-success mt-3">Terima</button>
                                     </form>
-                                    <form action="{{ route('tolak.pengajuan.barang', $barang->id) }}" method="POST">
+                                    <form action="{{ route('tolak.pengajuan.barang', $barang->id_barang) }}" method="POST">
                                         @csrf
                                         <button style="width: 120px" type="submit" class="btn btn-danger mt-3">Tolak</button>
                                     </form>
