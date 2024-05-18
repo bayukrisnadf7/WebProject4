@@ -1,7 +1,10 @@
 @extends('layouts.template')
 
 @section('content')
-
+@php
+use Carbon\Carbon;
+Carbon::setLocale('id');
+@endphp
     <!-- Main Carousel Section Start -->
     <div id="main-slide" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -11,7 +14,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="assets/img/slider/tes3.png" alt="First slide">
+                <img class="d-block w-100" src="{{ asset('assets/img/slider/tes3.png') }}" alt="First slide">
                 <div class="carousel-caption d-md-block">
                     <!-- <p class="fadeInUp wow" data-wow-delay=".6s">Global Grand Event on Digital Design</p>
                                     <h1 class="wow fadeInDown heading" data-wow-delay=".4s">Design Thinking Conference</h1> -->
@@ -20,7 +23,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="assets/img/slider/tes4.png" alt="Second slide">
+                <img class="d-block w-100" src="{{ asset('assets/img/slider/tes4.png') }}" alt="Second slide">
                 <div class="carousel-caption d-md-block">
                     <!-- <p class="fadeInUp wow" data-wow-delay=".6s">Global Grand Event on Digital Design</p>
                                 <h1 class="wow bounceIn heading" data-wow-delay=".7s">22 Amazing Speakers</h1>
@@ -28,7 +31,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="assets/img/slider/tes5.png" alt="Third slide">
+                <img class="d-block w-100" src="{{ asset('assets/img/slider/tes5.png') }}" alt="Third slide">
                 <div class="carousel-caption d-md-block">
                     <!-- <p class="fadeInUp wow" data-wow-delay=".6s">Global Grand Event on Digital Design</p>
                                 <h1 class="wow fadeInUp heading" data-wow-delay=".6s">Book Your Seat Now!</h1>
@@ -54,7 +57,7 @@
       <div class="container-fluid" style="overflow: hidden;">
           <div class="slider2">
             <div class="slidee2">
-              <a href="/kategori_barang" class="card-item">
+              <a href="/kategori/elektronik" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
@@ -68,7 +71,7 @@
               </a>
             </div>
             <div class="slidee2">
-              <a href="/kategori_barang" class="card-item">
+              <a href="/kategori/aksesoris" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
@@ -82,7 +85,7 @@
               </a>
             </div>
             <div class="slidee2">
-              <a href="/kategori_barang" class="card-item">
+              <a href="/kategori/hobi&koleksi" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
@@ -96,7 +99,7 @@
               </a>
             </div>
             <div class="slidee2">
-              <a href="/kategori_barang" class="card-item">
+              <a href="/kategori/gadget" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
@@ -110,7 +113,7 @@
               </a>
             </div>
             <div class="slidee2">
-              <a href="/kategori_barang" class="card-item">
+              <a href="/kategori/otomotif" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
@@ -158,9 +161,9 @@
                                     </h6>
                                   </a>
                                     <div class="meta-tags">
-                                        <p>2018 | 43 | JPN</p>
+                                        <p><i class="fa-solid fa-location-dot"></i> {{ $item->kota }} {{  $item->provinsi }}</p>
                                         <p style="color: #35755D; font-weight: bolder;">Rp {{ $item->harga_barang }}</p>
-                                        <p><i class="fa-regular fa-calendar-days"></i> {{ $item->tgl_publish }}</p>
+                                        <p><i class="fa-regular fa-calendar-days"></i> {{ Carbon::parse($item->tgl_publish  )->translatedFormat('d F Y H:i') }} WIB</p>
                                         {{-- <p><i class="fa-solid fa-location-dot"></i> Semarang</p> --}}
                                     </div>
                                     {{-- <a href="/detail_barang/{{ $item->id }}" class="btn btn-primary">Ikuti Lelang</a> --}}

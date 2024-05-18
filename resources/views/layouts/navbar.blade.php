@@ -10,7 +10,7 @@
                 <span class="icon-menu"></span>
                 <span class="icon-menu"></span>
             </button>
-            <a href="/" class="navbar-brand"><img src="assets/img/logoa.png" alt=""></a>
+            <a href="/" class="navbar-brand"><img src="{{ asset('assets/img/logoa.png') }}" alt=""></a>
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
             <div class="search">
@@ -38,14 +38,14 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Riwayat Lelang</a></li>
+                            <li><a class="dropdown-item" href="/riwayat_lelang">Riwayat Lelang</a></li>
                             <li><a class="dropdown-item" href="/notifikasi">Notifikasi</a></li>
                             @if (auth()->user()->status == 1)
                                 <li><a class="dropdown-item" href="/pengajuan">Pengajuan Menjadi Lelang</a></li>
                             @endif
                             @if (auth()->user()->status == 2)
                                 <li><a class="dropdown-item" href="/upload_barang">Pengajuan Barang</a></li>
-                                <li><a class="dropdown-item" href="/riwayat_lelang">Riwayat </a></li>
+                                <li><a class="dropdown-item" href="/riwayat_lelang_barang">Riwayat Lelang Barang</a></li>
                             @endif
                             <li>
                                 <form action="/logout" method="post" id="logoutForm">

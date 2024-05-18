@@ -18,6 +18,26 @@ class BarangController extends Controller
     $barang = Barang::where('status', 'Open')->get();
     return view('home.home', compact('barang'));
     }
+    public function kategoriElektronik(){
+        $barang = Barang::where('kategori_barang', 'Elektronik')->get();
+        return view('home.home', compact('barang'));
+    }
+    public function kategoriAksesoris(){
+        $barang = Barang::where('kategori_barang', 'Aksesoris')->get();
+        return view('home.home', compact('barang'));
+    }
+    public function kategoriHobi_Koleksi(){
+        $barang = Barang::where('kategori_barang', 'Hobi & Koleksi')->get();
+        return view('home.home', compact('barang'));
+    }
+    public function kategoriGadget(){
+        $barang = Barang::where('kategori_barang', 'Gadget')->get();
+        return view('home.home', compact('barang'));
+    }
+    public function kategoriOtomotif(){
+        $barang = Barang::where('kategori_barang', 'Otomotif')->get();
+        return view('home.home', compact('barang'));
+    }
     public function getBarangAPI(){
         $barang = Barang::where('status', 'Open')->get();
         return Response::json($barang, 200);
@@ -40,12 +60,12 @@ class BarangController extends Controller
         $namaPemilik = $detail_barang->user->nama;
 
 
-        $bid_barang = BidBarang::with('user') // Eager load relasi user
+        $lelang_tertinggi = BidBarang::with('user') // Eager load relasi user
             ->where('id_barang', $id_barang)
             ->orderBy('harga_bid', 'desc')
-            ->get();
+            ->first();
 
-        return view('barang.detail', compact('detail_barang', 'bid_barang', 'namaPemilik'));
+        return view('barang.detail', compact('detail_barang', 'lelang_tertinggi', 'namaPemilik'));
     }
 
     public function showHistoryBid(){
@@ -58,14 +78,14 @@ class BarangController extends Controller
         return view('barang.history', ['riwayat_bid' => $riwayat_bid]);
     }
 
-    public function showRiwayatLelang(){
+    public function showRiwayatLelangBarang(){
         // Mengambil nik pengguna yang saat ini diautentikasi
         $nik_pengguna = auth()->user()->nik;
     
         // Mengambil barang yang terkait dengan nik pengguna saat ini
         $barang = Barang::where('nik', $nik_pengguna)->get();
     
-        return view('barang.riwayat_lelang', compact('barang'));
+        return view('barang.riwayat_lelang_barang', compact('barang'));
     }
     
 

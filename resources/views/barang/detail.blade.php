@@ -103,6 +103,7 @@ Carbon::setLocale('id');
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="dropdown-divider"></div>
                         <!-- Deskripsi -->
                         <div class="row">
@@ -112,6 +113,20 @@ Carbon::setLocale('id');
                             <div class="col-md-9">
                                 <div class="d-flex justify-content-between">
                                     <h6 class="text-ibid-black1 font-weight-normal">{{ $detail_barang->deskripsi}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <!-- Informasi kelipatan -->
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h6 class="text-ibid-black1">Lelang Tertinggi</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="text" style="font-weight:bold;">
+                                        Rp {{ $lelang_tertinggi->harga_bid ?? '-' }}
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -326,18 +341,7 @@ Carbon::setLocale('id');
     </section>
 
 
-    <link href="{{ asset('assets/css/detail.css') }}" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
-    <script src="{{ asset('assets/js/detail.js') }}"></script>
-    @if ($bid_barang)
-        @foreach ($bid_barang as $item)
-            {{-- <h4>Nama Orang Yang Ngebid: {{ $item->user->name }}</h4> --}}
-            <h4>Total Ngebid: {{ $item->harga_bid }}</h4>
-        @endforeach
-    @else
-        <p>No bid data found.</p>
-    @endif
-
+    
 
 
     <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="bidModalLabel"
