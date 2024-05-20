@@ -57,7 +57,7 @@
                 <div class="kategori-item">
                     <div class="descr2">
                       <h6 class="title3">
-                        <i class="fa-solid fa-plug" style="font-size: 30px;"></i>
+                        <img src="assets/img/power.png" style="width: 35px; height: 35px;" alt="Elektronik">
                       </h6>
                         <h6 class="title3" style="font-weight: bold; color: #000">
                             Elektronik
@@ -70,11 +70,11 @@
               <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
-                      <h6 class="title3">
-                        <i class="fa-solid fa-briefcase" style="font-size: 30px;"></i>
-                      </h6>
+                        <h6 class="title3">
+                          <img src="assets/img/jam.png" style="width: 35px; height: 35px;" alt="Aksesoris">
+                        </h6>
                         <h6 class="title3" style="font-weight: bold; color: #000">
-                            Aksesoris
+                          Aksesoris
                         </h6>
                     </div>
                 </div>
@@ -84,11 +84,11 @@
               <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
-                      <h6 class="title3">
-                        <i class="fa-solid fa-futbol" style="font-size: 30px;"></i>
-                      </h6>
+                        <h6 class="title3">
+                          <img src="assets/img/football.png" style="width: 35px; height: 35px;" alt="Hobi">
+                        </h6>
                         <h6 class="title3" style="font-weight: bold; color: #000">
-                            Hobi
+                            Hobi & Koleksi
                         </h6>
                     </div>
                 </div>
@@ -98,9 +98,9 @@
               <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
-                      <h6 class="title3">
-                        <i class="fa-solid fa-mobile-screen" style="font-size: 30px;"></i>
-                      </h6>
+                        <h6 class="title3">
+                          <img src="assets/img/smartphone.png" style="width: 35px; height: 35px;" alt="Gadget">
+                        </h6>
                         <h6 class="title3" style="font-weight: bold; color: #000">
                             Gadget
                         </h6>
@@ -112,9 +112,9 @@
               <a href="/kategori_barang" class="card-item">
                 <div class="kategori-item">
                     <div class="descr2">
-                      <h6 class="title3">
-                        <i class="fa-solid fa-car" style="font-size: 30px;"></i>
-                      </h6>
+                        <h6 class="title3">
+                          <img src="assets/img/cars.png" style="width: 35px; height: 35px;" alt="Otomotif">
+                        </h6>
                         <h6 class="title3" style="font-weight: bold; color: #000">
                             Otomotif
                         </h6>
@@ -128,7 +128,7 @@
     </section>
 
     <!-- Live -->
-    <section id="trending-slider" class="section-padding" style="padding-left: 50px; padding-right: 50px; margin-top: -95px;">
+    <section id="trending-slider" class="section-padding" style="padding-left: 50px; padding-right: 50px; margin-top: -75px;">
       <div class="container-fluid" style="overflow: hidden;">
         <h5 style="margin-bottom: 15px; position: relative; font-weight: bold;">Sedang Berlangsung
           <div class="navigation" style="position: absolute; top: 0; right: 0; margin-right: -20px;">
