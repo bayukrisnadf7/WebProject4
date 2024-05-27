@@ -29,11 +29,11 @@ class LoginController extends Controller
         // Kondisi 2: Jika bukan admin, lakukan proses otentikasi standar
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect('/')->with('successLogin', 'Login Berhasil');
         }
 
         // Jika tidak cocok dengan kondisi manapun, kembali ke halaman login dengan pesan kesalahan
-        return back()->with('loginError', 'Login Failed!');
+        return back()->with('errorLogin', 'Email atau Password Salah!');
     }
 
     public function logout(Request $request)

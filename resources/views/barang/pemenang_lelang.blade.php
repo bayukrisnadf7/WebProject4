@@ -16,17 +16,15 @@
                     <table id="example" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
+                                <th>Nama</th>
                                 <th>Harga Lelang</th>
-                                <th>Status</th>
-                                <th>NIK</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         @foreach ($list_pelelang as $item)
                             <tbody>
+                                <td>{{ $item->user->nama }}</td>
                                 <td>{{ $item->harga_bid }}</td>
-                                <td>{{ $item->status }}</td>
-                                <td>{{ $item->nik }}</td>
                                 <td>
                                     <form
                                         action="{{ route('pemenang.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang]) }}"

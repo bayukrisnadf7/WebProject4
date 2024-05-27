@@ -32,28 +32,28 @@ class PengajuanLelangController extends Controller
         $request->validate([
             'bank' => 'required',
             'no_rek' => 'required',
-            'scan_ktp' => 'required',
+            'foto_muka' => 'required',
             'status'=> 'required',
         ]);
         try {
-            if ($request->hasFile('scan_ktp')) {
+            if ($request->hasFile('foto_muka')) {
                 // Simpan file ke dalam direktori 'storage/barang'
-                $nama_file = $request->file('scan_ktp')->storeAs('public/scan_ktp', $request->file('scan_ktp')->getClientOriginalName());
+                $nama_file = $request->file('foto_muka')->storeAs('public/foto_muka', $request->file('foto_muka')->getClientOriginalName());
     
                 // Dapatkan URL file yang disimpan
-                $url_file = $request->file('scan_ktp')->getClientOriginalName();
+                $url_file = $request->file('foto_muka')->getClientOriginalName();
     
                 $nik = auth()->user()->nik;
                 // Simpan nama file ke dalam database
                 PengajuanLelang::create([
                     'bank' => $request->bank,
                     'no_rek' => $request->no_rek,
-                    'scan_ktp' => $url_file,  // Simpan URL file di database
+                    'foto_muka' => $url_file,  // Simpan URL file di database
                     'status' => $request->status,
                     'nik' => $nik,
                 ]);
     
-                return redirect('/')->with('success', 'Pengajuan berhasil, harap tunggu');
+                return redirect('/pengajuan')->with('success', 'Pengajuan berhasil, harap tunggu');
             }
         } catch (\Exception $th) {
             return redirect('/pengajuan')->with('gagal', 'Pengajuan gagal, periksa kembali data');

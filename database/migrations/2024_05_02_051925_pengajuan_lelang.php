@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_pengajuan');
             $table->string('bank');
             $table->string('no_rek');
-            $table->string('scan_ktp');
+            $table->string('foto_muka');
             $table->string('status');
             $table->string('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
             $table->foreign('nik')->references('nik')->on('users');

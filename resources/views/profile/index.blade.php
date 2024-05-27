@@ -25,7 +25,7 @@
                     <button id="editButton" type="button"
                         style="background-color: #35755D; color: white; border: none; padding: 5px 10px; border-radius: 25px; width: 80px">Edit</button>
                 </div>
-                <div class="mb-2 row">
+                <div class="mb-2 row" style="display: none">
                     <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
                         NIK
                     </label>

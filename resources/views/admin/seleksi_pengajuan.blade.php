@@ -28,9 +28,9 @@
             <li><a href="/halaman_admin"><i class='bx bxs-dashboard '></i>Dashboard</a></li>
             <li class="active"><a href="/pengajuan_lelang"><i class='bx bx-store-alt'></i>Pengajuan Lelang</a></li>
             <li class=""><a href="/pengajuan_barang"><i class='bx bx-analyse'></i>Pengajuan Barang</a></li>
-            <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
+            {{-- <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
             <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li> --}}
         </ul>
         <ul class="side-menu">
             <li>
@@ -119,10 +119,10 @@
                                     </strong>{{ $dataPengajuan->bank }}</p>
                                 <p class="card-text"><strong>Nomor Rekening &nbsp;&nbsp;&nbsp;:
                                     </strong>{{ $dataPengajuan->no_rek }}</p>
-                                <p class="card-text"><strong>Scan
-                                        KTP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                                <p class="card-text"><strong>Foto
+                                        Muka&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                                     </strong></p>
-                                <img src="{{ asset('/img/public/scan_ktp/' . $dataPengajuan->scan_ktp) }}" class="img-fluid"
+                                <img src="{{ asset('/img/public/foto_muka/' . $dataPengajuan->foto_muka) }}" class="img-fluid"
                                     alt="Scan KTP" width="400px">
                                 <div class="mt-3" style="display: flex; gap: 20px;">
                                     <form action="{{ route('terima.pengajuan', $dataPengajuan->id_pengajuan) }}" method="POST">

@@ -31,7 +31,7 @@ class RegisterController extends Controller
             'password2' => 'required|same:password', // Memastikan password2 sama dengan password
             'agreeCheckbox' => 'accepted',
         ], [
-            'password2.same' => 'Konfirmasi password harus sama dengan password.',
+            'password2.same' => 'Password tidak sama.',
             'agreeCheckbox.accepted' => 'Anda harus menyetujui syarat dan ketentuan.',
         ]);
 
@@ -65,7 +65,7 @@ class RegisterController extends Controller
             throw new \Exception('Gagal menyimpan data pengguna baru.');
         }
     } catch (\Exception $th) {
-        return redirect('/register')->with('registError', 'Registrasi Gagal: ' . $th->getMessage());
+        return redirect('/register')->with('registError', 'Registrasi gagal: ' . $th->getMessage());
     }
 }
 

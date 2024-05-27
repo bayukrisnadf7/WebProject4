@@ -40,6 +40,7 @@
                             <li><a class="dropdown-item" href="/profile">Profile</a></li>
                             <li><a class="dropdown-item" href="/riwayat_lelang">Riwayat Lelang</a></li>
                             <li><a class="dropdown-item" href="/notifikasi">Notifikasi</a></li>
+                            <li><a class="dropdown-item" href="/transaksi">Transaksi</a></li>
                             @if (auth()->user()->status == 1)
                                 <li><a class="dropdown-item" href="/pengajuan">Pengajuan Menjadi Lelang</a></li>
                             @endif

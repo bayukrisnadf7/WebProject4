@@ -131,9 +131,15 @@ Carbon::setLocale('id');
                             </div>
                         </div>
                         <div class="mt-2">
-                            <button type="button" style="width: 100%" class="btn btn-primary mt-4" data-toggle="modal" data-target="#bidModal">
-                                IKUT LELANG
-                            </button>
+                            @if ($nikPemilik == auth()->user()->nik)
+                                <button type="button" style="width: 100%" class="btn btn-primary mt-4" data-toggle="modal" data-target="#bidModal" disabled>
+                                    IKUT LELANG
+                                </button>
+                            @else
+                                <button type="button" style="width: 100%" class="btn btn-primary mt-4" data-toggle="modal" data-target="#bidModal">
+                                    IKUT LELANG
+                                </button>
+                            @endif
                         </div>
                         {{-- <div class="row">
                             <div class="col-md-9">

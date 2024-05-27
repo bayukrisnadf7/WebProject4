@@ -6,12 +6,14 @@ use App\Http\Controllers\BidBarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RiwayatLelangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PemenangController;
 use App\Http\Controllers\PengajuanLelangController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransaksiController;
 use App\Models\BidBarang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -35,6 +37,9 @@ Route::post('/submit_bid/{id_barang}', [BidBarangController::class, 'store'])->n
 // pengajuan upload barang
 Route::post('/upload_barang', [BarangController::class, 'store'])->middleware('auth');
 Route::get('/upload_barang', [BarangController::class, 'index2'])->middleware('auth');
+
+// Riwayat lelang
+Route::get('riwayat_lelang', [RiwayatLelangController::class, 'index']);
 
 // cek auth
 Route::get('/check-auth', function () {
@@ -90,3 +95,17 @@ Route::post('/profile_data_akun', [ProfileController::class, 'updateAccount'])->
 Route::get('/pilih_pemenang/{id_barang}', [PemenangController::class, 'index']);
 Route::post('/pemenang_lelang_barang/{nik}/{id_barang}', [PemenangController::class, 'pemenangLelangBarang'])->name('pemenang.lelang.barang');
 Route::post('/tolak_lelang_barang/{nik}/{id_barang}', [PemenangController::class, 'tolakLelangBarang'])->name('tolak.lelang.barang');
+
+// transaksi
+Route::get('/transaksi', [TransaksiController::class, 'index']);
+Route::get('pembayaran/{id_barang}', [TransaksiController::class, 'showPembayaranBarang']);
+Route::post('pembayaran/{id_barang}', [TransaksiController::class, 'pembayaranBarang']);
+Route::get('/lihat_pembayaran/{id_pembayaran}', [BarangController::class, 'buktiPembayaran']);
+Route::post('/pembayaran_diterima/{id_pembayaran}', [TransaksiController::class, 'pembayaranDiterima'])->name('pembayaran.diterima');
+Route::post('/pembayaran_ditolak/{id_pembayaran}', [TransaksiController::class, 'pembayaranDitolak'])->name('pembayaran.ditolak');
+
+
+
+// pembayaran
+// Route::get('/pembayaran/{id_barang}', [PemenangController::class, 'show'])->name('pembayaran.show');
+

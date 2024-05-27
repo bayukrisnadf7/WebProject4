@@ -5,20 +5,18 @@
     </h6>
     <div class="card container card-custom" style="margin: auto; max-width: 1000px;">
         @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 500px;">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
                 {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
         @if (session()->has('registError'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 500px;">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
                 {{ session('registError') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         <div class="card-body d-flex flex-column justify-content-between">
-            <form action="/register" method="POST" enctype="multipart/form-data">
+            <form action="/register" method="POST" enctype="multipart/form-data" id="registerForm">
                 @csrf
                 <div class="mb-3">
                     <h5 style="font-weight: bold; color: #35755D;">Data Pribadi</h5>
@@ -239,5 +237,26 @@
             // Baca file sebagai URL data
             reader.readAsDataURL(file);
         });
+    </script>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+            var form = document.getElementById('registerForm');
+            var confirmed = confirm('Apakah data yang Anda masukkan sudah benar?');
+            if (confirmed) {
+                form.submit(); // Submit the form if the user confirms
+            }
+        });
+    </script>
+    <script>
+        // Fade out the success alert after 5 seconds
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 4000);
+    
+        // Fade out the error alert after 5 seconds
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 4000);
     </script>
 @endsection

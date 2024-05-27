@@ -3,7 +3,7 @@
         <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.2s">
-            <h3><img src="assets/img/logoa.png" alt=""></h3>
+            <h3><img src="{{ asset('assets/img/logoa.png') }}" alt=""></h3>
             <p>
                 Aorem ipsum dolor sit amet elit sed lum tempor incididunt ut labore el dolore alg minim veniam quis nostrud ncididunt.
             </p>

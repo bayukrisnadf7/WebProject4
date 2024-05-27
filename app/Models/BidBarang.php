@@ -13,9 +13,14 @@ class BidBarang extends Model
     ];
     public function user()
     {
-        return $this->belongsTo(User::class, 'nik', 'nik');
+        return $this->belongsTo(Register::class, 'nik', 'nik');
     }
     public function barang(){
         return $this->belongsTo(Barang::class, 'id_barang', 'id_barang');
     }
+    public function pembayaran()
+    {
+        return $this->hasOne(PembayaranBarang::class, 'id_barang', 'id_barang');
+    }
+
 }

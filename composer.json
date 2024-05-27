@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
         "pusher/pusher-php-server": "^7.2",
-        "twilio/sdk": "^8.0"
+        "twilio/sdk": "^8.0",
+        "yoeunes/toastr": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

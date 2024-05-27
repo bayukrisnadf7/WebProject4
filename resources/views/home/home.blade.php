@@ -1,6 +1,8 @@
 @extends('layouts.template')
 
 @section('content')
+    
+
 @php
 use Carbon\Carbon;
 Carbon::setLocale('id');
@@ -172,156 +174,6 @@ Carbon::setLocale('id');
                         </div>
                     </div>
             @endforeach
-            {{-- <div class="slidee">
-              <div class="card-item">
-                <div class="trending-item">
-                  <div class="trending-image">
-                    <a href="#">
-                <div class="tag">Live</div>
-                      <img class="img-fluid" src="assets/img/about/img3.jpg" alt="" />
-                    </a>
-                  </div>
-                  <div class="descr">
-                    <h6 class="title2">
-                      <a href="/detail_lelang">
-                        Nike Air Jordan KW Super
-                      </a>
-                    </h6>
-                    <div class="meta-tags">
-                      <p>2018 | 43 | JPN</p>
-                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
-                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
-                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slidee">
-              <div class="card-item">
-                <div class="trending-item">
-                  <div class="trending-image">
-                    <a href="#">
-                <div class="tag">Live</div>
-                      <img class="img-fluid" src="assets/img/about/img2.jpg" alt="" />
-                    </a>
-                  </div>
-                  <div class="descr">
-                    <h6 class="title2">
-                      <a href="/detail_lelang">
-                        Nike Air Jordan KW Super
-                      </a>
-                    </h6>
-                    <div class="meta-tags">
-                      <p>2018 | 43 | JPN</p>
-                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
-                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
-                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slidee">
-              <div class="card-item">
-                <div class="trending-item">
-                  <div class="trending-image">
-                    <a href="#">
-                <div class="tag">Live</div>
-                      <img class="img-fluid" src="assets/img/about/img1.jpg" alt="" />
-                    </a>
-                  </div>
-                  <div class="descr">
-                    <h6 class="title2">
-                      <a href="/detail_lelang">
-                        Nike Air Jordan KW Super
-                      </a>
-                    </h6>
-                    <div class="meta-tags">
-                      <p>2018 | 43 | JPN</p>
-                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
-                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
-                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slidee">
-              <div class="card-item">
-                <div class="trending-item">
-                  <div class="trending-image">
-                    <a href="#">
-                <div class="tag">Live</div>
-                      <img class="img-fluid" src="assets/img/blog/img-1.jpg" alt="" />
-                    </a>
-                  </div>
-                  <div class="descr">
-                    <h6 class="title2">
-                      <a href="/detail_lelang">
-                        Nike Air Jordan KW Super
-                      </a>
-                    </h6>
-                    <div class="meta-tags">
-                      <p>2018 | 43 | JPN</p>
-                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
-                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
-                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slidee">
-              <div class="card-item">
-                <div class="trending-item">
-                  <div class="trending-image">
-                    <a href="#">
-                <div class="tag">Live</div>
-                      <img class="img-fluid" src="assets/img/about/about.jpg" alt="" />
-                    </a>
-                  </div>
-                  <div class="descr">
-                    <h6 class="title2">
-                      <a href="/detail_lelang">
-                        Nike Air Jordan KW Super
-                      </a>
-                    </h6>
-                    <div class="meta-tags">
-                      <p>2018 | 43 | JPN</p>
-                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
-                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
-                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slidee">
-              <div class="card-item">
-                <div class="trending-item">
-                  <div class="trending-image">
-                    <a href="#">
-                <div class="tag">Live</div>
-                <img class="img-fluid" src="assets/img/about/about.jpg" alt="" />
-                    </a>
-                  </div>
-                  <div class="descr">
-                    <h6 class="title2">
-                      <a href="/detail_lelang">
-                        Nike Air Jordan KW Super
-                      </a>
-                    </h6>
-                    <div class="meta-tags">
-                      <p>2018 | 43 | JPN</p>
-                      <p style="color: #35755D; font-weight: bolder;">Rp 700.000</p>
-                      <p><i class="fa-regular fa-calendar-days"></i> 04 Mei 2024</p>
-                      <p><i class="fa-solid fa-location-dot"></i> Semarang</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> --}}
         </div>
         <div class="navigation" style="text-align: center; margin-top: 15px;">
             <!-- <button class="prev-btn" style="margin-right: 5px;"><i class="fa-solid fa-arrow-left"></i></button>
@@ -355,3 +207,4 @@ Carbon::setLocale('id');
           }
       }
   </script>
+@endsection

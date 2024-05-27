@@ -20,19 +20,20 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#" class="logo">
-            <i class='bx bx-code-alt'></i>
-            <div class="logo-name"><span>Asmr</span>Prog</div>
+        <a href="#" class="logo" style="margin-top: 5px; display: flex; justify-content: center">
+            {{-- <i class='bx bx-code-alt'></i> --}}
+            {{-- <img src="assets/img/logoa.png" alt=""> --}}
+            <div class="logo-name"><span>Si</span>Lelang</div>
         </a>
         <ul class="side-menu">
-            <li><a href="/halaman_admin"><i class='bx bxs-dashboard '></i>Dashboard</a></li>
+            <li class=""><a href="/halaman_admin"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
             <li class="active"><a href="/pengajuan_lelang"><i class='bx bx-store-alt'></i>Pengajuan Lelang</a></li>
             <li class=""><a href="/pengajuan_barang"><i class='bx bx-analyse'></i>Pengajuan Barang</a></li>
-            <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
+            {{-- <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
             <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li>
+            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li> --}}
         </ul>
-        <ul class="side-menu">
+        <ul class="side-menu" style="position: absolute; bottom: 0;">
             <li>
                 <a href="#" class="logout">
                     <i class='bx bx-log-out-circle'></i>

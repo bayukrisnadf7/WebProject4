@@ -14,7 +14,7 @@
 
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
-                        <form action="/pengajuan" method="POST" enctype="multipart/form-data">
+                        <form id="lelangForm" action="/pengajuan" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-outline mb-2">
                                 <label class="form-label" for="bank">Nama Bank</label>
@@ -38,13 +38,13 @@
                                 @enderror
                             </div>
                             <div class="mb-3" style="display: flex; flex-direction :column ">
-                                <label for="scan_ktp" class="form-label">Scan KTP</label>
+                                <label for="foto_muka" class="form-label">Foto Muka</label>
                                 <div id="gambar-container"></div>
                                 <input type="file"
-                                    class="form-control @error('scan_ktp') is-invalid
+                                    class="form-control @error('foto_muka') is-invalid
                                     @enderror mt-3"
-                                    name="scan_ktp" id="scan_ktp" accept="image/png, image/jpeg" required />
-                                @error('scan_ktp')
+                                    name="foto_muka" id="foto_muka" accept="image/png, image/jpeg" required />
+                                @error('foto_muka')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -53,7 +53,7 @@
                                 <input type="text" class="form-control" name="status" id="status" value="Diproses">
                             </div>
                             <button type="submit" class="btn btn-primary btn-block mt-2 mb-3" style="width: 100px">
-                                Daftar
+                                Ajukan 
                             </button>
                         </form>
                     </div>
@@ -62,7 +62,7 @@
         </div>
     </div>
     <script>
-        document.getElementById('scan_ktp').addEventListener('change', function() {
+        document.getElementById('foto_muka').addEventListener('change', function() {
             var file = this.files[0]; // Ambil file yang dipilih
 
             // Buat objek FileReader
@@ -116,6 +116,13 @@
 
             // Baca file sebagai URL data
             reader.readAsDataURL(file);
+        });
+
+        document.getElementById('lelangForm').addEventListener('submit', function(event) {
+            var isConfirmed = confirm('Apakah data yang Anda masukkan sudah benar?');
+            if (!isConfirmed) {
+                event.preventDefault(); // Batalkan pengiriman form jika pengguna membatalkan konfirmasi
+            }
         });
     </script>
 @endsection

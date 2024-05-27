@@ -11,7 +11,8 @@ class PemenangController extends Controller
 {
     public function index($id_barang)
     {
-        $list_pelelang = BidBarang::where('id_barang', $id_barang)->get();
+
+        $list_pelelang = BidBarang::where('id_barang', $id_barang)->with('user')->get();
 
         // if ($list_pelelang->isEmpty()) {
         //     $tidakAdaPembeli = 'Barang kamu masih belum ada pembeli';
@@ -26,14 +27,17 @@ class PemenangController extends Controller
 
         if ($bid) {
             $bid->status = 'Pemenang';
-            $barang->status = 'Closed';
             $bid->save();
             $waktu_sekarang = date('Y-m-d H:i:s');
         // Buat notifikasi untuk user yang diterima sebagai pelelang
             Notifikasi::create([
             'nik' => $nik, // Simpan NIK pengguna dalam notifikasi
-            'pesan' => 'Selamat! Anda Telah Menjadi Pemenang Lelang Barang ' . $barang->nama_barang,
+            'pesan' => 'Selamat! Anda Telah Menjadi Pemenang Lelang Barang ' . $barang->nama_barang . ' Silahkan lanjut pembayaran pada menu transaksi',
             'waktu' => $waktu_sekarang,
+        ]);
+        $barang->update([
+            'status' => 'Closed',
+            'status_pembayaran' => 'Pemenang Dipilih'
         ]);
         }
         return redirect('/riwayat_lelang_barang')->with('status', 'Status updated to Pemenang');
