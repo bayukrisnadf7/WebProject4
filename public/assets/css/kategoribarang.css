@@ -1,0 +1,134 @@
+/* Default styling */
+.bg-random {
+    color: #212121;
+}
+
+.slider6 {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between; /* Add space between items */
+}
+
+.perslide {
+    flex: 0 0 auto; /* Adjust this value to set the width of each card, e.g., 23% for 4 items in a row */
+    margin-bottom: 20px; /* Add space below each card */
+}
+
+.kategoribarang-item {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.kategoribarang-item:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.kategoribarang-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px; /* Tinggi gambar */
+    border-radius: 10px 10px 0px 0px;
+}
+
+.kategoribarang-image img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.kategoribarang-item:hover .kategoribarang-image img {
+    transform: scale(1.05);
+}
+
+.tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 1px 10px;
+    background-color: red;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.descr3 {
+    padding: 20px;
+}
+
+.title4 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.title4 a {
+    color: #212121;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.title4 a:hover {
+    color: #35755D;
+}
+
+.meta-tags3 {
+    color: #999;
+}
+
+.meta-tags3 span {
+    margin-right: 8px;
+}
+
+.meta-tags3 a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.meta-tags3 a:hover {
+    color: #35755D;
+}
+
+.countdown-timer {
+    position: absolute;
+    margin-left: 90px;
+    background-color: #fff;
+    color: #999;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.pagination .page-item .page-link {
+    color: #000;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #35755D;
+    border-color: #35755D;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    .perslide {
+        flex: 0 0 31%; /* Adjust this value to set the width of each card for medium screens, e.g., 31% for 3 items in a row */
+    }
+}
+
+@media (max-width: 768px) {
+    .perslide {
+        flex: 0 0 48%; /* Adjust this value to set the width of each card for small screens, e.g., 48% for 2 items in a row */
+    }
+}
+
+@media (max-width: 576px) {
+    .perslide {
+        flex: 0 0 100%; /* Set the width of each card to 100% for extra small screens, showing only 1 item in a row */
+    }
+}
+

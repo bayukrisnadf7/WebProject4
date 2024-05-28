@@ -307,3 +307,5 @@
 <link href="{{ asset('assets/css/detail.css') }}" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
 <script src="{{ asset('assets/js/detail.js') }}"></script>
+
+@endsection

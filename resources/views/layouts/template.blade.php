@@ -72,5 +72,6 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/live.js') }}"></script>
     <script src="{{ asset('assets/js/kategori.js') }}"></script>
+    <script src="{{ asset('assets/js/timer.js') }}"></script>
 </body>
 </html>

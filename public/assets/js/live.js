@@ -30,3 +30,31 @@ document.addEventListener('DOMContentLoaded', function () {
     prevBtn.addEventListener('click', prevSlidee);
   });
   
+  document.addEventListener("DOMContentLoaded", function() {
+    startCountdown("countdown-timer-1", "June 04, 2024 00:00:00");
+    startCountdown("countdown-timer-2", "June 01, 2024 00:00:00");
+    // Tambahkan lebih banyak panggilan ke startCountdown sesuai kebutuhan
+  });
+
+function startCountdown(elementId, endDate) {
+  var countdownElement = document.getElementById(elementId);
+  var endTime = new Date(endDate).getTime();
+
+  var countdownInterval = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = endTime - now;
+
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+      countdownElement.innerHTML = "EXPIRED";
+      return;
+    }
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  }, 1000);
+}
