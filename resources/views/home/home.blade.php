@@ -148,7 +148,7 @@
                 @endif
             @endif
             @foreach ($barang as $item)
-                <div class="slider mt-5">
+                <div class="slider">
                     <div class="slidee">
                         <div class="card-item">
                             <div class="trending-item">

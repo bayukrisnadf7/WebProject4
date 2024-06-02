@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BidBarang extends Model
 {
     protected $table = 'bid_barang';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'harga_bid', 'id_barang' , 'status' , 'nik'
     ];

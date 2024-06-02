@@ -12,4 +12,9 @@ class Register extends Model
     protected $fillable = [
         'nik','nama', 'jenis_kelamin', 'tempat_lahir', 'tanggal_lahir', 'alamat', 'nohp' ,'foto', 'email', 'password', 'status'
     ];
+    public function notifications()
+    {
+        return $this->hasMany(Notifikasi::class, 'nik', 'nik');
+    }
 }
+

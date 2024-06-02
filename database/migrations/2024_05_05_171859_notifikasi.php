@@ -17,6 +17,7 @@ return new class extends Migration
             $table->dateTime('waktu');
             $table->string('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'
             $table->foreign('nik')->references('nik')->on('users');
+            $table->boolean('read')->default(false);
             $table->timestamps();
         });
     }
@@ -28,4 +29,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('notifikasi');
     }
+    
 };

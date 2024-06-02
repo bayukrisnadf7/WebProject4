@@ -16,4 +16,7 @@ class PengajuanLelang extends Model
     {
         return $this->belongsTo(Barang::class, 'nik', 'nik');
     }
+    public function user(){
+        return $this->belongsTo(Register::class, 'nik', 'nik');
+    }
 }

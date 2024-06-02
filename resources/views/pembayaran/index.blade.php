@@ -25,32 +25,39 @@
         <div class="card mt-4">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="example" class="table table-striped" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Nama Barang</th>
-                                <th>Pemilik Barang</th>
-                                <th>Nomer Telepon Pemilik</th>
-                                <th>Harga Pembelian</th>
-                                <th>Status Pembayaran</th>
-                            </tr>
-                        </thead>
-                        @foreach ($barang as $item)
-                            <tbody>
-                                <td>{{ $item->barang->nama_barang }}</td>
-                                <td>{{ $item->barang->user->nama }}</td>
-                                <td>{{ $item->barang->user->nohp }}</td>
-                                <td>{{ $item->harga_bid }}</td>
-                                <td>
-                                    @if ($item->pembayaran->status_pembayaran == 'Diproses')
-                                    Sudah Dibayar
-                                    @else
-                                    <a href="/pembayaran/{{ $item->barang->id_barang }}" class="btn btn-primary">Bayar</a>
-                                    @endif
-                                </td>
-                            </tbody>
-                        @endforeach
-                    </table>
+                    @if ($barang->isEmpty())
+                        <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 20px">Tidak
+                            ada transaksi</p>
+                    @else
+                        <table id="example" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Nama Barang</th>
+                                    <th>Pemilik Barang</th>
+                                    <th>Nomer Telepon Pemilik</th>
+                                    <th>Harga Pembelian</th>
+                                    <th>Status Pembayaran</th>
+                                </tr>
+                            </thead>
+                            @foreach ($barang as $item)
+                                <tbody>
+                                    <td>{{ $item->barang->nama_barang }}</td>
+                                    <td>{{ $item->barang->user->nama }}</td>
+                                    <td>{{ $item->barang->user->nohp }}</td>
+                                    <td>{{ $item->harga_bid }}</td>
+                                    <td>
+                                        {{-- @if ($item->pembayaran->status_pembayaran == 'Diproses')
+                                            Sudah Dibayar
+                                        @else --}}
+                                            <a href="/pembayaran/{{ $item->barang->id_barang }}"
+                                                class="btn btn-primary">Bayar</a>
+                                        {{-- @endif --}}
+                                    </td>
+                                </tbody>
+                            @endforeach
+                        </table>
+                    @endif
+
                 </div>
             </div>
         </div>

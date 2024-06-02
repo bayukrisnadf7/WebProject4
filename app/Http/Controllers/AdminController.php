@@ -18,7 +18,7 @@ class AdminController extends Controller
     }
     public function pengajuanLelang(){
         return view('admin.pengajuan_lelang',[
-            'dataPengajuan' => PengajuanLelang::where('status', 'Diproses')->get(),
+            'dataPengajuan' => PengajuanLelang::with('user')->where('status', 'Diproses')->get(),
             'data_user'
         ]);
     }
@@ -91,7 +91,7 @@ class AdminController extends Controller
         $waktu_sekarang = date('Y-m-d H:i:s');
         Notifikasi::create([
             'nik' => $user->nik, // Simpan NIK pengguna dalam notifikasi
-            'pesan' => 'Pengajuan '. $pengajuan_barang->nama_barang.'Anda Diterima!, Silahkan Cek Riwayat Lelang Barang Anda.',
+            'pesan' => 'Pengajuan '. $pengajuan_barang->nama_barang.' anda diterima!. Silahkan cek riwayat lelang barang anda.',
             'waktu' => $waktu_sekarang,
         ]);
         return redirect('/pengajuan_lelang')->with('successPengajuan', 'Pengajuan berhasil diterima.');

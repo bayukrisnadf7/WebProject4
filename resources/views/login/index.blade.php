@@ -1,8 +1,8 @@
 @extends('layouts.template')
+@section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
     integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-@section('content')
     <div class="container" style="margin-top: 150px;">
         <div class="row align-items-start">
             <div class="col-md-5 offset-md-1" style="margin-right: 200px; margin-left: -3px;">

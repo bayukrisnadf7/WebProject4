@@ -6,10 +6,13 @@
     </div>
 @endif
 @php
-use Carbon\Carbon;
-Carbon::setLocale('id');
+    use Carbon\Carbon;
+    Carbon::setLocale('id');
 @endphp
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <section class="section-padding" style="padding-left: 50px; padding-right: 50px;">
         <div class="container-fluid" style="margin-top: 55px;">
             <div class="row">
@@ -17,14 +20,14 @@ Carbon::setLocale('id');
                     <div id="image-slider">
                         <div class="main-image">
                             <!-- Gambar utama -->
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang) }}" alt="Gambar Utama"
-                            id="main-image">
+                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang) }}"
+                                alt="Gambar Utama" id="main-image">
                         </div>
                         <div class="thumbnail-images">
                             <!-- 4 gambar kecil -->
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang) }}" alt="Thumbnail 1" class="thumbnail"
-                                onclick="changeImage(this)">
-                                <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang_depan) }}"
+                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang) }}"
+                                alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
+                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang_depan) }}"
                                 alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
                             <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang_belakang) }}"
                                 alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
@@ -85,7 +88,8 @@ Carbon::setLocale('id');
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="text-ibid-black1 font-weight-normal">{{ $detail_barang->kota }} {{  $detail_barang->provinsi }}</h6>
+                                    <h6 class="text-ibid-black1 font-weight-normal">{{ $detail_barang->kota }}
+                                        {{ $detail_barang->provinsi }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +107,7 @@ Carbon::setLocale('id');
                                 </div>
                             </div>
                         </div>
-                       
+
                         <div class="dropdown-divider"></div>
                         <!-- Deskripsi -->
                         <div class="row">
@@ -112,7 +116,7 @@ Carbon::setLocale('id');
                             </div>
                             <div class="col-md-9">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="text-ibid-black1 font-weight-normal">{{ $detail_barang->deskripsi}}</h6>
+                                    <h6 class="text-ibid-black1 font-weight-normal">{{ $detail_barang->deskripsi }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -132,11 +136,13 @@ Carbon::setLocale('id');
                         </div>
                         <div class="mt-2">
                             @if ($nikPemilik == auth()->user()->nik)
-                                <button type="button" style="width: 100%" class="btn btn-primary mt-4" data-toggle="modal" data-target="#bidModal" disabled>
+                                <button type="button" style="width: 100%" class="btn btn-primary mt-4" data-toggle="modal"
+                                    data-target="#bidModal" disabled>
                                     IKUT LELANG
                                 </button>
                             @else
-                                <button type="button" style="width: 100%" class="btn btn-primary mt-4" data-toggle="modal" data-target="#bidModal">
+                                <button type="button" style="width: 100%" class="btn btn-primary mt-4"
+                                    data-toggle="modal" data-target="#bidModal">
                                     IKUT LELANG
                                 </button>
                             @endif
@@ -151,10 +157,10 @@ Carbon::setLocale('id');
                     </div>
                 </div>
                 <!-- <div class="col-md-3 px-2">
-                        <div class="card-detail">
-                            <h1>PPPPPP</h1>
-                        </div>
-                    </div> -->
+                            <div class="card-detail">
+                                <h1>PPPPPP</h1>
+                            </div>
+                        </div> -->
             </div>
         </div>
     </section>
@@ -197,13 +203,13 @@ Carbon::setLocale('id');
             </div>
             <div class="navigation" style="text-align: center; margin-top: 15px;">
                 <!-- <button class="prev-btn" style="margin-right: 5px;"><i class="fa-solid fa-arrow-left"></i></button>
-                    <button class="next-btn"><i class="fa-solid fa-arrow-right"></i></button> -->
+                        <button class="next-btn"><i class="fa-solid fa-arrow-right"></i></button> -->
             </div>
         </div>
     </section>
 
 
-    
+
 
 
     <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="bidModalLabel"
@@ -295,8 +301,22 @@ Carbon::setLocale('id');
             });
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        @if (Session::has('successBid'))
+            $(document).ready(function() {
+                toastr.options.timeOut = 5000;
+                toastr.options.positionClass = 'toast-bottom-right';
+                toastr.success("{{ Session::get('successBid') }}");
+            });
+        @endif
+    </script>
 
-<link href="{{ asset('assets/css/detail.css') }}" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
-<script src="{{ asset('assets/js/detail.js') }}"></script>
+    <link href="{{ asset('assets/css/detail.css') }}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
+    <script src="{{ asset('assets/js/detail.js') }}"></script>
 @endsection

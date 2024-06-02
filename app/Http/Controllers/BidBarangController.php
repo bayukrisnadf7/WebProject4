@@ -16,7 +16,7 @@ class BidBarangController extends Controller
             'nik' => 'required'
         ]);
         if(BidBarang::create($validate)){
-            return redirect('/')->with('successBid', 'Bid Berhasil');
+            return back()->with('successBid', 'Sukses mengikuti lelang');
         }
         return back()->with('loginError', 'Bid Failed!');
     }

@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\AdminMiddleware;
 
 // main utama
 Route::get('/', [BarangController::class, 'index']);
@@ -77,6 +78,9 @@ Route::get('/pengajuan', [PengajuanLelangController::class, 'show']);
 Route::post('/pengajuan', [PengajuanLelangController::class, 'insertDataPengajuan']);
 
 // halaman admin
+// Route::middleware([AdminMiddleware::class])->group(function () {
+//     Route::get('/halaman_admin', [AdminController::class, 'index']);
+// });
 Route::get('/halaman_admin', [AdminController::class, 'index']);
 Route::get('/pengajuan_lelang', [AdminController::class, 'pengajuanLelang']);
 Route::get('/seleksi_pengajuan/{id_pengajuan}', [AdminController::class, 'seleksiPengajuan']);
@@ -96,8 +100,8 @@ Route::post('/profile_data_akun', [ProfileController::class, 'updateAccount'])->
 
 // pilih pemenang
 Route::get('/pilih_pemenang/{id_barang}', [PemenangController::class, 'index']);
-Route::post('/pemenang_lelang_barang/{nik}/{id_barang}', [PemenangController::class, 'pemenangLelangBarang'])->name('pemenang.lelang.barang');
-Route::post('/tolak_lelang_barang/{nik}/{id_barang}', [PemenangController::class, 'tolakLelangBarang'])->name('tolak.lelang.barang');
+Route::post('/pemenang_lelang_barang/{nik}/{id_barang}/{id}', [PemenangController::class, 'pemenangLelangBarang'])->name('pemenang.lelang.barang');
+Route::post('/tolak_lelang_barang/{nik}/{id_barang}/{id}', [PemenangController::class, 'tolakLelangBarang'])->name('tolak.lelang.barang');
 
 // transaksi
 Route::get('/transaksi', [TransaksiController::class, 'index']);

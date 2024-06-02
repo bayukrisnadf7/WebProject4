@@ -29,52 +29,59 @@
         <h2 style="text-align: center; color: #35755D;">RIWAYAT LELANG BARANG</h2>
         <div class="card mt-4">
             <div class="card-body">
-                <div class="table-responsive">
-                    <table id="example" class="table table-striped" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Barang</th>
-                                <th>Kategori Barang</th>
-                                <th>Kota</th>
-                                <th>Provinsi</th>
-                                <th>Harga Barang</th>
-                                <th>Kelipatan</th>
-                                <th>Foto Barang</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        @foreach ($barang as $index => $item)
-                            <tbody>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->nama_barang }}</td>
-                                <td>{{ $item->kategori_barang }}</td>
-                                <td>{{ $item->kota }}</td>
-                                <td>{{ $item->provinsi }}</td>
-                                <td>{{ $item->harga_barang }}</td>
-                                <td>{{ $item->kelipatan }}</td>
-                                <td>
-                                    <img src="{{ asset('img/public/storage/barang/' . $item->foto_barang) }}"
-                                        alt="Foto Barang" style="max-width: 100px; max-height: 100px;">
-                                </td>
-                                <td>
-                                    @if ($item->status_pembayaran == 'Diterima')
+                @if ($barang->isEmpty())
+                    <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 20px">Tidak ada lelang barang</p>
+                @else
+                    <div class="table-responsive">
+                        <table id="example" class="table table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Barang</th>
+                                    <th>Kategori Barang</th>
+                                    <th>Kota</th>
+                                    <th>Provinsi</th>
+                                    <th>Harga Barang</th>
+                                    <th>Kelipatan</th>
+                                    <th>Foto Barang</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: left;"> <!-- Pindahkan <tbody> ke luar dari loop -->
+                                @foreach ($barang as $index => $item)
+                                <tr> <!-- Tambahkan tag <tr> di dalam loop -->
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $item->nama_barang }}</td>
+                                    <td>{{ $item->kategori_barang }}</td>
+                                    <td>{{ $item->kota }}</td>
+                                    <td>{{ $item->provinsi }}</td>
+                                    <td>{{ $item->harga_barang }}</td>
+                                    <td>{{ $item->kelipatan }}</td>
+                                    <td>
+                                        <img src="{{ asset('img/public/storage/barang/' . $item->foto_barang) }}" alt="Foto Barang"
+                                            style="max-width: 100px; max-height: 100px;">
+                                    </td>
+                                    <td>
+                                        @if ($item->status_pembayaran == 'Diterima')
                                         Transaksi Selesai
-                                    @elseif ($item->status == 'Closed')
-                                        Tunggu Pembayaran 
-                                    @elseif ($item->status_pembayaran == 'Diproses')
+                                        @elseif ($item->status == 'Closed')
+                                        Tunggu Pembayaran
+                                        @elseif ($item->status_pembayaran == 'Diproses')
                                         <a href="/lihat_pembayaran/{{ $idPembayaranByBarang[$item->id_barang] }}"
                                             class="btn btn-primary">Lihat Pembayaran</a>
-                                    @else
+                                        @else
                                         <a href="/pilih_pemenang/{{ $item->id_barang }}" class="btn btn-primary">Pilih
                                             Pemenang</a>
-                                    @endif
-
-                                </td>
+                                        @endif
+                        
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
-                        @endforeach
-                    </table>
-                </div>
+                        </table>
+                    </div>
+                @endif
+
             </div>
         </div>
     </div>

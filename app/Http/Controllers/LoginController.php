@@ -23,7 +23,8 @@ class LoginController extends Controller
         // Kondisi 1: Jika email dan password adalah admin
         if ($credentials['email'] === 'admin@gmail.com' && $credentials['password'] === 'admin') {
             // Redirect ke halaman admin
-            return redirect()->route('admin.form');
+            Auth::loginUsingId(1); 
+            return redirect('/halaman_admin');
         }
 
         // Kondisi 2: Jika bukan admin, lakukan proses otentikasi standar

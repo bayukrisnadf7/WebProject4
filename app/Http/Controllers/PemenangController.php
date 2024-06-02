@@ -12,17 +12,16 @@ class PemenangController extends Controller
     public function index($id_barang)
     {
 
-        $list_pelelang = BidBarang::where('id_barang', $id_barang)->with('user')->get();
-
-        // if ($list_pelelang->isEmpty()) {
-        //     $tidakAdaPembeli = 'Barang kamu masih belum ada pembeli';
-        // }
-
+        $list_pelelang = BidBarang::where('id_barang', $id_barang)->where('status', 'Diproses')->orderBy('harga_bid', 'DESC')->with('user')->get();
         return view('barang.pemenang_lelang', compact('list_pelelang'));
     }
-    public function pemenangLelangBarang($nik, $id_barang)
+    public function pemenangLelangBarang($nik, $id_barang, $id)
     {
-        $bid = BidBarang::where('nik', $nik)->where('id_barang', $id_barang)->first();
+        $bid = BidBarang::where('id', $id) // Menambahkan kondisi where id
+        ->where('nik', $nik)
+        ->where('id_barang', $id_barang)
+        ->first();
+        
         $barang = Barang::findOrFail($id_barang);
 
         if ($bid) {
@@ -32,7 +31,7 @@ class PemenangController extends Controller
         // Buat notifikasi untuk user yang diterima sebagai pelelang
             Notifikasi::create([
             'nik' => $nik, // Simpan NIK pengguna dalam notifikasi
-            'pesan' => 'Selamat! Anda Telah Menjadi Pemenang Lelang Barang ' . $barang->nama_barang . ' Silahkan lanjut pembayaran pada menu transaksi',
+            'pesan' => 'Selamat! anda telah menjadi pemenang lelang barang ' . $barang->nama_barang . ' Silahkan lanjut pembayaran pada menu transaksi',
             'waktu' => $waktu_sekarang,
         ]);
         $barang->update([
@@ -43,9 +42,12 @@ class PemenangController extends Controller
         return redirect('/riwayat_lelang_barang')->with('status', 'Status updated to Pemenang');
     }
 
-    public function tolakLelangBarang($nik, $id_barang)
+    public function tolakLelangBarang($nik, $id_barang, $id)
     {
-        $bid = BidBarang::where('nik', $nik)->where('id_barang', $id_barang)->first();
+        $bid = BidBarang::where('id', $id) // Menambahkan kondisi where id
+        ->where('nik', $nik)
+        ->where('id_barang', $id_barang)
+        ->first();
         $barang = Barang::findOrFail($id_barang);
         if ($bid) {
             $bid->status = 'Kalah';
@@ -54,10 +56,10 @@ class PemenangController extends Controller
         // Buat notifikasi untuk user yang diterima sebagai pelelang
             Notifikasi::create([
             'nik' => $nik, // Simpan NIK pengguna dalam notifikasi
-            'pesan' => 'Maaf! Anda Kalah Dalam Lelang Barang ' . $barang->nama_barang,
+            'pesan' => 'Maaf! anda kalah dalam lelang barang ' . $barang->nama_barang,
             'waktu' => $waktu_sekarang,
         ]);
     }
-        return redirect('/riwayat_lelang_barang')->with('status', 'Status updated to Kalah');
+        return back()->with('status', 'Status updated to Kalah');
     }
 }

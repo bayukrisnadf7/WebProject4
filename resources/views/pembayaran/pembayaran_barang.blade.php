@@ -5,8 +5,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="">
-                    <p>{{ $barang->barang->nama_barang }}</p>
-                    <p>{{ $barang->harga_bid }}</p>
+                    <p> Nama Barang : {{ $barang->barang->nama_barang }}</p>
+                    <p> Harga Barang : {{ $barang->harga_bid }}</p>
                     @if ($pengajuan)
                         @foreach ($pengajuan as $item)
                             <p>Bank: {{ $item->bank }}</p>

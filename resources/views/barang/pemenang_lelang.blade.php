@@ -27,14 +27,12 @@
                                 <td>{{ $item->harga_bid }}</td>
                                 <td>
                                     <form
-                                        action="{{ route('pemenang.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang]) }}"
+                                        action="{{ route('pemenang.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang, 'id'=>$item->id]) }}"
                                         method="POST" style="display:inline;">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">Pemenang</button>
                                     </form>
-                                    <form
-                                        action="{{ route('tolak.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang]) }}"
-                                        method="POST" style="display:inline;">
+                                    <form action="{{ route('tolak.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang, 'id' => $item->id]) }}" method="POST" style="display:inline;">
                                         @csrf
                                         <button type="submit" class="btn btn-warning">Tolak</button>
                                     </form>

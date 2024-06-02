@@ -95,6 +95,7 @@
                         <thead>
                             <tr>
                                 <th>NIK</th>
+                                <th>Nama</th>
                                 <th>Status</th>
                                 <th>Ajukan</th> <!-- Kolom aksi tambahan -->
                             </tr>
@@ -103,6 +104,7 @@
                             @foreach ($dataPengajuan as $item)
                                 <tr>
                                     <td>{{ $item->nik }}</td>
+                                    <td>{{ $item->user->nama }}</td>
                                     <td>{{ $item->status }}</td>
                                     <td>
                                         <div class="btn-group">

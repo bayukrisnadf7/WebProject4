@@ -2305,6 +2305,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   width: 100%;
   position: relative;
   /* display: flex; */
+  align-items: center;
 }
 
 .searchTerm {
