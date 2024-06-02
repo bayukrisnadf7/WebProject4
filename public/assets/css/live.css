@@ -24,7 +24,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
     width: 250px; /* Lebar slide */
-    height: 380px; /* Tinggi slide */
+    height: 400px; /* Tinggi slide */
     border-radius: 10px;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .title2 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: bold;
 }
 
@@ -113,4 +113,15 @@
     border-color: transparent;
     background-color: transparent;
     cursor: pointer;
+}
+
+.countdown-timer {
+    position: absolute;
+    margin-left: 90px;
+    background-color: #fff;
+    color: #999;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 200;
 }

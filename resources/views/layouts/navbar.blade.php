@@ -14,10 +14,12 @@
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
             <div class="search">
-                <input type="text" class="searchTerm" placeholder="Cari Barang Disini">
-                <button type="submit" class="searchButton">
-                    <i class="fa fa-search"></i>
-                </button>
+                <form action="{{ route('barang.search') }}" method="GET">
+                    <input type="text" name="keyword" class="searchTerm" placeholder="Cari Barang Disini">
+                    {{-- <i class="fa fa-search"></i> --}}
+                    {{-- <button type="submit" class="searchButton">
+                    </button> --}}
+                </form>
             </div>
             <ul class="navbar-nav mr-auto w-100 justify-content-end" style="font-weight: bold;">
                 <li class="nav-item">
@@ -34,7 +36,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ auth()->user()->nama }}
+                            @php
+                                $name = auth()->user()->nama;
+                                $words = explode(' ', $name);
+                                $shortName = implode(' ', array_slice($words, 0, 2));
+                            @endphp
+                            {{ $shortName }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/profile">Profile</a></li>

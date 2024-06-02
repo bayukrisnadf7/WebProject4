@@ -22,27 +22,27 @@ class BarangController extends Controller
     public function kategoriElektronik()
     {
         $barang = Barang::where('kategori_barang', 'Elektronik')->where('status', 'Open')->get();
-        return view('home.home', compact('barang'));
+        return view('home.elektronik', compact('barang'));
     }
     public function kategoriAksesoris()
     {
         $barang = Barang::where('kategori_barang', 'Aksesoris')->where('status', 'Open')->get();
-        return view('home.home', compact('barang'));
+        return view('home.aksesoris', compact('barang'));
     }
     public function kategoriHobi_Koleksi()
     {
         $barang = Barang::where('kategori_barang', 'Hobi & Koleksi')->where('status', 'Open')->get();
-        return view('home.home', compact('barang'));
+        return view('home.hobi', compact('barang'));
     }
     public function kategoriGadget()
     {
         $barang = Barang::where('kategori_barang', 'Gadget')->where('status', 'Open')->get();
-        return view('home.home', compact('barang'));
+        return view('home.gadget', compact('barang'));
     }
     public function kategoriOtomotif()
     {
         $barang = Barang::where('kategori_barang', 'Otomotif')->where('status', 'Open')->get();
-        return view('home.home', compact('barang'));
+        return view('home.otomotif', compact('barang'));
     }
     public function getBarangAPI()
     {
@@ -53,6 +53,12 @@ class BarangController extends Controller
     {
         $detail_barang = Barang::find($id_barang);
         return Response::json($detail_barang, 200);
+    }
+    public function searchBarang(Request $request){
+        $keyword = $request->input('keyword');
+        $barang = Barang::where('nama_barang', 'LIKE', "%{$keyword}%")->where('status', 'Open')->get();
+
+        return view('home.home', compact('barang', 'keyword'));
     }
     public function index2()
     {

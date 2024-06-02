@@ -30,6 +30,9 @@ Route::get('/kategori/hobi&koleksi', [BarangController::class, 'kategoriHobi_Kol
 Route::get('/kategori/gadget', [BarangController::class, 'kategoriGadget']);
 Route::get('/kategori/otomotif', [BarangController::class, 'kategoriOtomotif']);
 
+// search
+Route::get('/barang', [BarangController::class, 'searchBarang'])->name('barang.search');
+
 // detail barang
 Route::get('/detail_barang/{id_barang}', [BarangController::class, 'show'])->middleware('auth');
 Route::post('/submit_bid/{id_barang}', [BidBarangController::class, 'store'])->name('submit_bid');
