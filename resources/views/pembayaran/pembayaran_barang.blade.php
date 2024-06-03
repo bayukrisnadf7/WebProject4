@@ -11,14 +11,13 @@
                         @foreach ($pengajuan as $item)
                             <p>Bank: {{ $item->bank }}</p>
                             <p>No Rek: {{ $item->no_rek }}</p>
-                            <!-- Display other relevant fields from PengajuanLelang -->
                         @endforeach
                     @else
                         <p>Data Pengajuan tidak tersedia.</p>
                     @endif
-                    <form action="/pembayaran/{{ $barang->id_barang }} " method="POST" enctype="multipart/form-data">
+                    <form id="pembayaranForm" action="/pembayaran/{{ $barang->id_barang }} " method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-3 mt-5" style="display: flex; flex-direction :column ">
+                        <div class="mb-3 mt-3" style="display: flex; flex-direction :column ">
                             <label for="foto_transfer" class="form-label">Bukti Transfer</label>
                             <div id="gambar-container"></div>
                             <input type="file"
@@ -28,11 +27,20 @@
                             @error('foto_transfer')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                            <p style="color: red">*pembayaran hanya dilakukan sekali, harap masukan bukti transfer yang benar!</p>
                         </div>
-                        <button type="submit" class="btn btn-primary">Bayar Sekarang</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Bayar Sekarang</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah form dikirimkan secara otomatis
+            if (confirm('Apakah data yang anda masukan sudah benar?')) {
+                document.getElementById('pembayaranForm').submit(); // Mengirimkan form jika konfirmasi "Yes"
+            }
+        });
+    </script>
 @endsection

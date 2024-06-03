@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Password;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AdminMiddleware;
+use App\Models\Barang;
 
 // main utama
 Route::get('/', [BarangController::class, 'index']);
@@ -92,6 +93,13 @@ Route::get('/pengajuan_barang', [AdminController::class, 'showPengajuanBarang'])
 Route::get('/seleksi_pengajuan_barang/{id_barang}', [AdminController::class, 'seleksiPengajuanBarang']);
 Route::post('/terima_pengajuan_barang/{id_barang}', [AdminController::class, 'terimaPengajuanBarang'])->name('terima.pengajuan.barang');
 Route::post('/tolak_pengajuan_barang/{id_barang}', [AdminController::class, 'tolakPengajuanBarang'])->name('tolak.pengajuan.barang');
+
+// update status barang
+Route::get('/update-barang-status', function () {
+    Barang::checkAndUpdateStatus();
+    return 'Barang statuses have been updated.';
+});
+Route::get('/update-barang-status', [BarangController::class, 'updateStatus']);
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index']);

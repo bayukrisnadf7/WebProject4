@@ -30,7 +30,8 @@
         <div class="card mt-4">
             <div class="card-body">
                 @if ($barang->isEmpty())
-                    <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 20px">Tidak ada lelang barang</p>
+                    <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 20px">Tidak
+                        ada lelang barang</p>
                 @else
                     <div class="table-responsive">
                         <table id="example" class="table table-striped" style="width:100%">
@@ -49,33 +50,52 @@
                             </thead>
                             <tbody style="text-align: left;"> <!-- Pindahkan <tbody> ke luar dari loop -->
                                 @foreach ($barang as $index => $item)
-                                <tr> <!-- Tambahkan tag <tr> di dalam loop -->
-                                    <td>{{ $index + 1 }}</td>
-                                    <td>{{ $item->nama_barang }}</td>
-                                    <td>{{ $item->kategori_barang }}</td>
-                                    <td>{{ $item->kota }}</td>
-                                    <td>{{ $item->provinsi }}</td>
-                                    <td>{{ $item->harga_barang }}</td>
-                                    <td>{{ $item->kelipatan }}</td>
-                                    <td>
-                                        <img src="{{ asset('img/public/storage/barang/' . $item->foto_barang) }}" alt="Foto Barang"
-                                            style="max-width: 100px; max-height: 100px;">
-                                    </td>
-                                    <td>
-                                        @if ($item->status_pembayaran == 'Diterima')
-                                        Transaksi Selesai
-                                        @elseif ($item->status == 'Closed')
-                                        Tunggu Pembayaran
-                                        @elseif ($item->status_pembayaran == 'Diproses')
-                                        <a href="/lihat_pembayaran/{{ $idPembayaranByBarang[$item->id_barang] }}"
-                                            class="btn btn-primary">Lihat Pembayaran</a>
-                                        @else
-                                        <a href="/pilih_pemenang/{{ $item->id_barang }}" class="btn btn-primary">Pilih
-                                            Pemenang</a>
-                                        @endif
-                        
-                                    </td>
-                                </tr>
+                                    <tr> <!-- Tambahkan tag <tr> di dalam loop -->
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $item->nama_barang }}</td>
+                                        <td>{{ $item->kategori_barang }}</td>
+                                        <td>{{ $item->kota }}</td>
+                                        <td>{{ $item->provinsi }}</td>
+                                        <td>{{ $item->harga_barang }}</td>
+                                        <td>{{ $item->kelipatan }}</td>
+                                        <td>
+                                            <img src="{{ asset('img/public/storage/barang/' . $item->foto_barang) }}"
+                                                alt="Foto Barang" style="max-width: 100px; max-height: 100px;">
+                                        </td>
+                                        <td>
+                                            @php
+                                                $pembayaranDiterima = false;
+                                                $pembayaranDiproses = false;
+                                                $pemenangDitemukan = false;
+                                
+                                                foreach ($item->pembayaran as $pembayaran) {
+                                                    if ($pembayaran->status_pembayaran == 'Diterima') {
+                                                        $pembayaranDiterima = true;
+                                                        break;
+                                                    } elseif ($pembayaran->status_pembayaran == 'Diproses') {
+                                                        $pembayaranDiproses = true;
+                                                    }
+                                                }
+                                
+                                                foreach ($item->bids as $bid) {
+                                                    if ($bid->status == 'Pemenang') {
+                                                        $pemenangDitemukan = true;
+                                                        break;
+                                                    }
+                                                }
+                                            @endphp
+                                
+                                            @if ($pembayaranDiterima)
+                                                Transaksi Selesai
+                                            @elseif ($item->status == 'Closed')
+                                                <a href="/lihat_pembayaran/{{ $idPembayaranByBarang[$item->id_barang] }}" class="btn btn-primary">Lihat Pembayaran</a>
+                                            @elseif ($pemenangDitemukan)
+                                                Tunggu Pembayaran
+                                            @else
+                                                <a href="/pilih_pemenang/{{ $item->id_barang }}" class="btn btn-primary">Pilih Pemenang</a>
+                                            @endif
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

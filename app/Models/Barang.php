@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Barang extends Model
 {
@@ -24,5 +25,20 @@ class Barang extends Model
     public function bids()
     {
         return $this->hasMany(BidBarang::class, 'id_barang', 'id_barang');
+    }
+    public function pembayaran(){
+        return $this->hasMany(PembayaranBarang::class, 'id_barang', 'id_barang');
+    }
+    public static function checkAndUpdateStatus()
+    {
+        $today = Carbon::today();
+        $barangList = self::where('status', '!=', 'Closed')->get();
+
+        foreach ($barangList as $barang) {
+            if (Carbon::parse($barang->tgl_expired)->lt($today)) {
+                $barang->status = 'Closed';
+                $barang->save();
+            }
+        }
     }
 }

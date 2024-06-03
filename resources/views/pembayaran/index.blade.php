@@ -11,13 +11,13 @@
     <div class="container" style="margin-top: 120px">
         <h2 style="text-align: center; color: #35755D;">TRANSAKSI</h2>
         @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 500px;">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         @if (session()->has('error'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 500px;">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="errorAlert">
                 {{ session('error') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -62,10 +62,18 @@
             </div>
         </div>
     </div>
-
-
-
     <script>
         new DataTable('#example');
+    </script>
+    <script>
+        // Fade out the success alert after 5 seconds
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 4000);
+
+        // Fade out the error alert after 5 seconds
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 4000);
     </script>
 @endsection

@@ -39,6 +39,10 @@ class TransaksiController extends Controller
         // Retrieve the Barang instance
         $barang = Barang::where('id_barang', $id_barang)->first();
 
+        $pemilik_barang = Barang::find($id_barang);
+        $nikPemilik = $pemilik_barang->nik;
+        $namaBarang = $pemilik_barang->nama_barang;
+
         // Check if the Barang instance exists
         if (!$barang) {
             return redirect('/transaksi')->with('error', 'Barang tidak ditemukan');
@@ -60,12 +64,24 @@ class TransaksiController extends Controller
             'id_barang' => $barang->id_barang,
             'nik' => $nik,
         ]);
+        $waktu_sekarang = date('Y-m-d H:i:s');
+        Notifikasi::create([
+            'nik' => $nik, // Simpan NIK pengguna dalam notifikasi
+            'pesan' => 'Pembayaran anda sudah terkirim pada pemilik barang, mohon tunggu konfirmasi selanjutnya.',
+            'waktu' => $waktu_sekarang,
+        ]);
+
+        Notifikasi::create([
+            'nik' => $nikPemilik, // Simpan NIK pengguna dalam notifikasi
+            'pesan' => 'Barang anda '. $namaBarang .' sudah dibayar oleh pemenang!. Harap verifikasi pada menu Riwayat Lelang Barang.',
+            'waktu' => $waktu_sekarang,
+        ]);
 
         // Check if the PembayaranBarang instance was created successfully
         if ($pembayaran) {
             // Update status_pembayaran in the Barang model
             $barang->update(['status_pembayaran' => 'Diproses']);
-            return redirect('/transaksi')->with('success', 'Pembayaran Berhasil, Silahkan Menunggu Konfirmasi');
+            return redirect('/transaksi')->with('success', 'Pembayaran berhasil, Silahkan menunggu konfirmasi pada pemilik barang');
         } else {
             return redirect('/transaksi')->with('error', 'Pembayaran Gagal');
         }

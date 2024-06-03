@@ -16,4 +16,8 @@ class PembayaranBarang extends Model
     {
         return $this->belongsTo(User::class, 'nik', 'nik');
     }
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class, 'id_barang', 'id_barang');
+    }
 }

@@ -60,6 +60,11 @@ class BarangController extends Controller
 
         return view('home.home', compact('barang', 'keyword'));
     }
+    public function updateStatus()
+    {
+        Barang::checkAndUpdateStatus();
+        return redirect()->back()->with('status', 'Barang statuses have been updated.');
+    }
     public function index2()
     {
         return view('barang.upload');
@@ -100,7 +105,7 @@ class BarangController extends Controller
         $nik_pengguna = auth()->user()->nik;
 
         // Mengambil barang yang terkait dengan nik pengguna saat ini
-        $barang = Barang::where('nik', $nik_pengguna)->get();
+        $barang = Barang::with(['pembayaran', 'bids'])->where('nik', $nik_pengguna)->get();
 
         // Retrieve id_pembayaran and corresponding pembayaran for each barang
         $statusBidByBarang = [];
