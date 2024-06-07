@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">
+                    <a class="nav-link" href="/prosedur">
                     Prosedur
                     </a>
                 </li>

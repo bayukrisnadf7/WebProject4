@@ -32,3 +32,4 @@ Route::get('/daftar', [PageController::class, 'index3']);
 Route::get('/lupa_sandi', [PageController::class, 'lupa']);
 Route::get('/detail_lelang', [PageController::class, 'detail']);
 Route::get('/kategori_barang', [PageController::class, 'kategori']);
+Route::get('/prosedur', [PageController::class, 'prosedur']);

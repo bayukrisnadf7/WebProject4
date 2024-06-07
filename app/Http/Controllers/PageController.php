@@ -30,4 +30,8 @@ class PageController extends Controller
     {
         return view('kategori_barang.kategori');
     }
+    public function prosedur()
+    {
+        return view('prosedur.prosedur');
+    }
 }
