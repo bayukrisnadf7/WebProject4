@@ -53,7 +53,7 @@ class PengajuanLelangController extends Controller
                     'nik' => $nik,
                 ]);
     
-                return redirect('/pengajuan')->with('success', 'Pengajuan berhasil, harap tunggu');
+                return redirect('/pengajuan')->with('successPengajuan', 'Pengajuan berhasil, harap tunggu');
             }
         } catch (\Exception $th) {
             return redirect('/pengajuan')->with('gagal', 'Pengajuan gagal, periksa kembali data');

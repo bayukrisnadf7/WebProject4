@@ -11,3 +11,4 @@ function changeImage(element) {
   // Mengganti src gambar kecil yang diklik dengan src gambar besar yang sebelumnya
   element.src = mainImage.src;
 }
+

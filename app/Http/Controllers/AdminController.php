@@ -16,6 +16,13 @@ class AdminController extends Controller
 
         ]);
     }
+
+    public function coba(){
+        return view('barang.coba', [
+
+        ]);
+    }
+
     public function pengajuanLelang(){
         return view('admin.pengajuan_lelang',[
             'dataPengajuan' => PengajuanLelang::with('user')->where('status', 'Diproses')->get(),

@@ -10,57 +10,72 @@
 
     <div class="container" style="margin-top: 120px">
         <h2 style="text-align: center; color: #35755D;">TRANSAKSI</h2>
-        @if (session()->has('success'))
+        @if (session()->has('successBayar'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {{ session('successBayar') }}
             </div>
         @endif
         @if (session()->has('error'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" id="errorAlert">
                 {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
         <div class="card mt-4">
             <div class="card-body">
-                <div class="table-responsive">
-                    @if ($barang->isEmpty())
-                        <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 20px">Tidak
-                            ada transaksi</p>
-                    @else
+                @if ($barang->isEmpty())
+                <div class="empty" style="  display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;">
+                    <img src="assets/img/9276421.jpg" alt="" width="200px" height="200px">
+                    <p style="font-weight: bold; font-size: 20px; color: grey;">Tidak
+                        ada transaksi</p>
+                </div>
+                @else
+                    <div class="table-responsive">
+
                         <table id="example" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Nama Barang</th>
-                                    <th>Pemilik Barang</th>
-                                    <th>Nomer Telepon Pemilik</th>
-                                    <th>Harga Pembelian</th>
-                                    <th>Status Pembayaran</th>
+                                    <th style="text-align: left;">Nama Barang</th>
+                                    <th style="text-align: left;">Pemilik Barang</th>
+                                    <th style="text-align: left;">Nomer Telepon Pemilik</th>
+                                    <th style="text-align: left;">Harga Pembelian</th>
+                                    <th style="text-align: left;">Status Pembayaran</th>
                                 </tr>
                             </thead>
-                            @foreach ($barang as $item)
-                                <tbody>
-                                    <td>{{ $item->barang->nama_barang }}</td>
-                                    <td>{{ $item->barang->user->nama }}</td>
-                                    <td>{{ $item->barang->user->nohp }}</td>
-                                    <td>{{ $item->harga_bid }}</td>
-                                    <td>
-                                        {{-- @if ($item->pembayaran->status_pembayaran == 'Diproses')
-                                            Sudah Dibayar
-                                        @else --}}
-                                            <a href="/pembayaran/{{ $item->barang->id_barang }}"
-                                                class="btn btn-primary">Bayar</a>
-                                        {{-- @endif --}}
-                                    </td>
-                                </tbody>
-                            @endforeach
+                            <tbody>
+                                @foreach ($barang as $item)
+                                    <tr>
+                                        <td style="text-align: left;">{{ $item->barang->nama_barang }}</td>
+                                        <td style="text-align: left;">{{ $item->barang->user->nama }}</td>
+                                        <td style="text-align: left;">{{ $item->barang->user->nohp }}</td>
+                                        <td style="text-align: left;">{{ $item->harga_bid }}</td>
+                                        <td style="text-align: left;">
+                                            @if ($item->pembayaran)
+                                                @if ($item->pembayaran->status_pembayaran == 'Diterima')
+                                                    Transaksi Selesai
+                                                @elseif($item->pembayaran->status_pembayaran == 'Ditolak')
+                                                    Transaksi Dibatalkan
+                                                @elseif($item->pembayaran->status_pembayaran == 'Diproses')
+                                                    Transaksi diproses
+                                                @else
+                                                    <a href="/pembayaran/{{ $item->barang->id_barang }}" class="btn btn-primary" style="width: 150px">Bayar</a>
+                                                @endif
+                                            @else
+                                                <a href="/pembayaran/{{ $item->barang->id_barang }}" class="btn btn-primary" style="width: 150px">Bayar</a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                         </table>
-                    @endif
+                        
+                @endif
 
-                </div>
             </div>
         </div>
+    </div>
     </div>
     <script>
         new DataTable('#example');

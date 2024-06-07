@@ -101,32 +101,32 @@
                                     <div class="wrapper" style="flex-direction: column">
                                         <p class="card-text"><strong>Foto Barang
                                             </strong></p>
-                                        <img src="{{ asset('/img/public/storage/barang/' . $barang->foto_barang) }}"
+                                        <img src="{{ asset($barang->foto_barang) }}"
                                             class="img-fluid" alt="Scan KTP" width="200px">
                                     </div>
                                     <div class="wrapper" style="flex-direction: column">
                                         <p class="card-text"><strong>Foto Barang Depan
                                             </strong></p>
-                                        <img src="{{ asset('/img/public/storage/barang/' . $barang->foto_barang_depan) }}"
+                                        <img src="{{ asset($barang->foto_barang_depan) }}"
                                             class="img-fluid" alt="Scan KTP" width="200px">
                                     </div>
                                     <div class="wrapper" style="flex-direction: column">
                                         <p class="card-text"><strong>Foto Barang Belakang
                                             </strong></p>
-                                        <img src="{{ asset('/img/public/storage/barang/' . $barang->foto_barang_belakang) }}"
+                                        <img src="{{ asset($barang->foto_barang_belakang) }}"
                                             class="img-fluid" alt="Scan KTP" width="200px">
                                     </div>
                                     <div class="wrapper" style="flex-direction: column">
                                         <p class="card-text"><strong>Foto Barang Kiri
         
                                             </strong></p>
-                                        <img src="{{ asset('/img/public/storage/barang/' . $barang->foto_barang_kiri) }}"
+                                        <img src="{{ asset($barang->foto_barang_kiri) }}"
                                             class="img-fluid" alt="Scan KTP" width="200px">
                                     </div>
                                     <div class="wrapper" style="flex-direction: column">
                                         <p class="card-text"><strong>Foto Barang Kanan
                                             </strong></p>
-                                        <img src="{{ asset('/img/public/storage/barang/' . $barang->foto_barang_kanan) }}"
+                                        <img src="{{ asset($barang->foto_barang_kanan) }}"
                                             class="img-fluid" alt="Scan KTP" width="200px">
                                     </div>
                                 </div>

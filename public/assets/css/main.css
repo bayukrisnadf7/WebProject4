@@ -95,7 +95,7 @@ ul li, ol li {
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 24px;
   color: #212121;
   line-height: 52px;
   padding-bottom: 20px;
@@ -935,11 +935,11 @@ a.back-to-top:hover, a.back-to-top:focus {
   padding: 30px 0;
 }
 
-.counter-section .counter .icon {
+.counter-section .counter .iconn {
   margin-bottom: 15px;
 }
 
-.counter-section .counter .icon i {
+.counter-section .counter .iconn i {
   font-size: 60px;
   color: #fff;
 }
@@ -1001,7 +1001,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   border-radius: 0px;
   position: relative;
   cursor: pointer;
-  height: 90px;
+  height: 65px;
   width: 255px;
   border-bottom: 1px solid #e5e5e5;
   transition: all 500ms ease;
@@ -1033,7 +1033,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   color: #2f323c;
   line-height: 22px;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .schedule .schedule-tab-title .item-text h5 {
@@ -1064,8 +1064,8 @@ a.back-to-top:hover, a.back-to-top:focus {
 }
 
 .schedule .card-header .images-box {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   float: left;
   margin-right: 20px;
 }
@@ -1199,7 +1199,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   -o-transition: all 0.3s ease-in-out 0s;
 }
 
-.services-item .icon i {
+.services-item .icont i {
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -1231,7 +1231,7 @@ a.back-to-top:hover, a.back-to-top:focus {
   background: #f3f3f3;
 }
 
-.services-item:hover .icon i {
+.services-item:hover .icont i {
   background: transparent;
   color: #35755D;
 }

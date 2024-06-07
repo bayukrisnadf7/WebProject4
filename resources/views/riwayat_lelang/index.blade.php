@@ -3,9 +3,11 @@
     <h2 style="text-align: center; margin-top: 105px; color:#35755D;">RIWAYAT LELANG</h2>
     <div class="card container card-custom p-5" style="margin: auto; max-width: 1000px; margin-top: 20px">
         @if ($riwayat_lelang->isEmpty())
-            <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 175px">Riwayat lelang
-                tidak
-                ada</p>
+            <div class="empty" style="  display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <img src="assets/img/9276421.jpg" alt="" width="200px" height="200px">
+                <p style="font-weight: bold; font-size: 20px; color: grey;">Tidak
+                    ada lelang</p>
+            </div>
         @else
             @foreach ($riwayat_lelang as $item)
                 <div class="card mt-4">
@@ -13,7 +15,7 @@
                         <div class="row">
                             <div class="col-md-4"> <!-- Menggunakan 4 kolom untuk gambar -->
                                 <img class="img-fluid"
-                                    src="{{ asset('img/public/storage/barang/' . $item->barang->foto_barang) }}"
+                                    src="{{ asset($item->barang->foto_barang) }}"
                                     alt="" />
                             </div>
                             <div class="col-md-8"> <!-- Menggunakan 8 kolom untuk data $item -->
@@ -22,14 +24,14 @@
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                     of the
                                     card's content.</p>
-                                    @if ($item->status == 'Diproses')
-                                        <p class="card-text">Menunggu pengumuman</p>
-                                    @elseif ($item->status == 'Kalah')
-                                        <p class="card-text">Kalah dalam lelang</p>
-                                    @elseif ($item->status == 'Pemenang')
-                                        <p class="card-text">Menang dalam lelang</p>
-                                    @endif
-                                
+                                @if ($item->status == 'Diproses')
+                                    <p class="card-text">Menunggu pengumuman</p>
+                                @elseif ($item->status == 'Kalah')
+                                    <p class="card-text">Kalah dalam lelang</p>
+                                @elseif ($item->status == 'Pemenang')
+                                    <p class="card-text">Menang dalam lelang</p>
+                                @endif
+
                             </div>
                         </div>
                     </div>

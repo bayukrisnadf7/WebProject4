@@ -30,4 +30,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function getIsAdminAttribute()
+    {
+        return $this->attributes['email'] === 'admin@gmail.com'; // Or any other condition to identify an admin
+    }
 }

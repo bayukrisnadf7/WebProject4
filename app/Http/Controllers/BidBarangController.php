@@ -11,6 +11,7 @@ class BidBarangController extends Controller
     public function store (Request $request){
         $validate = $request->validate([
             'harga_bid' => 'required',
+            'waktu_bid' => 'required',
             'id_barang' => 'required',
             'status' => 'required',
             'nik' => 'required'

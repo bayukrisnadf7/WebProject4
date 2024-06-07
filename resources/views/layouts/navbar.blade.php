@@ -16,9 +16,6 @@
             <div class="search">
                 <form action="{{ route('barang.search') }}" method="GET">
                     <input type="text" name="keyword" class="searchTerm" placeholder="Cari Barang Disini">
-                    {{-- <i class="fa fa-search"></i> --}}
-                    {{-- <button type="submit" class="searchButton">
-                    </button> --}}
                 </form>
             </div>
             <ul class="navbar-nav mr-auto w-100 justify-content-end" style="font-weight: bold;">
@@ -28,7 +25,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">
+                    <a class="nav-link" href="/prosedur">
                         Prosedur
                     </a>
                 </li>

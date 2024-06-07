@@ -60,7 +60,7 @@ class RegisterController extends Controller
         ]);
 
         if ($register) {
-            return redirect('/register')->with('success', 'Registrasi Berhasil, Silahkan Login');
+            return redirect('/register')->with('registSucces', 'Registrasi berhasil. Silahkan login');
         } else {
             throw new \Exception('Gagal menyimpan data pengguna baru.');
         }

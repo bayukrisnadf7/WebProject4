@@ -4,19 +4,18 @@
     <h6 style="text-align: center; margin-bottom: 40px; font-weight: bold;">Ayo daftar dan coba lelang di SiLelang hari ini
     </h6>
     <div class="card container card-custom" style="margin: auto; max-width: 1000px;">
-        @if (session()->has('success'))
+        @if (session()->has('registSucces'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
-                {{ session('success') }}
+                {{ session('registSucces') }}
             </div>
         @endif
-
         @if (session()->has('registError'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
                 {{ session('registError') }}
             </div>
         @endif
         <div class="card-body d-flex flex-column justify-content-between">
-            <form action="/register" method="POST" enctype="multipart/form-data" id="registerForm">
+            <form action="/register" id="registerForm" method="POST" enctype="multipart/form-data" id="registerForm">
                 @csrf
                 <div class="mb-3">
                     <h5 style="font-weight: bold; color: #35755D;">Data Pribadi</h5>
@@ -258,5 +257,13 @@
         setTimeout(function() {
             $('#errorAlert').fadeOut('slow');
         }, 4000);
+    </script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            var isConfirmed = confirm('Apakah data yang Anda masukkan sudah benar?');
+            if (!isConfirmed) {
+                event.preventDefault(); // Batalkan pengiriman form jika pengguna membatalkan konfirmasi
+            }
+        });
     </script>
 @endsection

@@ -4,15 +4,15 @@
     {{-- <h6 style="text-align: center; margin-bottom: 40px; font-weight: bold;">Ayo daftar dan coba lelang di SiLelang hari ini
     </h6> --}}
     <div class="card container card-custom" style="margin: auto; max-width: 1000px;">
-        @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 100%;">
-                {{ session('success') }}
+        @if (session()->has('successUpdate'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
+                {{ session('successUpdate') }}
                 {{-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> --}}
             </div>
         @endif
 
         @if (session()->has('registError'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 500px;">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
                 {{ session('registError') }}
                 {{-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> --}}
             </div>
@@ -301,5 +301,16 @@
                 event.preventDefault();
             }
         });
+    </script>
+    <script>
+        // Fade out the success alert after 5 seconds
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 4000);
+
+        // Fade out the error alert after 5 seconds
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 4000);
     </script>
 @endsection

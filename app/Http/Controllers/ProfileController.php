@@ -47,7 +47,7 @@ class ProfileController extends Controller
                 'updated_at' => now(),  // This will set the updated_at column to the current timestamp
             ]);
 
-        return redirect('/profile')->with('success', 'Data Profile Berhasil Diperbarui');
+        return redirect('/profile')->with('successUpdate', 'Data profile berhasil diperbarui');
     }
     public function updateAccount(Request $request)
     {
@@ -71,6 +71,6 @@ class ProfileController extends Controller
                 'password' => bcrypt($request->password),
             ]);
 
-        return redirect('/profile')->with('success', 'Data Profile Berhasil Diperbarui');
+        return redirect('/profile')->with('successUpdate', 'Data profile berhasil diperbarui');
     }
 }

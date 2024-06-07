@@ -16,30 +16,31 @@
                     <table id="example" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Nama</th>
-                                <th>Harga Lelang</th>
-                                <th>Aksi</th>
+                                <th style="text-align: left;">Nama</th>
+                                <th style="text-align: left;">Harga Lelang</th>
+                                <th style="text-align: left;">Aksi</th>
                             </tr>
                         </thead>
-                        @foreach ($list_pelelang as $item)
-                            <tbody>
-                                <td>{{ $item->user->nama }}</td>
-                                <td>{{ $item->harga_bid }}</td>
-                                <td>
-                                    <form
-                                        action="{{ route('pemenang.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang, 'id'=>$item->id]) }}"
-                                        method="POST" style="display:inline;">
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger">Pemenang</button>
-                                    </form>
-                                    <form action="{{ route('tolak.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang, 'id' => $item->id]) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        <button type="submit" class="btn btn-warning">Tolak</button>
-                                    </form>
-                                </td>
-                            </tbody>
-                        @endforeach
+                        <tbody>
+                            @foreach ($list_pelelang as $item)
+                                <tr>
+                                    <td style="text-align: left;">{{ $item->user->nama }}</td>
+                                    <td style="text-align: left;">{{ $item->harga_bid }}</td>
+                                    <td style="text-align: left;">
+                                        <form action="{{ route('pemenang.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang, 'id'=>$item->id]) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">Pemenang</button>
+                                        </form>
+                                        <form action="{{ route('tolak.lelang.barang', ['nik' => $item->nik, 'id_barang' => $item->id_barang, 'id' => $item->id]) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            <button type="submit" class="btn btn-warning">Tolak</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>

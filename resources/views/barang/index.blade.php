@@ -59,7 +59,7 @@
         <div class="wrapper" style="display: flex; flex-wrap: wrap; gap: 30px">
             @foreach ($barang as $item)
                 <div class="card" style="width: 200px">
-                    <img src="{{ asset('img/public/storage/barang/'.$item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
+                    <img src="{{ asset('/img/storage/barang/'.$item->foto_barang) }}" class="card-img-top" alt="..." width="100%" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->nama_barang }}</h5>
                         <h5 class="card-title">{{ $item->harga_barang }}</h5>

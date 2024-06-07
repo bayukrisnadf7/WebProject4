@@ -20,20 +20,20 @@
                     <div id="image-slider">
                         <div class="main-image">
                             <!-- Gambar utama -->
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang) }}"
+                            <img src="{{ asset($detail_barang->foto_barang) }}"
                                 alt="Gambar Utama" id="main-image">
                         </div>
                         <div class="thumbnail-images">
                             <!-- 4 gambar kecil -->
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang) }}"
+                            <img src="{{ asset($detail_barang->foto_barang) }}"
                                 alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang_depan) }}"
+                            <img src="{{ asset($detail_barang->foto_barang_depan) }}"
                                 alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang_belakang) }}"
+                            <img src="{{ asset($detail_barang->foto_barang_belakang) }}"
                                 alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang_kiri) }}"
+                            <img src="{{ asset($detail_barang->foto_barang_kiri) }}"
                                 alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
-                            <img src="{{ asset('img/public/storage/barang/' . $detail_barang->foto_barang_kanan) }}"
+                            <img src="{{ asset($detail_barang->foto_barang_kanan) }}"
                                 alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
                         </div>
                     </div>
@@ -232,6 +232,9 @@
                         <input type="hidden" name="id_barang" value="{{ $detail_barang->id_barang }}">
                         <input type="hidden" name="status" value="Diproses">
                         <input type="hidden" name="nik" value="{{ auth()->user()->nik }}">
+                        <div class="mb-3">
+                            <input type="hidden" class="form-control" name="waktu_bid" id="waktu_bid" readonly>
+                        </div>
                         <div class="form-group">
                             <label for="bid_minimal">Kelipatan</label>
                             <input type="text" class="form-control" id="kelipatan" name="kelipatan"
@@ -250,7 +253,39 @@
             </div>
         </div>
     </div>
+    <script>
+        // Function to capitalize the first letter of each word
+        function capitalizeFirstLetterOfEachWord(text) {
+            return text.replace(/\b\w/g, function(char) {
+                return char.toUpperCase();
+            });
+        }
 
+        // Get the element with class 'h4'
+        const titleElement = document.querySelector('.h4');
+
+        // Update the text content
+        if (titleElement) {
+            titleElement.textContent = capitalizeFirstLetterOfEachWord(titleElement.textContent);
+        }
+    </script>
+    <script>
+        // Function to get the current date and time in datetime-local format
+        function getCurrentDateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+            return formattedDateTime;
+        }
+
+        // Set the value of the input to the current date and time
+        document.getElementById('waktu_bid').value = getCurrentDateTime();
+    </script>
     <script>
         // Fungsi untuk menambahkan titik sebagai pemisah ribuan
         function formatRupiah(angka) {

@@ -8,10 +8,8 @@
     @endif
     <h2 style="text-align: center; margin-top: 120px; color:#35755D;">PENGAJUAN LELANG</h2>
     <div class="d-flex justify-content-center mt-5">
-
         <div class="card shadow-5-strong" style="width: 500px;">
             <div class="card-body">
-
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <form id="lelangForm" action="/pengajuan" method="POST" enctype="multipart/form-data">

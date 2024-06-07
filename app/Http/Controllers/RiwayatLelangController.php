@@ -10,7 +10,7 @@ class RiwayatLelangController extends Controller
     public function index(){
         return view('riwayat_lelang.index',[
             $nik = auth()->user()->nik,
-            $riwayat_lelang = BidBarang::with('barang')->where('nik', $nik)->get(),
+            $riwayat_lelang = BidBarang::with('barang')->where('nik', $nik)->orderBy('created_at', 'DESC')->get(),
         ], compact('riwayat_lelang'));
     }
 }

@@ -54,7 +54,8 @@ class BarangController extends Controller
         $detail_barang = Barang::find($id_barang);
         return Response::json($detail_barang, 200);
     }
-    public function searchBarang(Request $request){
+    public function searchBarang(Request $request)
+    {
         $keyword = $request->input('keyword');
         $barang = Barang::where('nama_barang', 'LIKE', "%{$keyword}%")->where('status', 'Open')->get();
 
@@ -120,7 +121,7 @@ class BarangController extends Controller
             $buktiPembayaranByBarang[$item->id_barang] = $buktiPembayaran;
         }
 
-        return view('barang.riwayat_lelang_barang', compact('barang', 'idPembayaranByBarang', 'buktiPembayaranByBarang','statusBidByBarang'));
+        return view('barang.riwayat_lelang_barang', compact('barang', 'idPembayaranByBarang', 'buktiPembayaranByBarang', 'statusBidByBarang'));
     }
     public function buktiPembayaran($id_pembayaran)
     {
@@ -128,10 +129,6 @@ class BarangController extends Controller
 
         return view('barang.bukti_pembayaran', compact('buktiPembayaran'));
     }
-
-
-
-
     public function store(Request $request)
     {
         // Validate the request data
@@ -152,26 +149,25 @@ class BarangController extends Controller
             'foto_barang_kanan' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'status' => 'required',
         ]);
-
+    
         try {
             $nik = auth()->user()->nik;
-
-            // Store files and convert to base64
-            function storeAndConvertToBase64($file, $path)
+    
+            function storeFile($file, $path)
             {
-                $filePath = $file->storeAs($path, uniqid() . '.' . $file->getClientOriginalExtension());
-                $base64 = base64_encode(file_get_contents($file->getPathname()));
-                return [$filePath, $base64];
+                $imageName = time().'_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $file->move(public_path($path), $imageName);
+                return $path.'/'.$imageName;
             }
-
-            // Store files in the directory and convert to base64
-            list($url_foto_barang, $base64_foto_barang) = storeAndConvertToBase64($request->file('foto_barang'), 'public/storage/barang');
-            list($url_foto_barang_depan, $base64_foto_barang_depan) = storeAndConvertToBase64($request->file('foto_barang_depan'), 'public/storage/barang');
-            list($url_foto_barang_belakang, $base64_foto_barang_belakang) = storeAndConvertToBase64($request->file('foto_barang_belakang'), 'public/storage/barang');
-            list($url_foto_barang_kiri, $base64_foto_barang_kiri) = storeAndConvertToBase64($request->file('foto_barang_kiri'), 'public/storage/barang');
-            list($url_foto_barang_kanan, $base64_foto_barang_kanan) = storeAndConvertToBase64($request->file('foto_barang_kanan'), 'public/storage/barang');
-
-            // Save data to the database
+    
+            // Store files in the directory and get the path
+            $url_foto_barang = storeFile($request->file('foto_barang'), 'img/storage/barang');
+            $url_foto_barang_depan = storeFile($request->file('foto_barang_depan'), 'img/storage/barang');
+            $url_foto_barang_belakang = storeFile($request->file('foto_barang_belakang'), 'img/storage/barang');
+            $url_foto_barang_kiri = storeFile($request->file('foto_barang_kiri'), 'img/storage/barang');
+            $url_foto_barang_kanan = storeFile($request->file('foto_barang_kanan'), 'img/storage/barang');
+    
+            // Save the data to the database
             Barang::create([
                 'nama_barang' => $request->nama_barang,
                 'kategori_barang' => $request->kategori_barang,
@@ -182,23 +178,18 @@ class BarangController extends Controller
                 'kelipatan' => $request->kelipatan,
                 'tgl_publish' => $request->tgl_publish,
                 'tgl_expired' => $request->tgl_expired,
-                'foto_barang' => basename($url_foto_barang),
-                'foto_barang_depan' => basename($url_foto_barang_depan),
-                'foto_barang_belakang' => basename($url_foto_barang_belakang),
-                'foto_barang_kiri' => basename($url_foto_barang_kiri),
-                'foto_barang_kanan' => basename($url_foto_barang_kanan),
-                'base64_foto_barang' => $base64_foto_barang,
-                'base64_foto_barang_depan' => $base64_foto_barang_depan,
-                'base64_foto_barang_belakang' => $base64_foto_barang_belakang,
-                'base64_foto_barang_kiri' => $base64_foto_barang_kiri,
-                'base64_foto_barang_kanan' => $base64_foto_barang_kanan,
+                'foto_barang' => $url_foto_barang,
+                'foto_barang_depan' => $url_foto_barang_depan,
+                'foto_barang_belakang' => $url_foto_barang_belakang,
+                'foto_barang_kiri' => $url_foto_barang_kiri,
+                'foto_barang_kanan' => $url_foto_barang_kanan,
                 'status' => $request->status,
                 'nik' => $nik,
+                // Tambahkan field lainnya sesuai kebutuhan...
             ]);
-
             return redirect('/upload_barang')->with('successPengajuanBarang', 'Pengajuan barang anda sedang diproses. Silahkan cek notifikasi untuk melihat barang anda!');
         } catch (\Exception $th) {
-            return redirect('/upload_barang')->with('gagalPengajuanBarang', 'Penjuan barang anda ditolak. Silahkan isi data barang dengan benar!');
+            return redirect('/upload_barang')->with('gagalPengajuanBarang', 'Pengajuan barang anda ditolak. Silahkan isi data barang dengan benar!');
         }
     }
 }

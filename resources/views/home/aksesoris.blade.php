@@ -20,7 +20,7 @@
                                     <div class="kategoribarang-image">
                                         <a href="/detail_barang/{{ $item->id_barang }}" class="detail-link">
                                             <img class="img-fluid"
-                                                src="{{ asset('img/public/storage/barang/' . $item->foto_barang) }}"
+                                                src="{{ asset($item->foto_barang) }}"
                                                 alt="" />
                                         </a>
                                     </div>

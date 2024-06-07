@@ -1,7 +1,6 @@
     @extends('layouts.template')
     <!-- Tambahkan link ke Dropzone.js -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+
     @section('content')
         <h2 style="text-align: center; margin-top: 105px; color:#35755D;">PENGAJUAN BARANG</h2>
 
@@ -18,7 +17,7 @@
                             {{ session('gagalPengajuanBarang') }}
                         </div>
                     @endif
-                    <form class="mt-3" action="/upload_barang" method="POST" enctype="multipart/form-data">
+                    <form class="mt-3" id="uploadBarang" action="/upload_barang" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="nama_barang" class="form-label">Nama Barang</label>
@@ -173,11 +172,21 @@
                             <label for="status" class="form-label">Status</label>
                             <input type="text" class="form-control" name="status" id="status" value="Diproses">
                         </div>
-                        <button type="submit" class="btn btn-primary">Ajukan Lelang Barang</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary">Ajukan Lelang Barang</button>
                     </form>
                 </div>
             </div>
         </div>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+        <script>
+            document.getElementById('submitBtn').addEventListener('click', function(event) {
+                event.preventDefault(); // Mencegah form dikirimkan secara otomatis
+                if (confirm('Apakah data yang anda masukan sudah benar?')) {
+                    document.getElementById('uploadBarang').submit(); // Mengirimkan form jika konfirmasi "Yes"
+                }
+            });
+        </script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // Ambil elemen input tanggal

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('bid_barang', function (Blueprint $table) {
             $table->id();
             $table->string('harga_bid');
+            $table->dateTime('waktu_bid');
             $table->unsignedBigInteger('id_barang');
             $table->string('status');
             $table->string('nik'); // Menggunakan tipe data yang sama dengan tabel 'users'

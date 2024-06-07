@@ -13,6 +13,7 @@ use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PemenangController;
 use App\Http\Controllers\PengajuanLelangController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProsedurController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\BidBarang;
 use Illuminate\Http\Request;
@@ -83,6 +84,7 @@ Route::post('/pengajuan', [PengajuanLelangController::class, 'insertDataPengajua
 //     Route::get('/halaman_admin', [AdminController::class, 'index']);
 // });
 Route::get('/halaman_admin', [AdminController::class, 'index']);
+Route::get('/coba', [AdminController::class, 'coba']);
 Route::get('/pengajuan_lelang', [AdminController::class, 'pengajuanLelang']);
 Route::get('/seleksi_pengajuan/{id_pengajuan}', [AdminController::class, 'seleksiPengajuan']);
 Route::post('/terima_pengajuan/{id_pengajuan}', [AdminController::class, 'terimaPengajuan'])->name('terima.pengajuan');
@@ -118,6 +120,9 @@ Route::post('pembayaran/{id_barang}', [TransaksiController::class, 'pembayaranBa
 Route::get('/lihat_pembayaran/{id_pembayaran}', [BarangController::class, 'buktiPembayaran']);
 Route::post('/pembayaran_diterima/{id_pembayaran}', [TransaksiController::class, 'pembayaranDiterima'])->name('pembayaran.diterima');
 Route::post('/pembayaran_ditolak/{id_pembayaran}', [TransaksiController::class, 'pembayaranDitolak'])->name('pembayaran.ditolak');
+
+// prosedur
+Route::get('/prosedur', [ProsedurController::class, 'index']);
 
 
 

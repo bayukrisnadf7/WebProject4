@@ -13,7 +13,7 @@ class TransaksiController extends Controller
     public function index()
 {
     $nik = auth()->user()->nik;
-    $barang = BidBarang::with(['barang', 'user', 'pembayaran'])
+    $barang = BidBarang::with(['barang.user', 'pembayaran'])
         ->where('status', 'Pemenang')
         ->where('nik', $nik)
         ->get();
@@ -81,7 +81,7 @@ class TransaksiController extends Controller
         if ($pembayaran) {
             // Update status_pembayaran in the Barang model
             $barang->update(['status_pembayaran' => 'Diproses']);
-            return redirect('/transaksi')->with('success', 'Pembayaran berhasil, Silahkan menunggu konfirmasi pada pemilik barang');
+            return redirect('/transaksi')->with('successBayar', 'Pembayaran berhasil, Silahkan menunggu konfirmasi pada pemilik barang');
         } else {
             return redirect('/transaksi')->with('error', 'Pembayaran Gagal');
         }
@@ -96,7 +96,7 @@ class TransaksiController extends Controller
         $waktu_sekarang = date('Y-m-d H:i:s');
         Notifikasi::create([
             'nik' => $nik, // Simpan NIK pengguna dalam notifikasi
-            'pesan' => 'Selamat! Transaksimu Diterima, Silahkan Menghubungi Pemilik Barang Untuk Informasi Pengiriman Barang',
+            'pesan' => 'Selamat! transaksimu diterima. Silahkan menghubungi pemilik barang untuk informasi pengiriman barang',
             'waktu' => $waktu_sekarang,
         ]);
         // Update the status of the corresponding Barang

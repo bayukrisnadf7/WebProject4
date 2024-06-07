@@ -29,10 +29,14 @@
         </ul>
         <ul class="side-menu" style="position: absolute; bottom: 0;">
             <li>
-                <a href="#" class="logout">
+                <a class="logout" onclick="confirmLogout(event)" style="cursor: pointer">
                     <i class='bx bx-log-out-circle'></i>
                     Logout
                 </a>
+                <!-- Hidden logout form -->
+                <form action="/logout" method="post" id="logoutForm" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
     </div>
@@ -175,3 +179,11 @@
 </body>
 
 </html>
+<script>
+    function confirmLogout(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        if (confirm('Are you sure you want to logout?')) {
+            document.getElementById('logoutForm').submit();
+        }
+    }
+</script>
