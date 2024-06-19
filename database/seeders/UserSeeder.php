@@ -15,12 +15,31 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            'name'=> 'Bayu Krisna',
+        DB::table('users')->insert(
+            [
+            'nama'=> 'Bayu Krisna',
             'nik'=> '3509202606030003',
-            'no_hp'=> '0895399757207',
+            'nohp'=> '0895399757207',
             'alamat'=> 'Jember',
             'email' => 'bayukrisna14658@gmail.com',
+            'jenis_kelamin' => 'Laki-laki',
+            'tempat_lahir'=> 'Jember',
+            'tanggal_lahir'=> '2024-05-20',
+            'foto'=> 'null',
+            'status' => '1',
+            'password' => Hash::make('123456789')
+        ],);
+        DB::table('users')->insert([
+            'nama'=> 'Dania Angga',
+            'nik'=> '3509202606030004',
+            'nohp'=> '0895399757208',
+            'alamat'=> 'Jember',
+            'email' => 'bayukrisna231@gmail.com',
+            'jenis_kelamin' => 'Laki-laki',
+            'tempat_lahir'=> 'Jember',
+            'tanggal_lahir'=> '2024-05-20',
+            'foto'=> 'null',
+            'status' => '2',
             'password' => Hash::make('123456789')
         ]);
     }

@@ -1,122 +1,269 @@
-@extends('partials.template')
+@extends('layouts.template')
 @section('content')
-    <!-- Section: Design Block -->
-    <div class="d-flex justify-content-center mt-5">
-        <div class="card shadow-5-strong" style="width: 800px;">
-            <div class="card-body">
-
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-10">
-                        <h2 class="fw-bold mb-3 text-center">Register</h2>
-                        <form action="/register" method="POST">
-                            @csrf
-                            <div class="form-outline mb-2">
-                                <label class="form-label" for="name">Nama Lengkap</label>
-                                <input type="text" name="name"
-                                    class="form-control @error('name') is-invalid @enderror" id="name" required
-                                    value="{{ old('name') }}" />
-                                @error('name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-outline mb-2">
-                                <label class="form-label" for="nik">NIK</label>
-                                <input type="text" name="nik"
-                                    class="form-control @error('nik') is-invalid
-                                @enderror"
-                                    id="nik" required value="{{ old('nik') }}" />
-                                @error('nik')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-outline mb-2">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="email" name="email"
-                                    class="form-control @error('email') is-invalid
-                                @enderror"
-                                    id="email" required value="{{ old('email') }}" />
-                                @error('email')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-outline mb-2">
-                                <label class="form-label" for="alamat">Alamat</label>
-                                <input type="text" name="alamat"
-                                    class="form-control @error('alamat') is-invalid
-                                @enderror"
-                                    id="alamat" required value="{{ old('alamat') }}" />
-                                @error('alamat')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-outline mb-2">
-                                <label class="form-label" for="no_hp">No Hp</label>
-                                <input type="number" name="no_hp"
-                                    class="form-control @error('no_hp') is-invalid
-                                @enderror"
-                                    id="no_hp" required value="{{ old('no_hp') }}" />
-                                @error('no_hp')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-outline mb-2" style="display: none">
-                                <label class="form-label" for="status">No Hp</label>
-                                <input type="text" name="status"
-                                    class="form-control @error('status') is-invalid
-                                @enderror"
-                                    id="status" required value="1" />
-                                @error('status')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="password">Password</label>
-                                <div class="input-group">
-                                    <input type="password" name="password"
-                                        class="form-control @error('password') is-invalid @enderror" id="password" />
-                                    <span class="input-group-text" id="togglePassword">
-                                        <i class="bi bi-eye-slash-fill"></i>
-                                    </span>
-                                    @error('password')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-3" style="width: 100px">
-                                Register
-                            </button>
-                        </form>
-                        <div class="d-block text-center">
-                            Punya akun ? <a href="/login">Login!</a>
-                        </div>
+    <h2 style="text-align: center; margin-top: 105px; color:#35755D;">DAFTAR</h2>
+    <h6 style="text-align: center; margin-bottom: 40px; font-weight: bold;">Ayo daftar dan coba lelang di SiLelang hari ini
+    </h6>
+    <div class="card container card-custom" style="margin: auto; max-width: 1000px;">
+        @if (session()->has('registSucces'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
+                {{ session('registSucces') }}
+            </div>
+        @endif
+        @if (session()->has('registError'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorAlert">
+                {{ session('registError') }}
+            </div>
+        @endif
+        <div class="card-body d-flex flex-column justify-content-between">
+            <form action="/register" id="registerForm" method="POST" enctype="multipart/form-data" id="registerForm">
+                @csrf
+                <div class="mb-3">
+                    <h5 style="font-weight: bold; color: #35755D;">Data Pribadi</h5>
+                </div>
+                <div class="mb-2 row">
+                    <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        NIK
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="text" name="nik"
+                            class="form-control @error('nik') is-invalid @enderror" id="nik">
+                        @error('nik')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
-            </div>
+                <div class="mb-2 row">
+                    <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        Nama Lengkap
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="text" name="nama"
+                            class="form-control @error('nama') is-invalid @enderror" id="nama">
+                        @error('nama')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        Jenis Kelamin
+                    </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input ml-3 @error('jenis_kelamin') is-invalid @enderror" type="radio"
+                            name="jenis_kelamin" id="jenis_kelamin1" value="Laki-laki"
+                            @if (old('jenis_kelamin') == 'Laki-laki') checked @endif>
+                        <label class="form-check-label">Laki-laki</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input @error('jenis_kelamin') is-invalid @enderror" type="radio"
+                            name="jenis_kelamin" id="jenis_kelamin2" value="Perempuan"
+                            @if (old('jenis_kelamin') == 'Perempuan') checked @endif>
+                        <label class="form-check-label">Perempuan</label>
+                    </div>
+                    @error('jenis_kelamin')
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-2 row">
+                    <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        Tempat Lahir
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="text" name="tempat_lahir"
+                            class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir">
+                        @error('tempat_lahir')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        Tanggal Lahir
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="date" name="tanggal_lahir"
+                            class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir">
+                        @error('tanggal_lahir')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        Alamat Sesuai KTP
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="text" name="alamat"
+                            class="form-control @error('alamat') is-invalid @enderror" id="alamat">
+                        @error('alamat')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label for="text" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        No. Handphone
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="tel" pattern="[0-9]+" name="nohp"
+                            class="form-control @error('nohp') is-invalid @enderror" id="nohp">
+                        @error('nohp')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <!-- Dokumen -->
+                <div class="mb-4">
+                    <h5 style="font-weight: bold; color: #35755D; margin-top: 20px">Kelengkapan Dokumen</h5>
+                </div>
+                <div class="mb-4">
+                    <label for="foto" class="form-label">Foto KTP</label>
+                    <div id="gambar-container"></div>
+                    <input type="file" style="text-transform: none"
+                        class="form-control @error('foto') is-invalid 
+                        @enderror mt-3"
+                        name="foto" id="foto" accept="image/png, image/jpeg" required />
+                    @error('foto')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <h5 style="font-weight: bold; color: #35755D; margin-top: 20px">Data Akun</h5>
+                </div>
+                <div class="mb-2 row">
+                    <label for="email" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        E-mail
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="email" name="email" style="text-transform: none"
+                            class="form-control @error('email') is-invalid @enderror" id="email">
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label for="password" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        Password
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="password" pattern=".{8,}" name="password"
+                            class="form-control @error('password') is-invalid @enderror" id="password"
+                            placeholder="Password minimal 8 karakter">
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                    <label for="password2" class="col-sm-2 col-form-label" style="font-weight: bold;">
+                        Ulangi Password
+                    </label>
+                    <div class="col-sm-10">
+                        <input required type="password" pattern=".{8,}" name="password2"
+                            class="form-control @error('password2') is-invalid @enderror" id="password2"
+                            placeholder="Ulangi penulisan konfirmasi password untuk memastikan tidak salah ketik">
+                        @error('password2')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="mb-3 mt-2 form-check" style="text-align: right; font-weight: bold;">
+                    <input class="form-check-input" type="checkbox" value="1" id="agreeCheckbox" name="agreeCheckbox">
+                    <label class="form-check-label" for="agreeCheckbox">
+                        Saya telah membaca, memahami, dan menyetujui <a href="#">syarat dan ketentuan</a>
+                    </label>
+                </div>
+                <button class="btn btn-outline-success mt-1 custom-daftar2-button align-self-center"
+                    type="submit">KIRIM</button>
+            </form>
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const passwordInput = document.getElementById('password');
-            const togglePasswordIcon = document.getElementById('togglePassword');
+        document.getElementById('foto').addEventListener('change', function() {
+            var file = this.files[0]; // Ambil file yang dipilih
 
-            togglePasswordIcon.addEventListener('click', function() {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
+            // Buat objek FileReader
+            var reader = new FileReader();
 
-                // Ubah ikon mata tergantung pada tipe input
-                if (type === 'password') {
-                    togglePasswordIcon.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
-                } else {
-                    togglePasswordIcon.innerHTML = '<i class="bi bi-eye-fill"></i>';
-                }
-            });
+            // Saat file selesai dibaca
+            reader.onload = function(e) {
+                var img = new Image();
+                img.src = e.target.result; // Set sumber gambar
+
+                // Saat gambar selesai dimuat
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var ctx = canvas.getContext('2d');
+                    // Tentukan ukuran gambar yang diinginkan
+                    var maxWidth = 300; // Misalnya, maksimum lebar 300 piksel
+                    var maxHeight = 300; // Misalnya, maksimum tinggi 300 piksel
+
+                    // Periksa apakah gambar perlu diubah ukurannya
+                    var width = img.width;
+                    var height = img.height;
+
+                    if (width > maxWidth || height > maxHeight) {
+                        // Hitung rasio lebar dan tinggi gambar
+                        var ratio = Math.min(maxWidth / width, maxHeight / height);
+
+                        // Ubah ukuran gambar sesuai dengan rasio yang dihitung
+                        canvas.width = width * ratio;
+                        canvas.height = height * ratio;
+                    } else {
+                        // Gunakan ukuran gambar asli jika tidak perlu diubah
+                        canvas.width = width;
+                        canvas.height = height;
+                    }
+
+                    // Gambar ulang gambar ke dalam canvas dengan ukuran yang sesuai
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // Dapatkan URL data gambar yang baru
+                    var newImageDataUrl = canvas.toDataURL('image/jpeg'); // Ubah ke format JPEG
+
+                    // Buat elemen gambar baru dengan gambar yang lebih kecil
+                    var newImgElement = document.createElement('img');
+                    newImgElement.src = newImageDataUrl;
+
+                    // Tambahkan gambar ke dalam container
+                    document.getElementById('gambar-container').innerHTML = '';
+                    document.getElementById('gambar-container').appendChild(newImgElement);
+                };
+            };
+
+            // Baca file sebagai URL data
+            reader.readAsDataURL(file);
         });
-
-        function confirmRegistration() {
-            if (confirm('Apakah data yang Anda masukkan sudah benar?')) {
-                document.getElementById('registerForm').submit();
+    </script>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+            var form = document.getElementById('registerForm');
+            var confirmed = confirm('Apakah data yang Anda masukkan sudah benar?');
+            if (confirmed) {
+                form.submit(); // Submit the form if the user confirms
             }
-        }
+        });
+    </script>
+    <script>
+        // Fade out the success alert after 5 seconds
+        setTimeout(function() {
+            $('#successAlert').fadeOut('slow');
+        }, 4000);
+    
+        // Fade out the error alert after 5 seconds
+        setTimeout(function() {
+            $('#errorAlert').fadeOut('slow');
+        }, 4000);
+    </script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            var isConfirmed = confirm('Apakah data yang Anda masukkan sudah benar?');
+            if (!isConfirmed) {
+                event.preventDefault(); // Batalkan pengiriman form jika pengguna membatalkan konfirmasi
+            }
+        });
     </script>
 @endsection

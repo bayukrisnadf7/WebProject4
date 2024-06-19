@@ -1,0 +1,127 @@
+#trending-slider {
+    overflow: hidden;
+}
+
+.bg-random {
+    color: #212121;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    margin: 0 auto;
+    width: fit-content; 
+}
+
+.slidee {
+    flex: 0 0 auto;
+    margin-right: 20px; /* Jarak antara setiap slide */
+}
+
+.trending-item {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    width: 250px; /* Lebar slide */
+    height: 400px; /* Tinggi slide */
+    border-radius: 10px;
+}
+
+.trending-item:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.trending-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px; /* Tinggi gambar */
+    border-radius: 10px 10px 0px 0px;
+}
+
+.trending-image img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.trending-item:hover .trending-image img {
+    transform: scale(1.05);
+}
+
+.tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 1px 10px;
+    background-color: red;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.descr {
+    padding: 20px;
+}
+
+.title2 {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.title2 a {
+    color: #212121;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.title2 a:hover {
+    color: #35755D;
+}
+
+.meta-tags {
+    color: #999;
+}
+
+.meta-tags span {
+    margin-right: 8px;
+}
+
+.meta-tags a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.meta-tags a:hover {
+    color: #35755D;
+}
+
+.prev-btn {
+    border-radius: 11px; 
+    color: #35755D;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.next-btn {
+    border-radius: 11px; 
+    color: #35755D;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.countdown-timer {
+    position: absolute;
+    margin-left: 90px;
+    background-color: #fff;
+    color: #999;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 200;
+}
