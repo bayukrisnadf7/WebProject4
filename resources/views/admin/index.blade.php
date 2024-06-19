@@ -1,189 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="admin/style.css">
-    <title>Halaman Admin</title>
-</head>
-
-<body>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="#" class="logo" style="margin-top: 5px; display: flex; justify-content: center">
-            {{-- <i class='bx bx-code-alt'></i> --}}
-            {{-- <img src="assets/img/logoa.png" alt=""> --}}
-            <div class="logo-name"><span>Si</span>Lelang</div>
-        </a>
-        <ul class="side-menu">
-            <li class="active"><a href="/halaman_admin"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
-            <li><a href="/pengajuan_lelang"><i class='bx bx-store-alt'></i>Pengajuan Lelang</a></li>
-            <li class=""><a href="/pengajuan_barang"><i class='bx bx-analyse'></i>Pengajuan Barang</a></li>
-            {{-- <li><a href="#"><i class='bx bx-message-square-dots'></i>Tickets</a></li>
-            <li><a href="#"><i class='bx bx-group'></i>Users</a></li>
-            <li><a href="#"><i class='bx bx-cog'></i>Settings</a></li> --}}
-        </ul>
-        <ul class="side-menu" style="position: absolute; bottom: 0;">
-            <li>
-                <a class="logout" onclick="confirmLogout(event)" style="cursor: pointer">
-                    <i class='bx bx-log-out-circle'></i>
-                    Logout
-                </a>
-                <!-- Hidden logout form -->
-                <form action="/logout" method="post" id="logoutForm" style="display: none;">
-                    @csrf
-                </form>
-            </li>
-        </ul>
-    </div>
-    
-    <!-- End of Sidebar -->
-
-    <!-- Main Content -->
-    <div class="content">
-        <!-- Navbar -->
-        <nav>
-            <i class='bx bx-menu'></i>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+@extends('layouts_admin.template')
+@section('content')
+    <div class="content-fluid">
+        <div class="mb-5">
+            <h4>Dashboard</h4>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card flex-fill border-0 custom-card-blue">
+                    <div class="card-body position-relative">
+                        <i class="fas fa-house fa-3x"></i>
+                        <p class="card-title">
+                            {{ $jumlah_barang }}
+                        </p>
+                        <h6 class="card-text">Jumlah Barang</h6>
+                    </div>
+                    <div class="custom-bg-primary"></div>
                 </div>
-            </form>
-            <input type="checkbox" id="theme-toggle" hidden>
-            <label for="theme-toggle" class="theme-toggle"></label>
-            <a href="#" class="notif">
-                <i class='bx bx-bell'></i>
-                <span class="count">12</span>
-            </a>
-            <a href="#" class="profile">
-                <img src="images/logo.png">
-            </a>
-        </nav>
-
-        <!-- End of Navbar -->
-
-        <main>
-            <div class="header">
-                <div class="left">
-                    <h1>Dashboard</h1>
-                    {{-- <ul class="breadcrumb">
-                        <li><a href="#">
-                                Analytics
-                            </a></li>
-                        /
-                        <li><a href="#" class="active">Shop</a></li>
-                    </ul> --}}
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card flex-fill border-0 custom-card-green">
+                    <div class="card-body">
+                        <i class="fa-solid fa-book-open  fa-3x"></i>
+                        <p class="card-title">
+                            {{ $jumlah_user }}
+                        </p>
+                        <h6 class="card-text">Jumlah User</h6>
+                    </div>
+                    <div class="custom-bg-success"></div>
                 </div>
-                <a href="#" class="report">
-                    <i class='bx bx-cloud-download'></i>
-                    <span>Download CSV</span>
-                </a>
             </div>
 
-            <!-- Insights -->
-            <ul class="insights">
-                <li>
-                    <i class='bx bx-calendar-check'></i>
-                    <span class="info">
-                        <h3>
-                            1,074
-                        </h3>
-                        <p>Paid Order</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-show-alt'></i>
-                    <span class="info">
-                        <h3>
-                            3,944
-                        </h3>
-                        <p>Site Visit</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-line-chart'></i>
-                    <span class="info">
-                        <h3>
-                            14,721
-                        </h3>
-                        <p>Searches</p>
-                    </span>
-                </li>
-                <li><i class='bx bx-dollar-circle'></i>
-                    <span class="info">
-                        <h3>
-                            $6,742
-                        </h3>
-                        <p>Total Sales</p>
-                    </span>
-                </li>
-            </ul>
-            <!-- End of Insights -->
-
-            <div class="bottom-data">
-                <div class="orders">
-                    <div class="header">
-                        <i class='bx bx-receipt'></i>
-                        {{-- <h3>Recent Orders</h3> --}}
-                        <i class='bx bx-filter'></i>
-                        <i class='bx bx-search'></i>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card flex-fill border-0 custom-card-yellow">
+                    <div class="card-body">
+                        <i class="fa-solid fa-users fa-3x"></i>
+                        <p class="card-title">
+                            {{ $jumlah_pelelang }}
+                        </p>
+                        <h6 class="card-text">Jumlah Pelelang</h6>
                     </div>
-                    <table>
-                        <thead>
+                    <div class="custom-bg-warning"></div>
+                </div>
+            </div>
+        </div>
+        {{-- table content --}}
+        <div class="card flex-fill card border-0 mt-2">
+            <div class="card-header mt-2" style="background-color: #FFFFFF;">
+                <h6>User</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped" style="width:100%">
+                        <thead class="custom-header">
                             <tr>
-                                <th>User</th>
-                                <th>Order Date</th>
-                                <th>Status</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">Jenis Kelamin</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($user as $item)
                             <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status completed">Completed</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="images/profile-1.jpg">
-                                    <p>John Doe</p>
-                                </td>
-                                <td>14-08-2023</td>
-                                <td><span class="status process">Processing</span></td>
-                            </tr>
+                                    <td>{{ $item->nama }}</td>
+                                    <td>{{ $item->alamat }}</td>
+                                    <td>{{ $item->jenis_kelamin }}</td>
+                                    @if ($item->status == 1)
+                                        <td>User</td>
+                                    @elseif($item->status == 2)
+                                        <td>Pelelang</td>
+                                    @endif
+                                </tr>
+                                @endforeach
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
-
-        </main>
-
+        </div>
     </div>
-
-    <script src="js/index.js"></script>
-</body>
-
-</html>
-<script>
-    function confirmLogout(event) {
-        event.preventDefault(); // Prevent the default link behavior
-        if (confirm('Are you sure you want to logout?')) {
-            document.getElementById('logoutForm').submit();
-        }
-    }
-</script>
+@endsection

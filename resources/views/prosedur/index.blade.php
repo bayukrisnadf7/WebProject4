@@ -18,7 +18,7 @@
                             <a class="nav-link active" id="monday-tab" data-toggle="tab" href="#monday" role="tab"
                                 aria-controls="monday" aria-expanded="true">
                                 <div class="item-text">
-                                    <h4>Prosedur 1</h4>
+                                    <h4>Prosedur Mengikuti Lelang</h4>
                                 </div>
                             </a>
                         </li>
@@ -26,7 +26,7 @@
                             <a class="nav-link" id="tuesday-tab" data-toggle="tab" href="#tuesday" role="tab"
                                 aria-controls="tuesday">
                                 <div class="item-text">
-                                    <h4>Prosedur 2</h4>
+                                    <h4>Prosedur Pengajuan Pelelang</h4>
                                 </div>
                             </a>
                         </li>
@@ -34,7 +34,7 @@
                             <a class="nav-link" id="wednesday-tab" data-toggle="tab" href="#wednesday" role="tab"
                                 aria-controls="wednesday">
                                 <div class="item-text">
-                                    <h4>Prosedur 3</h4>
+                                    <h4>Prosedur Pengajuan Barang</h4>
                                 </div>
                             </a>
                         </li>
@@ -42,7 +42,7 @@
                             <a class="nav-link" id="thursday-tab" data-toggle="tab" href="#thursday" role="tab"
                                 aria-controls="thursday">
                                 <div class="item-text">
-                                    <h4>Porsedur 4</h4>
+                                    <h4>Porsedur Pemilihan Pemenang Lelang Barang</h4>
                                 </div>
                             </a>
                         </li>
@@ -60,13 +60,13 @@
                                         <div class="images-box">
                                             <img class="img-fluid" src="assets/img/one.png" alt="">
                                         </div>
-                                        <h4 style="margin-top: 10px;">Prosedur 1</h4>
+                                        <h4 style="margin-top: 10px;">Prosedur Mengikuti Lelang</h4>
                                     </div>
                                 </div>
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                     data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis qui recusandae nisi repellendus rerum error, cum quidem voluptatibus veniam corporis corrupti earum, voluptates nobis excepturi at iure vitae omnis. Omnis!</p>
+                                        <p>Peserta lelang dapat mengikuti lelang barang jika sudah mempunyai akun, jika tidak mempunyai akun maka peserta tidak bisa mengikuti lelang. Peserta diharapkan mengikuti lelang sesuai nominal dan kelipatan dari barang lelang.</p>
                                     </div>
                                 </div>
                             </div>
@@ -77,31 +77,13 @@
                                         <div class="images-box">
                                             <img class="img-fluid" src="assets/img/two.png" alt="">
                                         </div>
-                                        <h4 style="margin-top: 10px;">Prosedur 2</h4>
+                                        <h4 style="margin-top: 10px;">Prosedur Menang Lelang</h4>
                                     </div>
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#accordion">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et distinctio nisi at eum asperiores tempora deleniti obcaecati, praesentium voluptas incidunt sed magnam ipsum. Aperiam iste provident corporis, autem deleniti veritatis!</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div id="headingThree">
-                                    <div class="collapsed card-header" data-toggle="collapse"
-                                        data-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        <div class="images-box">
-                                            <img class="img-fluid" src="assets/img/three.png" alt="">
-                                        </div>
-                                        <h4 style="margin-top: 10px;">Prosedur 3</h4>
-                                    </div>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                    data-parent="#accordion">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis eaque molestiae architecto quod eos? Atque fugit dolor perspiciatis nisi blanditiis adipisci optio dolore voluptatum, tempora nihil, doloribus excepturi fuga ut.</p>
+                                        <p>Jika peserta menang dalam lelang barang, peserta diharapkan melakukan pembayaran pada menu transaksi. Peserta diharapkan melakukan pembayaran 1 x 24, jika peserta melewati waktu pembayaran maka transaksi dianggap gagal.</p>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +104,7 @@
                                 <div id="collapseOne1" class="collapse show" aria-labelledby="headingOne1"
                                     data-parent="#accordion2">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa temporibus impedit magni aliquam facere ullam quidem, facilis soluta ex ut corporis quis delectus iste, asperiores fugit dolore, repudiandae aperiam rerum.</p>
+                                        <p>Silahkan masuk pada menu Pengajuan Lelang. Lalu user diharapkan memasukan beberapa data seperti nama bank, nomer rekening dan foto muka pribadi. Diharapkan user memasukan data dengan benar karena nomer rekening digunakan untuk transaksi.</p>
                                     </div>
                                 </div>
                             </div>
@@ -133,13 +115,13 @@
                                         <div class="images-box">
                                             <img class="img-fluid" src="assets/img/two.png" alt="">
                                         </div>
-                                        <h4 style="margin-top: 10px;">Prosedur 1</h4>
+                                        <h4 style="margin-top: 10px;">Prosedur 2</h4>
                                     </div>
                                 </div>
                                 <div id="collapseTwo2" class="collapse" aria-labelledby="headingTwo2"
                                     data-parent="#accordion2">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque fuga blanditiis quia, libero consectetur eos quod debitis, dicta vel eius perferendis. Alias et ratione, voluptatem a voluptatibus nihil pariatur tempora!</p>
+                                        <p>Jika user memasukan data yang tidak benar maka admin akan menolak pengajuan</p>
                                     </div>
                                 </div>
                             </div>
@@ -154,13 +136,13 @@
                                         <div class="images-box">
                                             <img class="img-fluid" src="assets/img/one.png" alt="">
                                         </div>
-                                        <h4 style="margin-top: 10px;">Prosedur 1</h4>
+                                        <h4 style="margin-top: 10px;">Pengajuan Barang</h4>
                                     </div>
                                 </div>
                                 <div id="collapseOne3" class="collapse show" aria-labelledby="headingOne3"
                                     data-parent="#accordion3">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae impedit magni exercitationem nulla. Totam accusamus dolore accusantium. Dignissimos, vel autem placeat fugit nisi, tempore ex laudantium laboriosam alias, dolorum nulla!</p>
+                                        <p>Pelelang dapat mengajukan barang untuk dilelang pada menu Pengajuan Lelang Barang. Pelelang diharapkan mengisi beberapa data untuk pengajuan lelang barang. Diharapkan pelelang mengisi data dengan benar.</p>
                                     </div>
                                 </div>
                             </div>
@@ -171,13 +153,13 @@
                                         <div class="images-box">
                                             <img class="img-fluid" src="assets/img/two.png" alt="">
                                         </div>
-                                        <h4 style="margin-top: 10px;">Prosedur 1</h4>
+                                        <h4 style="margin-top: 10px;">Pengajuan Barang Ditolak</h4>
                                     </div>
                                 </div>
                                 <div id="collapseTwo3" class="collapse" aria-labelledby="headingTwo3"
                                     data-parent="#accordion3">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora corrupti, libero in eum, sit ea at perferendis fugiat ab laborum ipsum dolores voluptates vel magni, sequi saepe laudantium iure deserunt?</p>
+                                        <p>Jika pengajuan barang ditolak, maka data yang anda masukan tidak benar. Silahkan masukan data dengan benar!.</p>
                                     </div>
                                 </div>
                             </div>
@@ -189,13 +171,13 @@
                                         <div class="images-box">
                                             <img class="img-fluid" src="assets/img/three.png" alt="">
                                         </div>
-                                        <h4 style="margin-top: 10px;">Prosedur 1</h4>
+                                        <h4 style="margin-top: 10px;">Pengajuan Barang Diterima</h4>
                                     </div>
                                 </div>
                                 <div id="collapseThree3" class="collapse" aria-labelledby="headingThree3"
                                     data-parent="#accordion3">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus iusto inventore cum assumenda nostrum quam quas. Enim at, pariatur aspernatur iure aliquid rerum aperiam illo, voluptatem officiis excepturi inventore eius?</p>
+                                        <p>Pelelang barang hanya 1 x 24 jam, jika melebihi waktuk yang ditentukan dan tidak ada peserta lelang maka dianggap barang tidak bisa melanjutkan ke transaksi.</p>
                                     </div>
                                 </div>
                             </div>

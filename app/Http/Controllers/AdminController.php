@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\PengajuanLelang;
 use App\Models\Notifikasi;
+use App\Models\Register;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -12,15 +13,20 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index(){
-        return view('admin.index', [
-
-        ]);
+        $jumlah_user = Register::where('status', '1')->count();
+        $jumlah_pelelang = Register::where('status', '2')->count();
+        $jumlah_barang = Barang::all()->count();
+        $user = Register::all();
+        return view('admin.index', compact('jumlah_user', 'jumlah_pelelang', 'jumlah_barang', 'user'));
     }
 
-    public function coba(){
-        return view('barang.coba', [
-
-        ]);
+    public function user(){
+        $user = Register::all();
+        return view('admin.user', compact('user'));
+    }
+    public function barang(){
+        $barang = Barang::all();
+        return view('admin.barang', compact('barang'));
     }
 
     public function pengajuanLelang(){

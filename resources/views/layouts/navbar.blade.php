@@ -14,7 +14,7 @@
         </div>
         <div class="collapse navbar-collapse" id="main-navbar">
             <div class="search">
-                <form action="{{ route('barang.search') }}" method="GET">
+                <form action="/search_barang" method="GET">
                     <input type="text" name="keyword" class="searchTerm" placeholder="Cari Barang Disini">
                 </form>
             </div>
@@ -46,7 +46,7 @@
                             <li><a class="dropdown-item" href="/notifikasi">Notifikasi</a></li>
                             <li><a class="dropdown-item" href="/transaksi">Transaksi</a></li>
                             @if (auth()->user()->status == 1)
-                                <li><a class="dropdown-item" href="/pengajuan">Pengajuan Menjadi Lelang</a></li>
+                                <li><a class="dropdown-item" href="/pengajuan">Pengajuan Lelang</a></li>
                             @endif
                             @if (auth()->user()->status == 2)
                                 <li><a class="dropdown-item" href="/upload_barang">Pengajuan Barang</a></li>

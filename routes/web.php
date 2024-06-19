@@ -34,7 +34,7 @@ Route::get('/kategori/gadget', [BarangController::class, 'kategoriGadget']);
 Route::get('/kategori/otomotif', [BarangController::class, 'kategoriOtomotif']);
 
 // search
-Route::get('/barang', [BarangController::class, 'searchBarang'])->name('barang.search');
+Route::get('/search_barang', [BarangController::class, 'searchBarang']);
 
 // detail barang
 Route::get('/detail_barang/{id_barang}', [BarangController::class, 'show'])->middleware('auth');
@@ -84,6 +84,8 @@ Route::post('/pengajuan', [PengajuanLelangController::class, 'insertDataPengajua
 //     Route::get('/halaman_admin', [AdminController::class, 'index']);
 // });
 Route::get('/halaman_admin', [AdminController::class, 'index']);
+Route::get('/user', [AdminController::class, 'user']);
+Route::get('/barang', [AdminController::class, 'barang']);
 Route::get('/coba', [AdminController::class, 'coba']);
 Route::get('/pengajuan_lelang', [AdminController::class, 'pengajuanLelang']);
 Route::get('/seleksi_pengajuan/{id_pengajuan}', [AdminController::class, 'seleksiPengajuan']);

@@ -16,32 +16,40 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $barang = Barang::where('status', 'Open')->get();
+        $currentDate = Carbon::now(); // Mengambil tanggal saat ini
+        $barang = Barang::where('status', 'Open')
+            ->where('tgl_expired', '>=', $currentDate)
+            ->get();
         return view('home.home', compact('barang'));
     }
     public function kategoriElektronik()
     {
-        $barang = Barang::where('kategori_barang', 'Elektronik')->where('status', 'Open')->get();
+        $currentDate = Carbon::now(); // Mengambil tanggal saat ini
+        $barang = Barang::where('kategori_barang', 'Elektronik')->where('status', 'Open')->where('tgl_expired', '>=', $currentDate)->get();
         return view('home.elektronik', compact('barang'));
     }
     public function kategoriAksesoris()
     {
-        $barang = Barang::where('kategori_barang', 'Aksesoris')->where('status', 'Open')->get();
+        $currentDate = Carbon::now(); // Mengambil tanggal saat ini
+        $barang = Barang::where('kategori_barang', 'Aksesoris')->where('status', 'Open')->where('tgl_expired', '>=', $currentDate)->get();
         return view('home.aksesoris', compact('barang'));
     }
     public function kategoriHobi_Koleksi()
     {
-        $barang = Barang::where('kategori_barang', 'Hobi & Koleksi')->where('status', 'Open')->get();
+        $currentDate = Carbon::now(); // Mengambil tanggal saat ini
+        $barang = Barang::where('kategori_barang', 'Hobi & Koleksi')->where('status', 'Open')->where('tgl_expired', '>=', $currentDate)->get();
         return view('home.hobi', compact('barang'));
     }
     public function kategoriGadget()
     {
-        $barang = Barang::where('kategori_barang', 'Gadget')->where('status', 'Open')->get();
+        $currentDate = Carbon::now(); // Mengambil tanggal saat ini
+        $barang = Barang::where('kategori_barang', 'Gadget')->where('status', 'Open')->where('tgl_expired', '>=', $currentDate)->get();
         return view('home.gadget', compact('barang'));
     }
     public function kategoriOtomotif()
     {
-        $barang = Barang::where('kategori_barang', 'Otomotif')->where('status', 'Open')->get();
+        $currentDate = Carbon::now(); // Mengambil tanggal saat ini
+        $barang = Barang::where('kategori_barang', 'Otomotif')->where('status', 'Open')->where('tgl_expired', '>=', $currentDate)->get();
         return view('home.otomotif', compact('barang'));
     }
     public function getBarangAPI()
@@ -106,7 +114,7 @@ class BarangController extends Controller
         $nik_pengguna = auth()->user()->nik;
 
         // Mengambil barang yang terkait dengan nik pengguna saat ini
-        $barang = Barang::with(['pembayaran', 'bids'])->where('nik', $nik_pengguna)->get();
+        $barang = Barang::with(['pembayaran', 'bids'])->where('nik', $nik_pengguna)->where('Status', 'Open')->get();
 
         // Retrieve id_pembayaran and corresponding pembayaran for each barang
         $statusBidByBarang = [];
@@ -149,24 +157,24 @@ class BarangController extends Controller
             'foto_barang_kanan' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'status' => 'required',
         ]);
-    
+
         try {
             $nik = auth()->user()->nik;
-    
+
             function storeFile($file, $path)
             {
-                $imageName = time().'_'.uniqid().'.'.$file->getClientOriginalExtension();
+                $imageName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path($path), $imageName);
-                return $path.'/'.$imageName;
+                return $path . '/' . $imageName;
             }
-    
+
             // Store files in the directory and get the path
             $url_foto_barang = storeFile($request->file('foto_barang'), 'img/storage/barang');
             $url_foto_barang_depan = storeFile($request->file('foto_barang_depan'), 'img/storage/barang');
             $url_foto_barang_belakang = storeFile($request->file('foto_barang_belakang'), 'img/storage/barang');
             $url_foto_barang_kiri = storeFile($request->file('foto_barang_kiri'), 'img/storage/barang');
             $url_foto_barang_kanan = storeFile($request->file('foto_barang_kanan'), 'img/storage/barang');
-    
+
             // Save the data to the database
             Barang::create([
                 'nama_barang' => $request->nama_barang,
