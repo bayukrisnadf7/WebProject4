@@ -1,4 +1,4 @@
-<h1>Forget Password Email</h1>
+<h1>Lupa Password</h1>
    
-You can reset password from bellow link:
+Silahkan klik link dibawah untuk melakukan pergantian password
 <a href="{{ route('reset.password.get', $token) }}">Reset Password</a>
