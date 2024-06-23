@@ -198,11 +198,11 @@
                                 <div id="collapseOne4" class="collapse show" aria-labelledby="headingOne"
                                     data-parent="#accordion4">
                                     <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita facilis hic tempora sequi illum quaerat necessitatibus nesciunt, officiis quibusdam illo nulla obcaecati impedit veritatis quas? Sapiente ipsam delectus perferendis iure?</p>
+                                        <p>Pelelang dapat memilih pemenang pada menu Riwayat Lelang Barang. Lalu peserta yang menang dalam lelang dapat melakukan transaksi selama 1 x 24 jam.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            {{-- <div class="card">
                                 <div id="headingTwo">
                                     <div class="collapsed card-header" data-toggle="collapse"
                                         data-target="#collapseTwo4" aria-expanded="false" aria-controls="collapseTwo4">
@@ -236,7 +236,7 @@
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore tempore asperiores sed suscipit commodi impedit reiciendis fuga modi labore ab magnam ipsa perferendis, itaque nostrum aperiam rem unde recusandae ratione.</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
