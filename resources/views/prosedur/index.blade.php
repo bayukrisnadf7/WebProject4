@@ -42,7 +42,7 @@
                             <a class="nav-link" id="thursday-tab" data-toggle="tab" href="#thursday" role="tab"
                                 aria-controls="thursday">
                                 <div class="item-text">
-                                    <h4>Porsedur Pemilihan Pemenang Lelang Barang</h4>
+                                    <h4>Prosedur Pemilihan Pemenang Lelang Barang</h4>
                                 </div>
                             </a>
                         </li>

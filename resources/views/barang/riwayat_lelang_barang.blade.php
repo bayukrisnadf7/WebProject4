@@ -26,7 +26,7 @@
         align-items: center;">
                         <img src="assets/img/9276421.jpg" alt="" width="200px" height="200px">
                         <p style="font-weight: bold; font-size: 20px; color: grey;">Tidak
-                            ada notifikasi</p>
+                            ada Riwayat Lelang Barang</p>
                     </div>
                 @else
                     <div class="table-responsive">

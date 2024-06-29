@@ -21,7 +21,10 @@ class Barang extends Model
     {
         return $this->hasMany(PengajuanLelang::class, 'nik', 'nik');
     }
-
+    public function pengajuanLelang2()
+    {
+        return $this->hasMany(PengajuanLelang::class, 'nik', 'nik');
+    }
     public function bids()
     {
         return $this->hasMany(BidBarang::class, 'id_barang', 'id_barang');
