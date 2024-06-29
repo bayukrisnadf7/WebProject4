@@ -8,7 +8,7 @@
     <!-- trending -->
     <section class="section-padding" style="padding-left: 50px; padding-right: 50px;">
         <div class="container" style="margin-top: 50px;">
-            <h5 style="margin-bottom: 15px; position: relative; font-weight: bold; ">Kategori Elektronik</h5>
+            <h5 style="margin-bottom: 15px; position: relative; font-weight: bold; ">Kategori Hobi & Koleksi</h5>
             @if ($barang->isEmpty())
                 <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 40px">Barang tidak tersedia</p>
             @else
@@ -31,15 +31,12 @@
                                             </a>
                                         </h6>
                                         <div class="meta-tags3">
-                                            <p>2018 | 43 | JPN</p>
                                             <p style="color: #35755D; font-weight: bolder;">Rp {{ $item->harga_barang }}</p>
                                             <p><i class="fa-regular fa-calendar-days"></i>
                                                 {{ Carbon::parse($item->tgl_publish)->translatedFormat('d F Y H:i') }} WIB
                                             </p>
                                             <p><i class="fa-solid fa-location-dot"></i> {{ $item->kota }}
                                                 {{ $item->provinsi }}</p>
-                                            <p style="margin-top: 5px;">Akan Dimulai</p>
-                                            <div class="countdown-timer" id="countdown-timer-1" style="margin-top: -30px;">
                                             </div>
                                         </div>
                                     </div>

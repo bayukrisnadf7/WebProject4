@@ -10,15 +10,15 @@
                     <div class="card-body">
                         {{-- <h5 class="card-title mb-3">Detail Rekening</h5> --}}
                         <p class="card-text">
-                            <strong>Bank&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                            <strong>Nama Barang&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                             </strong>{{ $barang->nama_barang }}
                         </p>
-                        <p class="card-text"><strong>Kategori Barang &nbsp;&nbsp;&nbsp;:
+                        <p class="card-text"><strong>Kategori Barang &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                             </strong>{{ $barang->kategori_barang }}</p>
                         <p class="card-text"><strong>Kelipatan
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                             </strong>{{ $barang->kelipatan }}</p>
-                        <p class="card-text"><strong>Tanggal Publish &nbsp;&nbsp;&nbsp;&nbsp;:
+                        <p class="card-text"><strong>Tanggal Publish &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
                             </strong>{{ $barang->tgl_publish }}</p>
                         <div class="d-flex" style="gap: 40px" style="flex-wrap: nowwrap; width: 400px">
                             <div class="wrapper" style="flex-direction: column">

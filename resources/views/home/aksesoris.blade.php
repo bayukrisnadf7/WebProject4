@@ -8,7 +8,7 @@
     <!-- trending -->
     <section class="section-padding" style="padding-left: 50px; padding-right: 50px;">
         <div class="container" style="margin-top: 50px;">
-            <h5 style="margin-bottom: 15px; position: relative; font-weight: bold; ">Kategori Elektronik</h5>
+            <h5 style="margin-bottom: 15px; position: relative; font-weight: bold; ">Kategori Aksesoris</h5>
             @if ($barang->isEmpty())
                 <p style="text-align: center; font-weight: bold; font-size: 20px; color: grey; margin-top: 40px">Barang tidak tersedia</p>
             @else

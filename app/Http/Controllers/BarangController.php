@@ -114,7 +114,7 @@ class BarangController extends Controller
         $nik_pengguna = auth()->user()->nik;
 
         // Mengambil barang yang terkait dengan nik pengguna saat ini
-        $barang = Barang::with(['pembayaran', 'bids'])->where('nik', $nik_pengguna)->where('Status', 'Open')->get();
+        $barang = Barang::with(['pembayaran', 'bids'])->where('nik', $nik_pengguna)->get();
 
         // Retrieve id_pembayaran and corresponding pembayaran for each barang
         $statusBidByBarang = [];
